@@ -16,20 +16,28 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="PS-01 Introduction[TOC] 1. 计算：算法算法定义：在特定计算模型下（例如：计算机），旨在解决特定问题的指令序列  特点： 正确性：可以解决指定的问题 确定性：描述为基本操作组成的序列 可行性：每一个基本操作都能实现，并且是在常数时间内完成的 有穷性： 对于一个特定问题都可以经过有限次基本操作解决    Hailstone序列$Hailstone(n)&#x3D;\begin">
+    <meta name="description" content="PS-02 Vector[TOC] 1. 从数组到向量寻秩访问其实就和数组一样… 向量ADT接口 可扩充向量开辟内部数组并使用一段地址连续的物理空间 $capacity$：总容量 $size$：实际规模 静态管理时容易出现 $size&gt;capacity$或 $size\ll capacity$的情况，以至上溢或者下溢，因此需要动态调整容量 动态空间管理 在即将上溢时，将向量的容量加倍，注意还">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kov&#39;s blog">
-<meta property="og:url" content="https://markouv.github.io/2023/08/14/DSA/PS-01%20Introduction/index.html">
+<meta property="og:url" content="https://markouv.github.io/2023/08/14/DSA/PS-02%20Vector/index.html">
 <meta property="og:site_name" content="Kov&#39;s blog">
-<meta property="og:description" content="PS-01 Introduction[TOC] 1. 计算：算法算法定义：在特定计算模型下（例如：计算机），旨在解决特定问题的指令序列  特点： 正确性：可以解决指定的问题 确定性：描述为基本操作组成的序列 可行性：每一个基本操作都能实现，并且是在常数时间内完成的 有穷性： 对于一个特定问题都可以经过有限次基本操作解决    Hailstone序列$Hailstone(n)&#x3D;\begin">
+<meta property="og:description" content="PS-02 Vector[TOC] 1. 从数组到向量寻秩访问其实就和数组一样… 向量ADT接口 可扩充向量开辟内部数组并使用一段地址连续的物理空间 $capacity$：总容量 $size$：实际规模 静态管理时容易出现 $size&gt;capacity$或 $size\ll capacity$的情况，以至上溢或者下溢，因此需要动态调整容量 动态空间管理 在即将上溢时，将向量的容量加倍，注意还">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/d01eb997e1e13f9190b0fe0e636b377.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/95334c7e1a63fd8b52fb3b5358b3346.jpg">
-<meta property="article:published_time" content="2023-08-14T06:53:21.745Z">
-<meta property="article:modified_time" content="2023-08-14T07:01:59.542Z">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/45b2bec29dbaf4cc63c273ddb4719a6.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/21dca81624b9eb707679a150513b29e.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/4d15f92d5b570685b4de2487a96215a.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/997575a1b7e9cbe84e28ee9e34be8b2.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/7512a62fa1be1964d8d5c1f6b36eb8e.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/64078c0af42f7d7af0239beae15ae8e.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/44c285d68d03979d219a3c7a9f21952.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/abe5817bcb465c186c88101190d2a81.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/b7f6965c350d5dc9b59a01bbd076973.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/8bf861e667f2353b3a6fe5f39e67d16.jpg">
+<meta property="article:published_time" content="2023-08-14T07:02:23.823Z">
+<meta property="article:modified_time" content="2023-08-14T07:18:49.787Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/d01eb997e1e13f9190b0fe0e636b377.jpg">
+<meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/45b2bec29dbaf4cc63c273ddb4719a6.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -212,7 +220,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-08-14 14:53" pubdate>
+        <time datetime="2023-08-14 15:02" pubdate>
           2023年8月14日 下午
         </time>
       </span>
@@ -224,7 +232,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.1k 字
+          1.7k 字
         
       </span>
     
@@ -235,7 +243,7 @@
         
         
         
-          26 分钟
+          14 分钟
         
       </span>
     
@@ -277,126 +285,82 @@
             
               <div class="markdown-body">
                 
-                <h1 id="PS-01-Introduction"><a href="#PS-01-Introduction" class="headerlink" title="PS-01 Introduction"></a>PS-01 Introduction</h1><p>[TOC]</p>
-<h1 id="1-计算：算法"><a href="#1-计算：算法" class="headerlink" title="1. 计算：算法"></a>1. 计算：算法</h1><h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a><strong>算法</strong></h3><p>定义：在特定计算模型下（例如：计算机），旨在解决特定问题的指令序列</p>
+                <h1 id="PS-02-Vector"><a href="#PS-02-Vector" class="headerlink" title="PS-02 Vector"></a>PS-02 Vector</h1><p>[TOC]</p>
+<h1 id="1-从数组到向量"><a href="#1-从数组到向量" class="headerlink" title="1. 从数组到向量"></a>1. 从数组到向量</h1><h3 id="寻秩访问"><a href="#寻秩访问" class="headerlink" title="寻秩访问"></a>寻秩访问</h3><p>其实就和数组一样…</p>
+<h3 id="向量ADT接口"><a href="#向量ADT接口" class="headerlink" title="向量ADT接口"></a>向量ADT接口</h3><p><img src="/Users/markov/Desktop/blog_figures/45b2bec29dbaf4cc63c273ddb4719a6.jpg" srcset="/img/loading.gif" lazyload alt="45b2bec29dbaf4cc63c273ddb4719a6"></p>
+<h3 id="可扩充向量"><a href="#可扩充向量" class="headerlink" title="可扩充向量"></a>可扩充向量</h3><p>开辟内部数组并使用一段地址连续的物理空间</p>
+<p>$capacity$：总容量</p>
+<p>$size$：实际规模</p>
+<p>静态管理时容易出现 $size&gt;capacity$或 $size\ll capacity$的情况，以至上溢或者下溢，因此需要动态调整容量</p>
+<p><strong>动态空间管理</strong></p>
+<p>在即将上溢时，将向量的容量加倍，注意还需要将原来向量的元素迁移到新的向量中，时间复杂度为 $O(n)$</p>
+<p>(但是这种情况并不是总是发生的)</p>
+<p><strong>分摊分析</strong></p>
+<p>每次扩容过程所需时间的加和&#x3D; $1+2+4+…+2^{m-1}$是几何级数，最终复杂度为 $O(n)$，但分摊到 $n$次扩容中去，复杂度不过是 $O(1)$的</p>
+<p><strong>思考</strong>：如果不采取容量加倍策略，其他的扩容策略比如递增策略是否可行？</p>
+<p>如果采取递增策略，扩容所需时间是算数级数 $O(n^{2})$，分摊后为 $O(n)$</p>
+<p><img src="/Users/markov/Desktop/blog_figures/21dca81624b9eb707679a150513b29e.jpg" srcset="/img/loading.gif" lazyload alt="21dca81624b9eb707679a150513b29e"></p>
+<h1 id="2-无序向量"><a href="#2-无序向量" class="headerlink" title="2. 无序向量"></a>2. 无序向量</h1><h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a><strong>基本操作</strong></h3><ul>
+<li>插入：先扩容or not，然后插入</li>
+<li>删除：先写区间删除的操作，单元素删除时调用区间删除</li>
+</ul>
+<h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a><strong>查找</strong></h3><p>一种基于比较和判等的查找方法（与后面要学的哈希表的查找方法不同）</p>
+<p>从后向前比较，输入敏感，复杂度 $O(n)$</p>
+<h3 id="去重"><a href="#去重" class="headerlink" title="去重"></a><strong>去重</strong></h3><p>去重，从头开始，拿出一个位置的元素向前查找，找到则删除，复杂度为 $O(n^{2})$</p>
+<h3 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a><strong>遍历</strong></h3><h1 id="3-有序向量"><a href="#3-有序向量" class="headerlink" title="3. 有序向量"></a>3. 有序向量</h1><p><strong>无序向量处理为有序向量之后相关算法可优化</strong></p>
+<h3 id="唯一化"><a href="#唯一化" class="headerlink" title="唯一化"></a><strong>唯一化</strong></h3><ul>
+<li>低效算法：从前向后逐一比对，相同则删除，但是删除算法本身的复杂度就是 $O(size-i)$，因此该方法很低效。此时向量已经是有序的了，重复的元素都聚集在一起，可以思考批量删除的方法。</li>
+<li>高效算法：使用两个索引 $i,j$， $j$一直向前试探， $i$留在原地不动，当 $elem[i]≠elem[j]$时，把 $j$对应的元素丢到前面来，这样就完成了一批删除操作。</li>
+</ul>
+<p><img src="/Users/markov/Desktop/blog_figures/4d15f92d5b570685b4de2487a96215a.jpg" srcset="/img/loading.gif" lazyload alt="4d15f92d5b570685b4de2487a96215a"></p>
+<h3 id="查找-1"><a href="#查找-1" class="headerlink" title="查找"></a>查找</h3><p><strong>二分查找（版本A）</strong></p>
+<p><img src="/Users/markov/Desktop/blog_figures/997575a1b7e9cbe84e28ee9e34be8b2.jpg" srcset="/img/loading.gif" lazyload alt="997575a1b7e9cbe84e28ee9e34be8b2"></p>
+<p>分为了三种情况， $[lo,mi),[mi],[mi+1,hi)$，时间复杂度 $O(logn)$，这种方法的缺点是每次循环可能要比较两次，且数据类型比较所花的时间可能会比较长</p>
+<p>成功、失败时的平均查找长度均大致为 $O(1.50\cdot logn)$</p>
+<p><strong>二分查找（版本B）</strong></p>
+<p><img src="/Users/markov/Desktop/blog_figures/7512a62fa1be1964d8d5c1f6b36eb8e.jpg" srcset="/img/loading.gif" lazyload alt="7512a62fa1be1964d8d5c1f6b36eb8e"></p>
+<p>相比于版本A，版本B每次迭代少了一次比较，分为两种情况 $[lo,mi),[mi,hi)$，但迭代的深度必然达到 $logn$。相比版本A，最好(坏)的情况下更坏(好),性能更均衡</p>
+<p>但是为了维护向量的<strong>有序性</strong>（即使查找失败也要给出适当的位置）和<strong>稳定性</strong>（重复元素也要按照插入次序排列），还需要查找算法在目标不存在时和目标存在多个时都返回一个有效的秩</p>
+<p>约定总是返回小于等于查找元素 $e$的元素的最大的秩，为此还需更好的实现方式！</p>
+<p><strong>二分查找（版本C）</strong></p>
+<p><img src="/Users/markov/Desktop/blog_figures/64078c0af42f7d7af0239beae15ae8e.jpg" srcset="/img/loading.gif" lazyload alt="64078c0af42f7d7af0239beae15ae8e"></p>
+<p>这个方法在每次迭代的过程中，大胆地跳过了 $S[mi]$，但这种方法是能满足要求并且非常正确的！</p>
+<p>从循环不变性的角度来看， $A[0,lo)≤e&lt;A[hi,n)$， 在已知的范围内，$A[lo-1]$总是目前不大于e的最大者， $A[hi]$总是大于e的最小者</p>
+<p><img src="/Users/markov/Desktop/blog_figures/44c285d68d03979d219a3c7a9f21952.jpg" srcset="/img/loading.gif" lazyload alt="44c285d68d03979d219a3c7a9f21952"></p>
+<p><strong>插值查找</strong></p>
+<p>当数据量足够庞大时，数据近似呈线性分布，因此可采取线性的插值方法来插入元素</p>
+<p>（数据的分布可能不是线性，但依然可以按照其他规律来插值）</p>
+<p>性能： $O(loglogn)$<strong>为什么？？？（有待求问）</strong></p>
+<p>在数据范围很大时，插值查找有明显的优势，但数据量不是非常大时，优势也不是很明显，引入了乘法除法运算反而不好</p>
+<p>实际可行的方法：</p>
 <ul>
-<li>特点：<ul>
-<li>正确性：可以解决指定的问题</li>
-<li>确定性：描述为基本操作组成的序列</li>
-<li>可行性：每一个基本操作都能实现，并且是在常数时间内完成的</li>
-<li>有穷性： 对于一个特定问题都可以经过有限次基本操作解决</li>
+<li>先插值查找缩小数据范围</li>
+<li>再二分查找进一步缩小范围</li>
+<li>最后顺序查找</li>
 </ul>
-</li>
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><ul>
+<li>起泡排序</li>
+<li>选择排序</li>
+<li>归并排序</li>
+<li>堆排序</li>
+<li>快速排序</li>
+<li>希尔排序</li>
 </ul>
-<h3 id="Hailstone序列"><a href="#Hailstone序列" class="headerlink" title="Hailstone序列"></a><strong>Hailstone序列</strong></h3><p>$Hailstone(n)&#x3D;\begin{cases}{1}&amp;n \leq 1\{n}\bigcup Hailstone(n&#x2F;2)&amp;n&#x3D;even\{n}\bigcup Hailstone(3n+1)&amp;n&#x3D;odd\end{cases}$</p>
-<p>对任意的 $n$ ，Hailstone都能得到最终结果1，说明这个算法是有穷的，但还未在数学上证明</p>
-<h3 id="几何分布"><a href="#几何分布" class="headerlink" title="几何分布"></a><strong>几何分布</strong></h3><p>$P(X&#x3D;n)&#x3D;(1-p)^{n-1}p$</p>
-<p>$E(X)&#x3D;\frac{1}{p}$</p>
-<h1 id="2-计算模型：统一尺度"><a href="#2-计算模型：统一尺度" class="headerlink" title="2. 计算模型：统一尺度"></a>2. 计算模型：统一尺度</h1><h3 id="图灵机"><a href="#图灵机" class="headerlink" title="图灵机"></a><strong>图灵机</strong></h3><p>为不同算法的代价的衡量提供一个统一的尺度，从而可以更好地评价算法的优劣</p>
-<ul>
-<li>组成<ul>
-<li>Tape：一条纸带，被划分为无数个单元格，每个单元格上存储一个字符，表示该单元格的一个状态，每个单元格初始状态为 <strong>#</strong></li>
-<li>Head：每个时刻都对准某一单元格，可以对单元格内的字符读取或改写，并可以在下一个时刻转向左&#x2F;右</li>
-<li>Alphabet：每个单元格内的字符表</li>
-<li>State：图灵机每个时刻都在某一确定的状态，当Head转入h时，停机</li>
-</ul>
-</li>
-</ul>
-<p>计算成本：从启动到停机所经历的转移次数</p>
-<p>$(q, c; d, L&#x2F;R, p)$表示当前状态为q，Head所在单元格字符为c；将当前字符改写为d，并在下一时刻向左&#x2F;右转移，状态转变为p</p>
-<h3 id="RAM-（Random-Access-Machine）"><a href="#RAM-（Random-Access-Machine）" class="headerlink" title="RAM （Random Access Machine）"></a><strong>RAM （Random Access Machine）</strong></h3><p>同样为评价算法的效率提供统一的尺度</p>
-<p>例：Ceiling Division（向上取整除法）</p>
-<p><strong>思考：在TM、RAM等模型中衡量算法效率，为何通常只考查运行时间？空间呢？</strong></p>
-<p>主要是出于研究和分析的便利性考虑。这是因为对于许多算法来说，运行时间是最主要的性能指标，而空间复杂度往往与算法的时间复杂度相关，可以通过时间复杂度的分析间接得出。</p>
-<h1 id="3-渐进复杂度"><a href="#3-渐进复杂度" class="headerlink" title="3. 渐进复杂度"></a>3. 渐进复杂度</h1><p>$T(n)&#x3D;O(f(n))$渐进上界  $\exist c&gt;0,s.t.T(n)&lt;cf(n),\forall n\gg 2$</p>
-<p>$T(n)&#x3D;\Omega (f(n))$渐进下界</p>
-<p>$T(n)&#x3D; \Theta (f(n))$渐进确界</p>
-<h3 id="O-1-常数复杂度"><a href="#O-1-常数复杂度" class="headerlink" title="O (1)常数复杂度"></a><strong>O (1)常数复杂度</strong></h3><p>$2023\times 2023&#x3D;O(1)$，甚至 $2023^{2023}&#x3D;O(1)$，从渐进的角度来看确实如此</p>
-<p><strong>一段代码是否为常数执行时间应具体分析</strong>！</p>
-<ul>
-<li>代码中可能包含循环：</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">for</span>(i = <span class="hljs-number">0</span>; i &lt; n; i += n/<span class="hljs-number">2023</span> + <span class="hljs-number">1</span>) <span class="hljs-comment">//2023,O(1)</span><br></code></pre></td></tr></table></figure>
-
-<p>分析：</p>
-<p>假设 $2023k &lt; n &lt; 2023(k+1)$，则经过2023步循环之后 $i&#x3D;2023(k+1)$必然大于 $n$，所以该循环是常熟复杂度的</p>
-<ul>
-<li>代码中可能包含分支</li>
-<li>代码中可能包含（递归）调用</li>
-</ul>
-<h3 id="O-log-c-n-多项式对数复杂度"><a href="#O-log-c-n-多项式对数复杂度" class="headerlink" title="O ( $log^{c}$n)多项式对数复杂度"></a>O ( $log^{c}$n)多项式对数复杂度</h3><p>复杂度无限接近于常数，非常好！</p>
-<h3 id="O-n-c-多项式复杂度"><a href="#O-n-c-多项式复杂度" class="headerlink" title="O ( $n^{c}$)多项式复杂度"></a>O ( $n^{c}$)多项式复杂度</h3><p>线性复杂度 $O(n)$，通常就已经很不错了</p>
-<h3 id="O-2-n-指数复杂度"><a href="#O-2-n-指数复杂度" class="headerlink" title="O ( $2^{n}$)指数复杂度"></a>O ( $2^{n}$)指数复杂度</h3><p>NP-complete算法，无法忍受！！！</p>
-<p>例如：subsetsum问题</p>
-<p><strong>注</strong>：O(nlogn)的算法最常出现，但不一定是最优，比如排序、Huffman编码（可以用桶排序在O(n)实现）</p>
-<h1 id="4-复杂度分析"><a href="#4-复杂度分析" class="headerlink" title="4. 复杂度分析"></a>4. 复杂度分析</h1><ul>
-<li>主要方法<ul>
-<li>迭代（级数求和）</li>
-<li>递归（递归跟踪+递推方程）</li>
-<li>实用（猜测+验证）</li>
-</ul>
-</li>
-</ul>
-<p><strong>级数</strong></p>
-<p>算术级数：与末项平方同阶 $T(n)&#x3D;1+2+…+n&#x3D;O(n^{2})$</p>
-<p>幂方级数：比幂次高出一阶 $T(n)&#x3D;\sum k^{d}&#x3D;O(n^{d+1})$</p>
-<p>几何级数：与末项同阶 $T(n)&#x3D;a^{0}+a^{1}+a^{2}+…+a^{n}&#x3D;O(a^{n})$</p>
-<p>收敛级数：</p>
-<p>$\sum \frac{1}{(k-1)k}&#x3D;O(1)$</p>
-<p>$\sum 1&#x2F;k^{2}&#x3D;O(1)$</p>
-<p>$\sum \frac{1}{k^{2}-1}&#x3D;O(1)$</p>
-<p>调和级数： $h(n)&#x3D;\sum 1&#x2F;k&#x3D;\Theta (logn)$</p>
-<p>对数级数： $\sum lnk&#x3D;\Theta (nlogn)$</p>
-<p>对数+线性+指数： $\sum klogk&#x3D;O(n^{2}logn)$</p>
-<p>$\sum k\cdot 2^{k}&#x3D;O(n\cdot 2^{n})$</p>
-<p><strong>迭代</strong></p>
-<p>具体问题具体分析…</p>
-<p><strong>封底估算</strong></p>
-<ul>
-<li>1天&#x3D; $10^{5}$秒</li>
-<li>$2^{10}&#x3D;10^{3}$</li>
-</ul>
-<h1 id="5-减而治之-Decrease-and-conquer"><a href="#5-减而治之-Decrease-and-conquer" class="headerlink" title="5. 减而治之(Decrease and conquer)"></a>5. 减而治之(Decrease and conquer)</h1><p>求解大规模的问题，可以：</p>
-<ul>
-<li>将其划分为两个子问题，一个规模减小，一个平凡</li>
-<li>分别求解子问题</li>
-</ul>
-<p><strong>递归跟踪</strong></p>
-<p>写出每一个递归实例，分别计算复杂度再求和</p>
-<p><strong>递推方程</strong></p>
-<p>根据一个问题和子问题的递推关系求其复杂度，例如 $T(n)&#x3D;T(n-1)+O(1)$</p>
-<h1 id="6-分而治之-Divide-and-conquer"><a href="#6-分而治之-Divide-and-conquer" class="headerlink" title="6. 分而治之(Divide and conquer)"></a>6. 分而治之(Divide and conquer)</h1><p>求解大规模问题吧，可以：</p>
-<ul>
-<li>将其划分为若干个子问题，且规模相当</li>
-<li>分别求解子问题</li>
-</ul>
-<h3 id="主定理"><a href="#主定理" class="headerlink" title="主定理"></a><strong>主定理</strong></h3><p>若递推关系式为 $T(n)&#x3D;a\cdot T(n&#x2F;b)+O(f(n))$</p>
-<ul>
-<li>若 $f(n)&#x3D;O(n^{log_{b}a-\epsilon})$，其实就是 $f(n)$阶数比 $n^{log_{b}a}$小， $T(n)&#x3D;\Theta(n^{log_{b}a})$</li>
-<li>若 $f(n)&#x3D;\Theta (n^{log_{b}a}\cdot log^{k}n)$， $T(n)&#x3D;\Theta (n^{log_{b}a}\cdot log^{k+1}n)$</li>
-<li>若 $f(n)&#x3D;\Omega (n^{log_{b}a+\epsilon})$， $T(n)&#x3D;\Theta (f(n))$</li>
-</ul>
-<h1 id="7-动态规划：记忆法"><a href="#7-动态规划：记忆法" class="headerlink" title="7. 动态规划：记忆法"></a>7. 动态规划：记忆法</h1><h3 id="斐波那契数列"><a href="#斐波那契数列" class="headerlink" title="斐波那契数列"></a><strong>斐波那契数列</strong></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">int</span> <span class="hljs-title function_">fib</span><span class="hljs-params">(n)</span>&#123;<span class="hljs-keyword">return</span> (<span class="hljs-number">2</span> &gt; n)? n: fib(n<span class="hljs-number">-1</span>) + fib(n<span class="hljs-number">-2</span>);&#125;<br></code></pre></td></tr></table></figure>
-
-<p>这种递归方法非常慢，因为使用了大量重复的计算结果</p>
-<p>采用动态规划迭代的方法， $T(n)&#x3D;O(n)$</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs jsx">f = <span class="hljs-number">1</span>;    <span class="hljs-comment">//fib(-1)</span><br>g = <span class="hljs-number">0</span>;    <span class="hljs-comment">//fib(0)</span><br><span class="hljs-keyword">while</span>(<span class="hljs-number">0</span> &lt; n--)&#123;<br>	g = g + f;<br>	f = g - f;<br>&#125;<br><span class="hljs-keyword">return</span> g;<br></code></pre></td></tr></table></figure>
-
-<h3 id="最长公共子序列"><a href="#最长公共子序列" class="headerlink" title="最长公共子序列"></a>最长公共子序列</h3><p><strong>理解</strong></p>
-<p>从减而治之和递归的角度来理解，考虑长度为n的字符串A，长度为m的字符串B，对LCS(n, m)，考虑三种情况：</p>
-<ul>
-<li>若 $n&#x3D;0或m&#x3D;0$，则返回0</li>
-<li>若 $A[n-1]&#x3D;B[m-1]$，则返回 $LCS(n-1,m-1)+1$</li>
-<li>若不相等，则返回 $max(LCS(n-1, m), LCS(n, m-1))$</li>
-</ul>
-<p>但是这种方法复杂度极高，甚至是指数级</p>
-<p><strong>动态规划版本（感觉像是知道答案写过程一样）</strong></p>
-<p>实际上查找的过程可以记录在一张表上：</p>
-<p><img src="/Users/markov/Desktop/blog_figures/d01eb997e1e13f9190b0fe0e636b377.jpg" srcset="/img/loading.gif" lazyload alt="d01eb997e1e13f9190b0fe0e636b377"></p>
-<p>再从递归的角度理解，如果 $A[n-1]&#x3D;B[m-1]$， $table(n,m)&#x3D;table(n-1,m-1)+1$，如果不相等，则 $table(n,m)&#x3D;max(table(n-1,m),table(n,m-1))$</p>
-<p>按照这样的规则，我们可以用迭代的方法填写这张表，最终结果即为所求：</p>
-<p><img src="/Users/markov/Desktop/blog_figures/95334c7e1a63fd8b52fb3b5358b3346.jpg" srcset="/img/loading.gif" lazyload alt="95334c7e1a63fd8b52fb3b5358b3346"></p>
-<p>这里保证 $m≤n$，一是为了降低空间复杂度，二是降低时间复杂度（这是工程上的问题）</p>
+<p><strong>起泡排序</strong></p>
+<p>依次比较每一对相邻的元素，如果逆序则交换之，反复扫描，直到确认顺序</p>
+<p>提前终止版：</p>
+<p>经过反复扫描之后，有可能前缀就已经有序了，这时就不用再扫描了，可以提前终止</p>
+<p>跳跃版：</p>
+<p>有可能后缀已经有序了，每次扫描的终止位置可以提前</p>
+<p><strong>以上起泡排序算法都是稳定的</strong></p>
+<p><strong>归并排序</strong></p>
+<p><img src="/Users/markov/Desktop/blog_figures/abe5817bcb465c186c88101190d2a81.jpg" srcset="/img/loading.gif" lazyload alt="abe5817bcb465c186c88101190d2a81"></p>
+<p><img src="/Users/markov/Desktop/blog_figures/b7f6965c350d5dc9b59a01bbd076973.jpg" srcset="/img/loading.gif" lazyload alt="b7f6965c350d5dc9b59a01bbd076973"></p>
+<p><img src="/Users/markov/Desktop/blog_figures/8bf861e667f2353b3a6fe5f39e67d16.jpg" srcset="/img/loading.gif" lazyload alt="8bf861e667f2353b3a6fe5f39e67d16"></p>
+<p>复杂度： $O(nlogn)$</p>
+<h1 id="4-位图（bit-map"><a href="#4-位图（bit-map" class="headerlink" title="4. 位图（bit map)"></a>4. 位图（bit map)</h1><p><strong>一种针对有限整数集的数据结构</strong></p>
+<p>取一段连续的存储单元（bit），如果元素存在，则相应位置的bit置为1，否则为0</p>
+<p>可实现去重和排序，复杂度均为 $O(n)$</p>
 
                 
               </div>
@@ -415,7 +379,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div></div>
-      <div>https://markouv.github.io/2023/08/14/DSA/PS-01 Introduction/</div>
+      <div>https://markouv.github.io/2023/08/14/DSA/PS-02 Vector/</div>
     </div>
     <div class="license-meta">
       
@@ -459,7 +423,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/08/14/DSA/PS-02%20Vector/" title="">
+                      <a href="/2023/08/14/DSA/PS-03%20List/" title="">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile"></span>
                         <span class="visible-mobile">上一篇</span>
@@ -469,8 +433,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/08/12/hello-world/" title="Hello World">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2023/08/14/DSA/PS-01%20Introduction/" title="">
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

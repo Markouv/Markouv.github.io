@@ -16,20 +16,24 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="PS-01 Introduction[TOC] 1. 计算：算法算法定义：在特定计算模型下（例如：计算机），旨在解决特定问题的指令序列  特点： 正确性：可以解决指定的问题 确定性：描述为基本操作组成的序列 可行性：每一个基本操作都能实现，并且是在常数时间内完成的 有穷性： 对于一个特定问题都可以经过有限次基本操作解决    Hailstone序列$Hailstone(n)&#x3D;\begin">
+    <meta name="description" content="PS-04 Stack + Queue[TOC] 1. 栈的接口与实现栈只能在栈顶插入和删除，后进先出  接口 size() &#x2F; empty() push() pop() top()    2. 栈的应用函数调用栈递归算法所用的空间主要取决于递归的深度，而不是递归实例的总数（因为递归实例并不是同时出现，每层递归只调用一个递归实例） 尾递归当每次递归只出现在最后一步时，这个递归就可以消除，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kov&#39;s blog">
-<meta property="og:url" content="https://markouv.github.io/2023/08/14/DSA/PS-01%20Introduction/index.html">
+<meta property="og:url" content="https://markouv.github.io/2023/08/14/DSA/PS-04%20Stack%20+%20Queue/index.html">
 <meta property="og:site_name" content="Kov&#39;s blog">
-<meta property="og:description" content="PS-01 Introduction[TOC] 1. 计算：算法算法定义：在特定计算模型下（例如：计算机），旨在解决特定问题的指令序列  特点： 正确性：可以解决指定的问题 确定性：描述为基本操作组成的序列 可行性：每一个基本操作都能实现，并且是在常数时间内完成的 有穷性： 对于一个特定问题都可以经过有限次基本操作解决    Hailstone序列$Hailstone(n)&#x3D;\begin">
+<meta property="og:description" content="PS-04 Stack + Queue[TOC] 1. 栈的接口与实现栈只能在栈顶插入和删除，后进先出  接口 size() &#x2F; empty() push() pop() top()    2. 栈的应用函数调用栈递归算法所用的空间主要取决于递归的深度，而不是递归实例的总数（因为递归实例并不是同时出现，每层递归只调用一个递归实例） 尾递归当每次递归只出现在最后一步时，这个递归就可以消除，">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/d01eb997e1e13f9190b0fe0e636b377.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/95334c7e1a63fd8b52fb3b5358b3346.jpg">
-<meta property="article:published_time" content="2023-08-14T06:53:21.745Z">
-<meta property="article:modified_time" content="2023-08-14T07:01:59.542Z">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/e623455616f7414ab351c7903eaec48.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/4e95db1e7942d27c6250eca1540af12.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/ed0ecda2e7675d6d2c12ed83b9e0161.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/1f6d3f3d79fe9975ddd9715022d7525.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/dad44ff2f88dfb585c38ac5092a116f.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/b276f1fcf9a3bd160aa344ab69864b7.jpg">
+<meta property="article:published_time" content="2023-08-14T07:02:49.178Z">
+<meta property="article:modified_time" content="2023-08-14T07:27:08.119Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/d01eb997e1e13f9190b0fe0e636b377.jpg">
+<meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/e623455616f7414ab351c7903eaec48.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -212,7 +216,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-08-14 14:53" pubdate>
+        <time datetime="2023-08-14 15:02" pubdate>
           2023年8月14日 下午
         </time>
       </span>
@@ -224,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.1k 字
+          1.5k 字
         
       </span>
     
@@ -235,7 +239,7 @@
         
         
         
-          26 分钟
+          13 分钟
         
       </span>
     
@@ -277,126 +281,74 @@
             
               <div class="markdown-body">
                 
-                <h1 id="PS-01-Introduction"><a href="#PS-01-Introduction" class="headerlink" title="PS-01 Introduction"></a>PS-01 Introduction</h1><p>[TOC]</p>
-<h1 id="1-计算：算法"><a href="#1-计算：算法" class="headerlink" title="1. 计算：算法"></a>1. 计算：算法</h1><h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a><strong>算法</strong></h3><p>定义：在特定计算模型下（例如：计算机），旨在解决特定问题的指令序列</p>
+                <h1 id="PS-04-Stack-Queue"><a href="#PS-04-Stack-Queue" class="headerlink" title="PS-04 Stack + Queue"></a>PS-04 Stack + Queue</h1><p>[TOC]</p>
+<h1 id="1-栈的接口与实现"><a href="#1-栈的接口与实现" class="headerlink" title="1. 栈的接口与实现"></a>1. 栈的接口与实现</h1><p>栈只能在栈顶插入和删除，后进先出</p>
 <ul>
-<li>特点：<ul>
-<li>正确性：可以解决指定的问题</li>
-<li>确定性：描述为基本操作组成的序列</li>
-<li>可行性：每一个基本操作都能实现，并且是在常数时间内完成的</li>
-<li>有穷性： 对于一个特定问题都可以经过有限次基本操作解决</li>
+<li>接口<ul>
+<li>size() &#x2F; empty()</li>
+<li>push()</li>
+<li>pop()</li>
+<li>top()</li>
 </ul>
 </li>
 </ul>
-<h3 id="Hailstone序列"><a href="#Hailstone序列" class="headerlink" title="Hailstone序列"></a><strong>Hailstone序列</strong></h3><p>$Hailstone(n)&#x3D;\begin{cases}{1}&amp;n \leq 1\{n}\bigcup Hailstone(n&#x2F;2)&amp;n&#x3D;even\{n}\bigcup Hailstone(3n+1)&amp;n&#x3D;odd\end{cases}$</p>
-<p>对任意的 $n$ ，Hailstone都能得到最终结果1，说明这个算法是有穷的，但还未在数学上证明</p>
-<h3 id="几何分布"><a href="#几何分布" class="headerlink" title="几何分布"></a><strong>几何分布</strong></h3><p>$P(X&#x3D;n)&#x3D;(1-p)^{n-1}p$</p>
-<p>$E(X)&#x3D;\frac{1}{p}$</p>
-<h1 id="2-计算模型：统一尺度"><a href="#2-计算模型：统一尺度" class="headerlink" title="2. 计算模型：统一尺度"></a>2. 计算模型：统一尺度</h1><h3 id="图灵机"><a href="#图灵机" class="headerlink" title="图灵机"></a><strong>图灵机</strong></h3><p>为不同算法的代价的衡量提供一个统一的尺度，从而可以更好地评价算法的优劣</p>
+<h1 id="2-栈的应用"><a href="#2-栈的应用" class="headerlink" title="2. 栈的应用"></a>2. 栈的应用</h1><h3 id="函数调用栈"><a href="#函数调用栈" class="headerlink" title="函数调用栈"></a><strong>函数调用栈</strong></h3><p>递归算法所用的空间主要取决于递归的深度，而不是递归实例的总数（因为递归实例并不是同时出现，每层递归只调用一个递归实例）</p>
+<h3 id="尾递归"><a href="#尾递归" class="headerlink" title="尾递归"></a><strong>尾递归</strong></h3><p>当每次递归只出现在最后一步时，这个递归就可以消除，时间上会有常系数的改进，空间上会大幅度改进</p>
+<h3 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a><strong>进制转换</strong></h3><p>短除法，反复整除留余</p>
+<p>要找到一种算法，可以自低而高的保留数位，然后自高而低的输出</p>
+<p>栈就是这样一种满足要求的数据结构</p>
+<h3 id="括号匹配"><a href="#括号匹配" class="headerlink" title="括号匹配"></a>括号匹配</h3><p>分治策略和减治策略是不可行的，他们只满足充分条件，不满足必要条件，这是一种由外而内的策略</p>
+<p><img src="/Users/markov/Desktop/blog_figures/e623455616f7414ab351c7903eaec48.jpg" srcset="/img/loading.gif" lazyload alt="e623455616f7414ab351c7903eaec48"></p>
+<p>思考一种由内而外的策略，从内部一点一点将紧邻的括号消去从而判断是否全局匹配，要想实现这种策略，可以考虑使用栈</p>
+<p><img src="/Users/markov/Desktop/blog_figures/4e95db1e7942d27c6250eca1540af12.jpg" srcset="/img/loading.gif" lazyload alt="4e95db1e7942d27c6250eca1540af12"></p>
+<h3 id="栈混洗"><a href="#栈混洗" class="headerlink" title="栈混洗"></a>栈混洗</h3><p>考察栈 $A,B,S$，只存在 $S.push(A.pop()),B.push(S.pop())$两个操作</p>
+<p>可以考察 $S$再度变空 $n$种情况，实际上就是对 $A$中除第一个元素外（因为第一个元素必然排在 $k$个元素的末尾）前 $k-1$个元素栈混洗再对后 $n-k$个元素栈混洗</p>
+<p>因此最后得到的组合数为</p>
+<p>$SP(n)&#x3D;\sum SP(k-1)\cdot SP(n-k)&#x3D;catalan(n)&#x3D;\frac{(2n)!}{(n+1)!\cdot n!}$</p>
+<p><strong>检测禁形</strong></p>
+<p>对任何 $1≤i&lt;j&lt;k≤n,[…,k,…,i,…,j,…&gt;$，必然不是栈混洗</p>
+<p>即不存在“312”的模式</p>
+<p><strong>括号匹配</strong></p>
+<p>$S$经历了n次push和n次pop正好对应n对括号的匹配，所以n对括号匹配的排序数量也是卡特兰数</p>
+<h3 id="中缀表达式求值"><a href="#中缀表达式求值" class="headerlink" title="中缀表达式求值"></a>中缀表达式求值</h3><p>要先按照规则约定一个优先级，还要考察括号优先级</p>
+<h3 id="逆波兰表达式"><a href="#逆波兰表达式" class="headerlink" title="逆波兰表达式"></a>逆波兰表达式</h3><p>不使用括号，即可表示带优先级的运算关系，也可以称为后缀式</p>
+<p>用一个栈，遇到数就压入，遇到算符就弹出计算，更方便（好像）</p>
+<p><strong>中缀表达式与逆波兰表达式转换</strong></p>
+<p>将中缀表达式的每一次运算都用括号括起来，然后按照左括号和数字向下，运算符向上的规则写成一个起起伏伏的序列，这样每一个运算符都在同一高度上对应着一个右括号，然后将运算符移动到右括号对应的位置替换掉右括号，最后再落到同一排，转换就完成了</p>
+<p><img src="/Users/markov/Desktop/blog_figures/ed0ecda2e7675d6d2c12ed83b9e0161.jpg" srcset="/img/loading.gif" lazyload alt="ed0ecda2e7675d6d2c12ed83b9e0161"></p>
+<h1 id="3-队列的接口与实现"><a href="#3-队列的接口与实现" class="headerlink" title="3. 队列的接口与实现"></a>3. 队列的接口与实现</h1><p>队列只能在队尾插入，从队头删除，先进先出</p>
 <ul>
-<li>组成<ul>
-<li>Tape：一条纸带，被划分为无数个单元格，每个单元格上存储一个字符，表示该单元格的一个状态，每个单元格初始状态为 <strong>#</strong></li>
-<li>Head：每个时刻都对准某一单元格，可以对单元格内的字符读取或改写，并可以在下一个时刻转向左&#x2F;右</li>
-<li>Alphabet：每个单元格内的字符表</li>
-<li>State：图灵机每个时刻都在某一确定的状态，当Head转入h时，停机</li>
+<li>接口<ul>
+<li>enqueue()&#x2F;rear()</li>
+<li>dequeue()&#x2F;front()</li>
 </ul>
 </li>
 </ul>
-<p>计算成本：从启动到停机所经历的转移次数</p>
-<p>$(q, c; d, L&#x2F;R, p)$表示当前状态为q，Head所在单元格字符为c；将当前字符改写为d，并在下一时刻向左&#x2F;右转移，状态转变为p</p>
-<h3 id="RAM-（Random-Access-Machine）"><a href="#RAM-（Random-Access-Machine）" class="headerlink" title="RAM （Random Access Machine）"></a><strong>RAM （Random Access Machine）</strong></h3><p>同样为评价算法的效率提供统一的尺度</p>
-<p>例：Ceiling Division（向上取整除法）</p>
-<p><strong>思考：在TM、RAM等模型中衡量算法效率，为何通常只考查运行时间？空间呢？</strong></p>
-<p>主要是出于研究和分析的便利性考虑。这是因为对于许多算法来说，运行时间是最主要的性能指标，而空间复杂度往往与算法的时间复杂度相关，可以通过时间复杂度的分析间接得出。</p>
-<h1 id="3-渐进复杂度"><a href="#3-渐进复杂度" class="headerlink" title="3. 渐进复杂度"></a>3. 渐进复杂度</h1><p>$T(n)&#x3D;O(f(n))$渐进上界  $\exist c&gt;0,s.t.T(n)&lt;cf(n),\forall n\gg 2$</p>
-<p>$T(n)&#x3D;\Omega (f(n))$渐进下界</p>
-<p>$T(n)&#x3D; \Theta (f(n))$渐进确界</p>
-<h3 id="O-1-常数复杂度"><a href="#O-1-常数复杂度" class="headerlink" title="O (1)常数复杂度"></a><strong>O (1)常数复杂度</strong></h3><p>$2023\times 2023&#x3D;O(1)$，甚至 $2023^{2023}&#x3D;O(1)$，从渐进的角度来看确实如此</p>
-<p><strong>一段代码是否为常数执行时间应具体分析</strong>！</p>
+<h1 id="4-队列应用"><a href="#4-队列应用" class="headerlink" title="4. 队列应用"></a>4. 队列应用</h1><h3 id="直方图内最大矩形"><a href="#直方图内最大矩形" class="headerlink" title="直方图内最大矩形"></a>直方图内最大矩形</h3><p><strong>蛮力算法(Brute force)</strong></p>
+<p>逐一扫描选取最大的，复杂度 $O(n^{2})$</p>
+<p><strong>优化算法</strong></p>
+<p>对每一个直方矩形，找到它的左边界和右边界存起来即可，在找的过程中要进行适当的剪枝</p>
+<h1 id="5-栈与队列"><a href="#5-栈与队列" class="headerlink" title="5. 栈与队列"></a>5. 栈与队列</h1><h3 id="Steap-Stack-Heap"><a href="#Steap-Stack-Heap" class="headerlink" title="Steap &#x3D; Stack + Heap"></a>Steap &#x3D; Stack + Heap</h3><p><img src="/Users/markov/Desktop/blog_figures/1f6d3f3d79fe9975ddd9715022d7525.jpg" srcset="/img/loading.gif" lazyload alt="1f6d3f3d79fe9975ddd9715022d7525"></p>
+<p>这样可以快速得出栈中最大的元素，但是 $P$中存了大量重复的元素似乎有些浪费空间，可以对其进行适当的简化：</p>
+<p><img src="/Users/markov/Desktop/blog_figures/dad44ff2f88dfb585c38ac5092a116f.jpg" srcset="/img/loading.gif" lazyload alt="dad44ff2f88dfb585c38ac5092a116f"></p>
+<p>用压缩的方法，每个最大值部分存一个计数器，来了pop一个就-1，来更大的就push一个</p>
+<h3 id="Queap-Queue-Heap"><a href="#Queap-Queue-Heap" class="headerlink" title="Queap &#x3D; Queue + Heap"></a>Queap &#x3D; Queue + Heap</h3><p><img src="/Users/markov/Desktop/blog_figures/b276f1fcf9a3bd160aa344ab69864b7.jpg" srcset="/img/loading.gif" lazyload alt="b276f1fcf9a3bd160aa344ab69864b7"></p>
+<p>用队列时，更新复杂度就会变高，因为插入是从后缀插入， $P$要更新后缀的最大值</p>
+<p>同样的也可以用压缩的方法降低空间复杂度</p>
+<p><strong>为什么 $P$的后缀可进可出？</strong></p>
+<h3 id="双栈当队"><a href="#双栈当队" class="headerlink" title="双栈当队"></a>双栈当队</h3><p><strong>复杂度分析</strong></p>
 <ul>
-<li>代码中可能包含循环：</li>
+<li>Accounting</li>
 </ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">for</span>(i = <span class="hljs-number">0</span>; i &lt; n; i += n/<span class="hljs-number">2023</span> + <span class="hljs-number">1</span>) <span class="hljs-comment">//2023,O(1)</span><br></code></pre></td></tr></table></figure>
-
-<p>分析：</p>
-<p>假设 $2023k &lt; n &lt; 2023(k+1)$，则经过2023步循环之后 $i&#x3D;2023(k+1)$必然大于 $n$，所以该循环是常熟复杂度的</p>
+<p>思考每个元素要进行的操作数，无非入栈、出栈、再入栈、再出栈四种 $O(1)$操作，因此分摊复杂度是 $O(4)$，这个以元素为研究对象</p>
 <ul>
-<li>代码中可能包含分支</li>
-<li>代码中可能包含（递归）调用</li>
+<li>Aggregate（校长算总账）</li>
 </ul>
-<h3 id="O-log-c-n-多项式对数复杂度"><a href="#O-log-c-n-多项式对数复杂度" class="headerlink" title="O ( $log^{c}$n)多项式对数复杂度"></a>O ( $log^{c}$n)多项式对数复杂度</h3><p>复杂度无限接近于常数，非常好！</p>
-<h3 id="O-n-c-多项式复杂度"><a href="#O-n-c-多项式复杂度" class="headerlink" title="O ( $n^{c}$)多项式复杂度"></a>O ( $n^{c}$)多项式复杂度</h3><p>线性复杂度 $O(n)$，通常就已经很不错了</p>
-<h3 id="O-2-n-指数复杂度"><a href="#O-2-n-指数复杂度" class="headerlink" title="O ( $2^{n}$)指数复杂度"></a>O ( $2^{n}$)指数复杂度</h3><p>NP-complete算法，无法忍受！！！</p>
-<p>例如：subsetsum问题</p>
-<p><strong>注</strong>：O(nlogn)的算法最常出现，但不一定是最优，比如排序、Huffman编码（可以用桶排序在O(n)实现）</p>
-<h1 id="4-复杂度分析"><a href="#4-复杂度分析" class="headerlink" title="4. 复杂度分析"></a>4. 复杂度分析</h1><ul>
-<li>主要方法<ul>
-<li>迭代（级数求和）</li>
-<li>递归（递归跟踪+递推方程）</li>
-<li>实用（猜测+验证）</li>
-</ul>
-</li>
-</ul>
-<p><strong>级数</strong></p>
-<p>算术级数：与末项平方同阶 $T(n)&#x3D;1+2+…+n&#x3D;O(n^{2})$</p>
-<p>幂方级数：比幂次高出一阶 $T(n)&#x3D;\sum k^{d}&#x3D;O(n^{d+1})$</p>
-<p>几何级数：与末项同阶 $T(n)&#x3D;a^{0}+a^{1}+a^{2}+…+a^{n}&#x3D;O(a^{n})$</p>
-<p>收敛级数：</p>
-<p>$\sum \frac{1}{(k-1)k}&#x3D;O(1)$</p>
-<p>$\sum 1&#x2F;k^{2}&#x3D;O(1)$</p>
-<p>$\sum \frac{1}{k^{2}-1}&#x3D;O(1)$</p>
-<p>调和级数： $h(n)&#x3D;\sum 1&#x2F;k&#x3D;\Theta (logn)$</p>
-<p>对数级数： $\sum lnk&#x3D;\Theta (nlogn)$</p>
-<p>对数+线性+指数： $\sum klogk&#x3D;O(n^{2}logn)$</p>
-<p>$\sum k\cdot 2^{k}&#x3D;O(n\cdot 2^{n})$</p>
-<p><strong>迭代</strong></p>
-<p>具体问题具体分析…</p>
-<p><strong>封底估算</strong></p>
+<p>考虑队列是个学校，所有入过学的总数为 $e$，所有毕业的总数为 $d$，总共所花时间无非 $≤4d+3(e-d)$，则每次操作的分摊复杂度为 $\frac{3e+d}{e+d}&lt;3$，这个以操作为研究对象</p>
 <ul>
-<li>1天&#x3D; $10^{5}$秒</li>
-<li>$2^{10}&#x3D;10^{3}$</li>
+<li>Potential（势能）</li>
 </ul>
-<h1 id="5-减而治之-Decrease-and-conquer"><a href="#5-减而治之-Decrease-and-conquer" class="headerlink" title="5. 减而治之(Decrease and conquer)"></a>5. 减而治之(Decrease and conquer)</h1><p>求解大规模的问题，可以：</p>
-<ul>
-<li>将其划分为两个子问题，一个规模减小，一个平凡</li>
-<li>分别求解子问题</li>
-</ul>
-<p><strong>递归跟踪</strong></p>
-<p>写出每一个递归实例，分别计算复杂度再求和</p>
-<p><strong>递推方程</strong></p>
-<p>根据一个问题和子问题的递推关系求其复杂度，例如 $T(n)&#x3D;T(n-1)+O(1)$</p>
-<h1 id="6-分而治之-Divide-and-conquer"><a href="#6-分而治之-Divide-and-conquer" class="headerlink" title="6. 分而治之(Divide and conquer)"></a>6. 分而治之(Divide and conquer)</h1><p>求解大规模问题吧，可以：</p>
-<ul>
-<li>将其划分为若干个子问题，且规模相当</li>
-<li>分别求解子问题</li>
-</ul>
-<h3 id="主定理"><a href="#主定理" class="headerlink" title="主定理"></a><strong>主定理</strong></h3><p>若递推关系式为 $T(n)&#x3D;a\cdot T(n&#x2F;b)+O(f(n))$</p>
-<ul>
-<li>若 $f(n)&#x3D;O(n^{log_{b}a-\epsilon})$，其实就是 $f(n)$阶数比 $n^{log_{b}a}$小， $T(n)&#x3D;\Theta(n^{log_{b}a})$</li>
-<li>若 $f(n)&#x3D;\Theta (n^{log_{b}a}\cdot log^{k}n)$， $T(n)&#x3D;\Theta (n^{log_{b}a}\cdot log^{k+1}n)$</li>
-<li>若 $f(n)&#x3D;\Omega (n^{log_{b}a+\epsilon})$， $T(n)&#x3D;\Theta (f(n))$</li>
-</ul>
-<h1 id="7-动态规划：记忆法"><a href="#7-动态规划：记忆法" class="headerlink" title="7. 动态规划：记忆法"></a>7. 动态规划：记忆法</h1><h3 id="斐波那契数列"><a href="#斐波那契数列" class="headerlink" title="斐波那契数列"></a><strong>斐波那契数列</strong></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">int</span> <span class="hljs-title function_">fib</span><span class="hljs-params">(n)</span>&#123;<span class="hljs-keyword">return</span> (<span class="hljs-number">2</span> &gt; n)? n: fib(n<span class="hljs-number">-1</span>) + fib(n<span class="hljs-number">-2</span>);&#125;<br></code></pre></td></tr></table></figure>
-
-<p>这种递归方法非常慢，因为使用了大量重复的计算结果</p>
-<p>采用动态规划迭代的方法， $T(n)&#x3D;O(n)$</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs jsx">f = <span class="hljs-number">1</span>;    <span class="hljs-comment">//fib(-1)</span><br>g = <span class="hljs-number">0</span>;    <span class="hljs-comment">//fib(0)</span><br><span class="hljs-keyword">while</span>(<span class="hljs-number">0</span> &lt; n--)&#123;<br>	g = g + f;<br>	f = g - f;<br>&#125;<br><span class="hljs-keyword">return</span> g;<br></code></pre></td></tr></table></figure>
-
-<h3 id="最长公共子序列"><a href="#最长公共子序列" class="headerlink" title="最长公共子序列"></a>最长公共子序列</h3><p><strong>理解</strong></p>
-<p>从减而治之和递归的角度来理解，考虑长度为n的字符串A，长度为m的字符串B，对LCS(n, m)，考虑三种情况：</p>
-<ul>
-<li>若 $n&#x3D;0或m&#x3D;0$，则返回0</li>
-<li>若 $A[n-1]&#x3D;B[m-1]$，则返回 $LCS(n-1,m-1)+1$</li>
-<li>若不相等，则返回 $max(LCS(n-1, m), LCS(n, m-1))$</li>
-</ul>
-<p>但是这种方法复杂度极高，甚至是指数级</p>
-<p><strong>动态规划版本（感觉像是知道答案写过程一样）</strong></p>
-<p>实际上查找的过程可以记录在一张表上：</p>
-<p><img src="/Users/markov/Desktop/blog_figures/d01eb997e1e13f9190b0fe0e636b377.jpg" srcset="/img/loading.gif" lazyload alt="d01eb997e1e13f9190b0fe0e636b377"></p>
-<p>再从递归的角度理解，如果 $A[n-1]&#x3D;B[m-1]$， $table(n,m)&#x3D;table(n-1,m-1)+1$，如果不相等，则 $table(n,m)&#x3D;max(table(n-1,m),table(n,m-1))$</p>
-<p>按照这样的规则，我们可以用迭代的方法填写这张表，最终结果即为所求：</p>
-<p><img src="/Users/markov/Desktop/blog_figures/95334c7e1a63fd8b52fb3b5358b3346.jpg" srcset="/img/loading.gif" lazyload alt="95334c7e1a63fd8b52fb3b5358b3346"></p>
-<p>这里保证 $m≤n$，一是为了降低空间复杂度，二是降低时间复杂度（这是工程上的问题）</p>
+<p>很玄学的一个东西</p>
 
                 
               </div>
@@ -415,7 +367,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div></div>
-      <div>https://markouv.github.io/2023/08/14/DSA/PS-01 Introduction/</div>
+      <div>https://markouv.github.io/2023/08/14/DSA/PS-04 Stack + Queue/</div>
     </div>
     <div class="license-meta">
       
@@ -459,7 +411,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/08/14/DSA/PS-02%20Vector/" title="">
+                      <a href="/2023/08/14/DSA/PS-05%20Binary%20Trees/" title="">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile"></span>
                         <span class="visible-mobile">上一篇</span>
@@ -469,8 +421,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/08/12/hello-world/" title="Hello World">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2023/08/14/DSA/PS-03%20List/" title="">
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

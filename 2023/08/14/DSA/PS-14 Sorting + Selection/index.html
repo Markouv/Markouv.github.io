@@ -16,20 +16,23 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="PS-01 Introduction[TOC] 1. 计算：算法算法定义：在特定计算模型下（例如：计算机），旨在解决特定问题的指令序列  特点： 正确性：可以解决指定的问题 确定性：描述为基本操作组成的序列 可行性：每一个基本操作都能实现，并且是在常数时间内完成的 有穷性： 对于一个特定问题都可以经过有限次基本操作解决    Hailstone序列$Hailstone(n)&#x3D;\begin">
+    <meta name="description" content="PS-14 Sorting + Selection1. 快速排序策略找到一个轴点，然后将元素与轴点比较，小的放在左边，大的放在右边  轴点：在本来有序向量中所属位置的点 但轴点不是一开始就有的，因此我们要培养轴点 快速划分：LUG版随机的选取候选者，比如 $elem[0]$，然后由 $lo$到 $hi$，交替向内移动，先从 $hi$开始比较，有小于轴点的即转到 $lo$，如此反复，各元素最多移动1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kov&#39;s blog">
-<meta property="og:url" content="https://markouv.github.io/2023/08/14/DSA/PS-01%20Introduction/index.html">
+<meta property="og:url" content="https://markouv.github.io/2023/08/14/DSA/PS-14%20Sorting%20+%20Selection/index.html">
 <meta property="og:site_name" content="Kov&#39;s blog">
-<meta property="og:description" content="PS-01 Introduction[TOC] 1. 计算：算法算法定义：在特定计算模型下（例如：计算机），旨在解决特定问题的指令序列  特点： 正确性：可以解决指定的问题 确定性：描述为基本操作组成的序列 可行性：每一个基本操作都能实现，并且是在常数时间内完成的 有穷性： 对于一个特定问题都可以经过有限次基本操作解决    Hailstone序列$Hailstone(n)&#x3D;\begin">
+<meta property="og:description" content="PS-14 Sorting + Selection1. 快速排序策略找到一个轴点，然后将元素与轴点比较，小的放在左边，大的放在右边  轴点：在本来有序向量中所属位置的点 但轴点不是一开始就有的，因此我们要培养轴点 快速划分：LUG版随机的选取候选者，比如 $elem[0]$，然后由 $lo$到 $hi$，交替向内移动，先从 $hi$开始比较，有小于轴点的即转到 $lo$，如此反复，各元素最多移动1">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/d01eb997e1e13f9190b0fe0e636b377.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/95334c7e1a63fd8b52fb3b5358b3346.jpg">
-<meta property="article:published_time" content="2023-08-14T06:53:21.745Z">
-<meta property="article:modified_time" content="2023-08-14T07:01:59.542Z">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/50f5424f5cbd0bfe2ef0e0c0e3cca4c.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/3512a0b41fb9f022cded7e3682c2bd5.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/2032df4966842da313a6fb512cce2fc.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/6ae2ecf648a03af380f21191d1701c6.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/6f47805e333cbe915661fed600695a1.jpg">
+<meta property="article:published_time" content="2023-08-14T07:08:25.921Z">
+<meta property="article:modified_time" content="2023-08-14T07:51:32.506Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/d01eb997e1e13f9190b0fe0e636b377.jpg">
+<meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/50f5424f5cbd0bfe2ef0e0c0e3cca4c.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -212,7 +215,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-08-14 14:53" pubdate>
+        <time datetime="2023-08-14 15:08" pubdate>
           2023年8月14日 下午
         </time>
       </span>
@@ -224,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.1k 字
+          948 字
         
       </span>
     
@@ -235,7 +238,7 @@
         
         
         
-          26 分钟
+          8 分钟
         
       </span>
     
@@ -277,126 +280,35 @@
             
               <div class="markdown-body">
                 
-                <h1 id="PS-01-Introduction"><a href="#PS-01-Introduction" class="headerlink" title="PS-01 Introduction"></a>PS-01 Introduction</h1><p>[TOC]</p>
-<h1 id="1-计算：算法"><a href="#1-计算：算法" class="headerlink" title="1. 计算：算法"></a>1. 计算：算法</h1><h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a><strong>算法</strong></h3><p>定义：在特定计算模型下（例如：计算机），旨在解决特定问题的指令序列</p>
-<ul>
-<li>特点：<ul>
-<li>正确性：可以解决指定的问题</li>
-<li>确定性：描述为基本操作组成的序列</li>
-<li>可行性：每一个基本操作都能实现，并且是在常数时间内完成的</li>
-<li>有穷性： 对于一个特定问题都可以经过有限次基本操作解决</li>
-</ul>
-</li>
-</ul>
-<h3 id="Hailstone序列"><a href="#Hailstone序列" class="headerlink" title="Hailstone序列"></a><strong>Hailstone序列</strong></h3><p>$Hailstone(n)&#x3D;\begin{cases}{1}&amp;n \leq 1\{n}\bigcup Hailstone(n&#x2F;2)&amp;n&#x3D;even\{n}\bigcup Hailstone(3n+1)&amp;n&#x3D;odd\end{cases}$</p>
-<p>对任意的 $n$ ，Hailstone都能得到最终结果1，说明这个算法是有穷的，但还未在数学上证明</p>
-<h3 id="几何分布"><a href="#几何分布" class="headerlink" title="几何分布"></a><strong>几何分布</strong></h3><p>$P(X&#x3D;n)&#x3D;(1-p)^{n-1}p$</p>
-<p>$E(X)&#x3D;\frac{1}{p}$</p>
-<h1 id="2-计算模型：统一尺度"><a href="#2-计算模型：统一尺度" class="headerlink" title="2. 计算模型：统一尺度"></a>2. 计算模型：统一尺度</h1><h3 id="图灵机"><a href="#图灵机" class="headerlink" title="图灵机"></a><strong>图灵机</strong></h3><p>为不同算法的代价的衡量提供一个统一的尺度，从而可以更好地评价算法的优劣</p>
-<ul>
-<li>组成<ul>
-<li>Tape：一条纸带，被划分为无数个单元格，每个单元格上存储一个字符，表示该单元格的一个状态，每个单元格初始状态为 <strong>#</strong></li>
-<li>Head：每个时刻都对准某一单元格，可以对单元格内的字符读取或改写，并可以在下一个时刻转向左&#x2F;右</li>
-<li>Alphabet：每个单元格内的字符表</li>
-<li>State：图灵机每个时刻都在某一确定的状态，当Head转入h时，停机</li>
-</ul>
-</li>
-</ul>
-<p>计算成本：从启动到停机所经历的转移次数</p>
-<p>$(q, c; d, L&#x2F;R, p)$表示当前状态为q，Head所在单元格字符为c；将当前字符改写为d，并在下一时刻向左&#x2F;右转移，状态转变为p</p>
-<h3 id="RAM-（Random-Access-Machine）"><a href="#RAM-（Random-Access-Machine）" class="headerlink" title="RAM （Random Access Machine）"></a><strong>RAM （Random Access Machine）</strong></h3><p>同样为评价算法的效率提供统一的尺度</p>
-<p>例：Ceiling Division（向上取整除法）</p>
-<p><strong>思考：在TM、RAM等模型中衡量算法效率，为何通常只考查运行时间？空间呢？</strong></p>
-<p>主要是出于研究和分析的便利性考虑。这是因为对于许多算法来说，运行时间是最主要的性能指标，而空间复杂度往往与算法的时间复杂度相关，可以通过时间复杂度的分析间接得出。</p>
-<h1 id="3-渐进复杂度"><a href="#3-渐进复杂度" class="headerlink" title="3. 渐进复杂度"></a>3. 渐进复杂度</h1><p>$T(n)&#x3D;O(f(n))$渐进上界  $\exist c&gt;0,s.t.T(n)&lt;cf(n),\forall n\gg 2$</p>
-<p>$T(n)&#x3D;\Omega (f(n))$渐进下界</p>
-<p>$T(n)&#x3D; \Theta (f(n))$渐进确界</p>
-<h3 id="O-1-常数复杂度"><a href="#O-1-常数复杂度" class="headerlink" title="O (1)常数复杂度"></a><strong>O (1)常数复杂度</strong></h3><p>$2023\times 2023&#x3D;O(1)$，甚至 $2023^{2023}&#x3D;O(1)$，从渐进的角度来看确实如此</p>
-<p><strong>一段代码是否为常数执行时间应具体分析</strong>！</p>
-<ul>
-<li>代码中可能包含循环：</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">for</span>(i = <span class="hljs-number">0</span>; i &lt; n; i += n/<span class="hljs-number">2023</span> + <span class="hljs-number">1</span>) <span class="hljs-comment">//2023,O(1)</span><br></code></pre></td></tr></table></figure>
-
-<p>分析：</p>
-<p>假设 $2023k &lt; n &lt; 2023(k+1)$，则经过2023步循环之后 $i&#x3D;2023(k+1)$必然大于 $n$，所以该循环是常熟复杂度的</p>
-<ul>
-<li>代码中可能包含分支</li>
-<li>代码中可能包含（递归）调用</li>
-</ul>
-<h3 id="O-log-c-n-多项式对数复杂度"><a href="#O-log-c-n-多项式对数复杂度" class="headerlink" title="O ( $log^{c}$n)多项式对数复杂度"></a>O ( $log^{c}$n)多项式对数复杂度</h3><p>复杂度无限接近于常数，非常好！</p>
-<h3 id="O-n-c-多项式复杂度"><a href="#O-n-c-多项式复杂度" class="headerlink" title="O ( $n^{c}$)多项式复杂度"></a>O ( $n^{c}$)多项式复杂度</h3><p>线性复杂度 $O(n)$，通常就已经很不错了</p>
-<h3 id="O-2-n-指数复杂度"><a href="#O-2-n-指数复杂度" class="headerlink" title="O ( $2^{n}$)指数复杂度"></a>O ( $2^{n}$)指数复杂度</h3><p>NP-complete算法，无法忍受！！！</p>
-<p>例如：subsetsum问题</p>
-<p><strong>注</strong>：O(nlogn)的算法最常出现，但不一定是最优，比如排序、Huffman编码（可以用桶排序在O(n)实现）</p>
-<h1 id="4-复杂度分析"><a href="#4-复杂度分析" class="headerlink" title="4. 复杂度分析"></a>4. 复杂度分析</h1><ul>
-<li>主要方法<ul>
-<li>迭代（级数求和）</li>
-<li>递归（递归跟踪+递推方程）</li>
-<li>实用（猜测+验证）</li>
-</ul>
-</li>
-</ul>
-<p><strong>级数</strong></p>
-<p>算术级数：与末项平方同阶 $T(n)&#x3D;1+2+…+n&#x3D;O(n^{2})$</p>
-<p>幂方级数：比幂次高出一阶 $T(n)&#x3D;\sum k^{d}&#x3D;O(n^{d+1})$</p>
-<p>几何级数：与末项同阶 $T(n)&#x3D;a^{0}+a^{1}+a^{2}+…+a^{n}&#x3D;O(a^{n})$</p>
-<p>收敛级数：</p>
-<p>$\sum \frac{1}{(k-1)k}&#x3D;O(1)$</p>
-<p>$\sum 1&#x2F;k^{2}&#x3D;O(1)$</p>
-<p>$\sum \frac{1}{k^{2}-1}&#x3D;O(1)$</p>
-<p>调和级数： $h(n)&#x3D;\sum 1&#x2F;k&#x3D;\Theta (logn)$</p>
-<p>对数级数： $\sum lnk&#x3D;\Theta (nlogn)$</p>
-<p>对数+线性+指数： $\sum klogk&#x3D;O(n^{2}logn)$</p>
-<p>$\sum k\cdot 2^{k}&#x3D;O(n\cdot 2^{n})$</p>
+                <h1 id="PS-14-Sorting-Selection"><a href="#PS-14-Sorting-Selection" class="headerlink" title="PS-14 Sorting + Selection"></a>PS-14 Sorting + Selection</h1><h1 id="1-快速排序"><a href="#1-快速排序" class="headerlink" title="1. 快速排序"></a>1. 快速排序</h1><h3 id="策略"><a href="#策略" class="headerlink" title="策略"></a>策略</h3><p>找到一个轴点，然后将元素与轴点比较，小的放在左边，大的放在右边</p>
+<p><img src="/Users/markov/Desktop/blog_figures/50f5424f5cbd0bfe2ef0e0c0e3cca4c.jpg" srcset="/img/loading.gif" lazyload alt="50f5424f5cbd0bfe2ef0e0c0e3cca4c"></p>
+<p>轴点：在本来有序向量中所属位置的点</p>
+<p>但轴点不是一开始就有的，因此我们要培养轴点</p>
+<h3 id="快速划分：LUG版"><a href="#快速划分：LUG版" class="headerlink" title="快速划分：LUG版"></a>快速划分：LUG版</h3><p>随机的选取候选者，比如 $elem[0]$，然后由 $lo$到 $hi$，交替向内移动，先从 $hi$开始比较，有小于轴点的即转到 $lo$，如此反复，各元素最多移动1次，因此划分只需 $O(n)$的时间</p>
+<p>一般在选取候选者时有一步随机的交换，目的是使原本不随机的序列变得随机</p>
+<p><strong>递归深度</strong></p>
+<p>此算法所需额外空间仅为 $O(1)$，但没考虑递归的深度，递归深度可能会有最坏的情况达到 $O(n)$，</p>
+<p>但是概率非常非常低，期望来讲大概率还是 $O(logn)$，因此我们认为该算法还是就地的</p>
 <p><strong>迭代</strong></p>
-<p>具体问题具体分析…</p>
-<p><strong>封底估算</strong></p>
-<ul>
-<li>1天&#x3D; $10^{5}$秒</li>
-<li>$2^{10}&#x3D;10^{3}$</li>
-</ul>
-<h1 id="5-减而治之-Decrease-and-conquer"><a href="#5-减而治之-Decrease-and-conquer" class="headerlink" title="5. 减而治之(Decrease and conquer)"></a>5. 减而治之(Decrease and conquer)</h1><p>求解大规模的问题，可以：</p>
-<ul>
-<li>将其划分为两个子问题，一个规模减小，一个平凡</li>
-<li>分别求解子问题</li>
-</ul>
-<p><strong>递归跟踪</strong></p>
-<p>写出每一个递归实例，分别计算复杂度再求和</p>
-<p><strong>递推方程</strong></p>
-<p>根据一个问题和子问题的递推关系求其复杂度，例如 $T(n)&#x3D;T(n-1)+O(1)$</p>
-<h1 id="6-分而治之-Divide-and-conquer"><a href="#6-分而治之-Divide-and-conquer" class="headerlink" title="6. 分而治之(Divide and conquer)"></a>6. 分而治之(Divide and conquer)</h1><p>求解大规模问题吧，可以：</p>
-<ul>
-<li>将其划分为若干个子问题，且规模相当</li>
-<li>分别求解子问题</li>
-</ul>
-<h3 id="主定理"><a href="#主定理" class="headerlink" title="主定理"></a><strong>主定理</strong></h3><p>若递推关系式为 $T(n)&#x3D;a\cdot T(n&#x2F;b)+O(f(n))$</p>
-<ul>
-<li>若 $f(n)&#x3D;O(n^{log_{b}a-\epsilon})$，其实就是 $f(n)$阶数比 $n^{log_{b}a}$小， $T(n)&#x3D;\Theta(n^{log_{b}a})$</li>
-<li>若 $f(n)&#x3D;\Theta (n^{log_{b}a}\cdot log^{k}n)$， $T(n)&#x3D;\Theta (n^{log_{b}a}\cdot log^{k+1}n)$</li>
-<li>若 $f(n)&#x3D;\Omega (n^{log_{b}a+\epsilon})$， $T(n)&#x3D;\Theta (f(n))$</li>
-</ul>
-<h1 id="7-动态规划：记忆法"><a href="#7-动态规划：记忆法" class="headerlink" title="7. 动态规划：记忆法"></a>7. 动态规划：记忆法</h1><h3 id="斐波那契数列"><a href="#斐波那契数列" class="headerlink" title="斐波那契数列"></a><strong>斐波那契数列</strong></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">int</span> <span class="hljs-title function_">fib</span><span class="hljs-params">(n)</span>&#123;<span class="hljs-keyword">return</span> (<span class="hljs-number">2</span> &gt; n)? n: fib(n<span class="hljs-number">-1</span>) + fib(n<span class="hljs-number">-2</span>);&#125;<br></code></pre></td></tr></table></figure>
-
-<p>这种递归方法非常慢，因为使用了大量重复的计算结果</p>
-<p>采用动态规划迭代的方法， $T(n)&#x3D;O(n)$</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs jsx">f = <span class="hljs-number">1</span>;    <span class="hljs-comment">//fib(-1)</span><br>g = <span class="hljs-number">0</span>;    <span class="hljs-comment">//fib(0)</span><br><span class="hljs-keyword">while</span>(<span class="hljs-number">0</span> &lt; n--)&#123;<br>	g = g + f;<br>	f = g - f;<br>&#125;<br><span class="hljs-keyword">return</span> g;<br></code></pre></td></tr></table></figure>
-
-<h3 id="最长公共子序列"><a href="#最长公共子序列" class="headerlink" title="最长公共子序列"></a>最长公共子序列</h3><p><strong>理解</strong></p>
-<p>从减而治之和递归的角度来理解，考虑长度为n的字符串A，长度为m的字符串B，对LCS(n, m)，考虑三种情况：</p>
-<ul>
-<li>若 $n&#x3D;0或m&#x3D;0$，则返回0</li>
-<li>若 $A[n-1]&#x3D;B[m-1]$，则返回 $LCS(n-1,m-1)+1$</li>
-<li>若不相等，则返回 $max(LCS(n-1, m), LCS(n, m-1))$</li>
-</ul>
-<p>但是这种方法复杂度极高，甚至是指数级</p>
-<p><strong>动态规划版本（感觉像是知道答案写过程一样）</strong></p>
-<p>实际上查找的过程可以记录在一张表上：</p>
-<p><img src="/Users/markov/Desktop/blog_figures/d01eb997e1e13f9190b0fe0e636b377.jpg" srcset="/img/loading.gif" lazyload alt="d01eb997e1e13f9190b0fe0e636b377"></p>
-<p>再从递归的角度理解，如果 $A[n-1]&#x3D;B[m-1]$， $table(n,m)&#x3D;table(n-1,m-1)+1$，如果不相等，则 $table(n,m)&#x3D;max(table(n-1,m),table(n,m-1))$</p>
-<p>按照这样的规则，我们可以用迭代的方法填写这张表，最终结果即为所求：</p>
-<p><img src="/Users/markov/Desktop/blog_figures/95334c7e1a63fd8b52fb3b5358b3346.jpg" srcset="/img/loading.gif" lazyload alt="95334c7e1a63fd8b52fb3b5358b3346"></p>
-<p>这里保证 $m≤n$，一是为了降低空间复杂度，二是降低时间复杂度（这是工程上的问题）</p>
+<p>或者也可以采取迭代的办法，大任务先入栈，小任务后入栈，需要的辅助栈空间也不过 $O(logn)$</p>
+<p><strong>比较次数</strong></p>
+<p>$T(n)&#x3D;(n-1)+\frac{1}{n}\sum_{k&#x3D;0}^{n-1}[T(k)+T(n-k-1)]&#x3D;(n-1)+\frac{2}{n}\sum_{k&#x3D;0}^{n-1}T(k)$</p>
+<p>经过一系列化简</p>
+<p>$\frac{T(n)}{n+1}-\frac{T(n-1)}{n}&#x3D;\frac{4}{n+1}-\frac{2}{n}$</p>
+<p>经过累加法得</p>
+<p>$\frac{T(n)}{n+1}\approx 2\ln n$</p>
+<p>$T(n)\approx 1.386\cdot nlogn$</p>
+<p>也可以采用后向分析的方法：</p>
+<p><img src="/Users/markov/Desktop/blog_figures/3512a0b41fb9f022cded7e3682c2bd5.jpg" srcset="/img/loading.gif" lazyload alt="3512a0b41fb9f022cded7e3682c2bd5"></p>
+<h3 id="几种排序算法对比"><a href="#几种排序算法对比" class="headerlink" title="几种排序算法对比"></a>几种排序算法对比</h3><p><img src="/Users/markov/Desktop/blog_figures/2032df4966842da313a6fb512cce2fc.jpg" srcset="/img/loading.gif" lazyload alt="2032df4966842da313a6fb512cce2fc"></p>
+<h3 id="快速划分：DUP版"><a href="#快速划分：DUP版" class="headerlink" title="快速划分：DUP版"></a>快速划分：DUP版</h3><p>大量元素重复时，会导致划分的失衡，使得递归深度过大，DUP版将原算法中比较的等号去掉，这样可以缓解失衡的问题，降低递归的深度</p>
+<h3 id="快速划分：LGU版"><a href="#快速划分：LGU版" class="headerlink" title="快速划分：LGU版"></a>快速划分：LGU版</h3><p>顺序遍历元素，逐一和轴点比较，less则放在序列的L部分（实则是和G中第一个元素交换），greater则不需要移动，直接继续拓展，是非常简单的一种算法</p>
+<p><img src="/Users/markov/Desktop/blog_figures/6ae2ecf648a03af380f21191d1701c6.jpg" srcset="/img/loading.gif" lazyload alt="6ae2ecf648a03af380f21191d1701c6"></p>
+<p>以上算法都存在不稳定的问题</p>
+<h1 id="2-选取"><a href="#2-选取" class="headerlink" title="2. 选取"></a>2. 选取</h1><h3 id="QuickSelect"><a href="#QuickSelect" class="headerlink" title="QuickSelect"></a>QuickSelect</h3><p>经过反复地做quicksort中的partition操作，最终选出第k大的元素</p>
+<p>期望的复杂度为 $O(n)$，但仍存在最坏情况！</p>
+<h3 id="LinearSelect"><a href="#LinearSelect" class="headerlink" title="LinearSelect"></a>LinearSelect</h3><p><img src="/Users/markov/Desktop/blog_figures/6f47805e333cbe915661fed600695a1.jpg" srcset="/img/loading.gif" lazyload alt="6f47805e333cbe915661fed600695a1"></p>
+<h1 id="3-希尔排序"><a href="#3-希尔排序" class="headerlink" title="3. 希尔排序"></a>3. 希尔排序</h1><p>相隔一定步长的插值排序，步长按特定的序列从大到小变化</p>
 
                 
               </div>
@@ -415,7 +327,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div></div>
-      <div>https://markouv.github.io/2023/08/14/DSA/PS-01 Introduction/</div>
+      <div>https://markouv.github.io/2023/08/14/DSA/PS-14 Sorting + Selection/</div>
     </div>
     <div class="license-meta">
       
@@ -459,18 +371,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/08/14/DSA/PS-02%20Vector/" title="">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/08/12/hello-world/" title="Hello World">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2023/08/14/DSA/PS-13%20String/" title="">
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

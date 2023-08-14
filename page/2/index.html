@@ -18,7 +18,7 @@
   
     <meta property="og:type" content="website">
 <meta property="og:title" content="Kov&#39;s blog">
-<meta property="og:url" content="https://markouv.github.io/index.html">
+<meta property="og:url" content="https://markouv.github.io/page/2/index.html">
 <meta property="og:site_name" content="Kov&#39;s blog">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="John Doe">
@@ -226,279 +226,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2023/08/14/DSA/PS-14%20Sorting%20+%20Selection/" target="_self">
+        <a href="/2023/08/14/DSA/PS-02%20Vector/" target="_self">
           
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/14/DSA/PS-14%20Sorting%20+%20Selection/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/14/DSA/PS-02%20Vector/" target="_self">
         <div>
-          PS-14 Sorting + Selection1. 快速排序策略找到一个轴点，然后将元素与轴点比较，小的放在左边，大的放在右边  轴点：在本来有序向量中所属位置的点 但轴点不是一开始就有的，因此我们要培养轴点 快速划分：LUG版随机的选取候选者，比如 $elem[0]$，然后由 $lo$到 $hi$，交替向内移动，先从 $hi$开始比较，有小于轴点的即转到 $lo$，如此反复，各元素最多移动1
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-08-14 15:08" pubdate>
-              2023-08-14
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/08/14/DSA/PS-13%20String/" target="_self">
-          
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/14/DSA/PS-13%20String/" target="_self">
-        <div>
-          PS-13 String[TOC] 1. 串实际上就是字符串 2. 模式匹配$Text$和 $Pattern$的匹配 蛮力算法抓住 $Pattern$的头，和 $Text$串的每个元素逐一比对，如果匹配成功再深入 $Pattern$串比对 最好情况： $\Omega (n)$ 最坏情况： $O(n\cdot m)$ KMP算法 关键在于构建一个表，记录每个位置如果匹配失败，则更新成 $Patter
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-08-14 15:08" pubdate>
-              2023-08-14
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/08/14/DSA/PS-12%20Priority%20Queue/" target="_self">
-          
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/14/DSA/PS-12%20Priority%20Queue/" target="_self">
-        <div>
-          PS-12 Priority Queue[TOC] 1. 优先级队列基本实现使getMax()，delMax()，insert()均只需 $O(logn)$的时间，并且实现起来很简单，不必维护全序关系 完全二叉堆 要求在逻辑意义上， $\forall i,H[i]≤H[parent(i)$ 插入先在尾部插入，然后和其逻辑次序的父亲比较，如果更大则交换，然后就这样一层一层比较，逐层上滤，直到不大于父
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-08-14 15:07" pubdate>
-              2023-08-14
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/08/14/DSA/PS-09%20Dictionary/" target="_self">
-          
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/14/DSA/PS-09%20Dictionary/" target="_self">
-        <div>
-          PS-09 Dictionary[TOC] 1. 词典词条的key和value突破了数字的限制 散列：原理可能存在的key数量很多，但实际存在的key很少，为了节省空间，我们采用散列表  冲突有可能出现 $key_{1}≠key_{2}$，但是 $hash(key_{1})&#x3D;hash(key_{2})$的情况 2. 散列函数 除余法除余时选取素数，可使数据对散列表的覆盖最充分，分布最均匀
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-08-14 15:07" pubdate>
-              2023-08-14
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/08/14/DSA/PS-08%20Advanced%20Search%20Trees/" target="_self">
-          
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/14/DSA/PS-08%20Advanced%20Search%20Trees/" target="_self">
-        <div>
-          PS-08 Advanced Search Trees1. Splay Tree（伸展树）由于访问的局部性，访问一个节点以后可能不久就再次访问，于是把每次访问的节点移到树根，这样的树叫做伸展树 每次移动都要通过zig,zag一层一层地爬上去，如果周期性地访问，分摊复杂度可达 $\Omega (n^{2})$ 双层伸展 每次伸展要一起看两层，从祖父旋转 插入先通过search()找到不大于插入节点的
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-08-14 15:06" pubdate>
-              2023-08-14
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/08/14/DSA/PS-07%20Search%20Tree%20Applications/" target="_self">
-          
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/14/DSA/PS-07%20Search%20Tree%20Applications/" target="_self">
-        <div>
-          PS-07 Search Tree Applications[TOC] 1. Range Query1-D将所有点组织成一个有序的向量，通过二分查找找到最右的边界，然后反向report，这样的复杂度是 $O(logn+r)$， $r$是report所需的固定时间无法优化 2-D点分布在二维平面上，用上闭下开，右闭左开的区间去框住 2. K-D Tree2-D先递归地划分区域 找到中间点，奇数层竖直
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-08-14 15:05" pubdate>
-              2023-08-14
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/08/14/DSA/PS-06%20Binary%20Search%20Trees/" target="_self">
-          
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/14/DSA/PS-06%20Binary%20Search%20Trees/" target="_self">
-        <div>
-          PS-06 Binary Search Tree[TOC] 1. 二叉搜索树在中序遍历的意义下，搜索树必然单调非降 接口 search() insert() remove()  search 采取减而治之的策略，类似在做二分查找 insert 借助search()确定插入位置，然后由插入位置的父亲生出新的孩子 插入位置都在叶子节点 remove 定位目标节点，当目标节点只有一个子树时，直接用子树替
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-08-14 15:05" pubdate>
-              2023-08-14
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/08/14/DSA/PS-05%20Binary%20Trees/" target="_self">
-          
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/14/DSA/PS-05%20Binary%20Trees/" target="_self">
-        <div>
-          PS-05 Binary Trees[TOC] 1. 树一种连通无环图 节点深度即为从根节点到达该节点的路径长度 根的深度为0 所有叶子中深度最大者称为子树的高度 空树高度取作-1 树的表示用父亲节点+孩子节点表示 任何一棵有根有序的多叉树都可以转化为二叉树 满二叉树 高为 $h$的二叉树节点数 $n&#x3D;2^{h+1}-1$ 真二叉树 每个节点都有两个孩子 2. 二叉树实现 先序遍历123
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-08-14 15:04" pubdate>
-              2023-08-14
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/08/14/DSA/PS-04%20Stack%20+%20Queue/" target="_self">
-          
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/14/DSA/PS-04%20Stack%20+%20Queue/" target="_self">
-        <div>
-          PS-04 Stack + Queue[TOC] 1. 栈的接口与实现栈只能在栈顶插入和删除，后进先出  接口 size() &#x2F; empty() push() pop() top()    2. 栈的应用函数调用栈递归算法所用的空间主要取决于递归的深度，而不是递归实例的总数（因为递归实例并不是同时出现，每层递归只调用一个递归实例） 尾递归当每次递归只出现在最后一步时，这个递归就可以消除，
+          PS-02 Vector[TOC] 1. 从数组到向量寻秩访问其实就和数组一样… 向量ADT接口 可扩充向量开辟内部数组并使用一段地址连续的物理空间 $capacity$：总容量 $size$：实际规模 静态管理时容易出现 $size&gt;capacity$或 $size\ll capacity$的情况，以至上溢或者下溢，因此需要动态调整容量 动态空间管理 在即将上溢时，将向量的容量加倍，注意还
         </div>
       </a>
 
@@ -523,15 +259,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2023/08/14/DSA/PS-03%20List/" target="_self">
+        <a href="/2023/08/14/DSA/PS-01%20Introduction/" target="_self">
           
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/14/DSA/PS-03%20List/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/14/DSA/PS-01%20Introduction/" target="_self">
         <div>
-          PS-03 List[TOC] 1. 从向量到列表循位置访问列表中各元素的物理位置不决定于逻辑位置,利用节点之间相互引用，找到特定的节点 动态操作复杂度为 $O(1)$ ADT接口 2. 无序列表插入进行一个指针的换向就OK了  删除仍然是进行指针的换向 查找列表二分查找的成本太高，因此只采取顺序查找 去重与无序向量的去重方法相同 遍历顺序遍历 3. 有序向量唯一化感觉和有序向量的勤奋算法是一样的
+          PS-01 Introduction[TOC] 1. 计算：算法算法定义：在特定计算模型下（例如：计算机），旨在解决特定问题的指令序列  特点： 正确性：可以解决指定的问题 确定性：描述为基本操作组成的序列 可行性：每一个基本操作都能实现，并且是在常数时间内完成的 有穷性： 对于一个特定问题都可以经过有限次基本操作解决    Hailstone序列$Hailstone(n)&#x3D;\begin
         </div>
       </a>
 
@@ -539,8 +275,41 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-08-14 15:02" pubdate>
+            <time datetime="2023-08-14 14:53" pubdate>
               2023-08-14
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2023/08/12/hello-world/" target="_self">
+          Hello World
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/12/hello-world/" target="_self">
+        <div>
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-08-12 13:18" pubdate>
+              2023-08-12
             </time>
           </div>
         
@@ -554,7 +323,7 @@
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
     </span>
   </nav>
 
