@@ -16,24 +16,27 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="PS-04 Stack + Queue[TOC] 1. 栈的接口与实现栈只能在栈顶插入和删除，后进先出  接口 size() &#x2F; empty() push() pop() top()    2. 栈的应用函数调用栈递归算法所用的空间主要取决于递归的深度，而不是递归实例的总数（因为递归实例并不是同时出现，每层递归只调用一个递归实例） 尾递归当每次递归只出现在最后一步时，这个递归就可以消除，">
+    <meta name="description" content="PS-08 Advanced Search Trees1. Splay Tree（伸展树）由于访问的局部性，访问一个节点以后可能不久就再次访问，于是把每次访问的节点移到树根，这样的树叫做伸展树 每次移动都要通过zig,zag一层一层地爬上去，如果周期性地访问，分摊复杂度可达 $\Omega (n^{2})$ 双层伸展 每次伸展要一起看两层，从祖父旋转 插入先通过search()找到不大于插入节点的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kov&#39;s blog">
-<meta property="og:url" content="https://markouv.github.io/2023/08/14/DSA/PS-04%20Stack%20+%20Queue/index.html">
+<meta property="og:url" content="https://markouv.github.io/2023/08/14/PS-08%20Advanced%20Search%20Trees/index.html">
 <meta property="og:site_name" content="Kov&#39;s blog">
-<meta property="og:description" content="PS-04 Stack + Queue[TOC] 1. 栈的接口与实现栈只能在栈顶插入和删除，后进先出  接口 size() &#x2F; empty() push() pop() top()    2. 栈的应用函数调用栈递归算法所用的空间主要取决于递归的深度，而不是递归实例的总数（因为递归实例并不是同时出现，每层递归只调用一个递归实例） 尾递归当每次递归只出现在最后一步时，这个递归就可以消除，">
+<meta property="og:description" content="PS-08 Advanced Search Trees1. Splay Tree（伸展树）由于访问的局部性，访问一个节点以后可能不久就再次访问，于是把每次访问的节点移到树根，这样的树叫做伸展树 每次移动都要通过zig,zag一层一层地爬上去，如果周期性地访问，分摊复杂度可达 $\Omega (n^{2})$ 双层伸展 每次伸展要一起看两层，从祖父旋转 插入先通过search()找到不大于插入节点的">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/e623455616f7414ab351c7903eaec48.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/4e95db1e7942d27c6250eca1540af12.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/ed0ecda2e7675d6d2c12ed83b9e0161.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/1f6d3f3d79fe9975ddd9715022d7525.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/dad44ff2f88dfb585c38ac5092a116f.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/b276f1fcf9a3bd160aa344ab69864b7.jpg">
-<meta property="article:published_time" content="2023-08-14T07:02:49.178Z">
-<meta property="article:modified_time" content="2023-08-14T07:27:08.119Z">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/4db243df40e8eb226f784a6af1ab8eb.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/19b51d0fbf27991da17157afbacdbc2.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/04b75ec9cc75f70b106aa86208fa4d7.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/5c938ded426d6d213c35582e88f175d.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/aa680f5c143d56e34dd03015fcb9fd9.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/9e04d42570698e624a5919a49774869.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/b547cd00db3bc766dba512205da1bf6.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/20d87921fc6d1281f143bdbb7ed26e4.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/57b257d49517194bbfd38353fc7c205.jpg">
+<meta property="article:published_time" content="2023-08-14T07:06:33.345Z">
+<meta property="article:modified_time" content="2023-08-14T07:37:33.102Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/e623455616f7414ab351c7903eaec48.jpg">
+<meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/4db243df40e8eb226f784a6af1ab8eb.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -216,7 +219,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-08-14 15:02" pubdate>
+        <time datetime="2023-08-14 15:06" pubdate>
           2023年8月14日 下午
         </time>
       </span>
@@ -228,7 +231,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          1.2k 字
         
       </span>
     
@@ -239,7 +242,7 @@
         
         
         
-          13 分钟
+          10 分钟
         
       </span>
     
@@ -281,74 +284,60 @@
             
               <div class="markdown-body">
                 
-                <h1 id="PS-04-Stack-Queue"><a href="#PS-04-Stack-Queue" class="headerlink" title="PS-04 Stack + Queue"></a>PS-04 Stack + Queue</h1><p>[TOC]</p>
-<h1 id="1-栈的接口与实现"><a href="#1-栈的接口与实现" class="headerlink" title="1. 栈的接口与实现"></a>1. 栈的接口与实现</h1><p>栈只能在栈顶插入和删除，后进先出</p>
+                <h1 id="PS-08-Advanced-Search-Trees"><a href="#PS-08-Advanced-Search-Trees" class="headerlink" title="PS-08 Advanced Search Trees"></a>PS-08 Advanced Search Trees</h1><h1 id="1-Splay-Tree（伸展树）"><a href="#1-Splay-Tree（伸展树）" class="headerlink" title="1. Splay Tree（伸展树）"></a>1. Splay Tree（伸展树）</h1><p>由于访问的局部性，访问一个节点以后可能不久就再次访问，于是把每次访问的节点移到树根，这样的树叫做伸展树</p>
+<p>每次移动都要通过zig,zag一层一层地爬上去，如果周期性地访问，分摊复杂度可达 $\Omega (n^{2})$</p>
+<h3 id="双层伸展"><a href="#双层伸展" class="headerlink" title="双层伸展"></a>双层伸展</h3><p><img src="/Users/markov/Desktop/blog_figures/4db243df40e8eb226f784a6af1ab8eb.jpg" srcset="/img/loading.gif" lazyload alt="4db243df40e8eb226f784a6af1ab8eb"></p>
+<p>每次伸展要一起看两层，从祖父旋转</p>
+<h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a><strong>插入</strong></h3><p>先通过search()找到不大于插入节点的最大节点并伸展至根，然后再在根的头上生成新节点</p>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>通过search()找到目标节点，伸展至根然后删除，删除后从右子树中找到最小节点伸展至根作为新的根</p>
+<h3 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h3><p>分摊复杂度为 $O(logn)$</p>
+<p><strong>分析</strong></p>
+<p>运用势能分析法</p>
+<h1 id="2-B树"><a href="#2-B树" class="headerlink" title="2. B树"></a>2. B树</h1><ul>
+<li>存储器规模增长速度远远小于问题规模增长速度</li>
+<li>增大存储器规模会使访问速度变慢</li>
+<li>存储器有内部级联结构，不同级联结构访问速度不同，访问内存1s，访问磁盘则需要一天</li>
+<li>相邻存储级别之间的数据传输在算法时间中占的更多</li>
+</ul>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>每d代合并为1个超级节点，每个节点有 $m&#x3D;2^{d}$条支路， $m-1$个关键码</p>
+<p>内部节点分支个数为 $m&#x2F;2≤n≤m$，关键码个数为 $n-1$</p>
+<p>但是根节点关键码个数 $n≥1$即可</p>
+<h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><p>在每个节点中顺序查找，查找失败则转到下一层继续查找（相当于1次I&#x2F;O操作）</p>
+<p>运行时间 $O(logn)$</p>
+<h3 id="插入-1"><a href="#插入-1" class="headerlink" title="插入"></a>插入</h3><p>先通过search()找到插入位置，如果上溢，取出中位数关键码移到上层，原节点分裂为两个</p>
+<p>若父亲也上溢，用同样的办法分裂，若上溢向上传播，则逐层解决直到根</p>
+<h3 id="删除-1"><a href="#删除-1" class="headerlink" title="删除"></a>删除</h3><p>先通过search()找到删除位置，如果不是叶子节点，则找到直接后继与其交换，然后在直接后继的位置将其删除</p>
+<p>如果下溢，看左右兄弟的规模：</p>
 <ul>
-<li>接口<ul>
-<li>size() &#x2F; empty()</li>
-<li>push()</li>
-<li>pop()</li>
-<li>top()</li>
+<li>如果左兄弟有盈余，将左兄弟的最大关键码移到父亲节点上来，将父亲节点的分界关键码移到被删除的节点中</li>
+<li>如果右兄弟有盈余，将右兄弟的最小关键码移到父亲节点上来，将父亲节点的分界关键码移到被删除的节点中</li>
+<li>如果左右兄弟都不够，则选择左兄弟或右兄弟，将其父亲的分界关键码拿下来两个节点合并为一个节点，但可能引起向上传播，则逐层修复</li>
 </ul>
-</li>
-</ul>
-<h1 id="2-栈的应用"><a href="#2-栈的应用" class="headerlink" title="2. 栈的应用"></a>2. 栈的应用</h1><h3 id="函数调用栈"><a href="#函数调用栈" class="headerlink" title="函数调用栈"></a><strong>函数调用栈</strong></h3><p>递归算法所用的空间主要取决于递归的深度，而不是递归实例的总数（因为递归实例并不是同时出现，每层递归只调用一个递归实例）</p>
-<h3 id="尾递归"><a href="#尾递归" class="headerlink" title="尾递归"></a><strong>尾递归</strong></h3><p>当每次递归只出现在最后一步时，这个递归就可以消除，时间上会有常系数的改进，空间上会大幅度改进</p>
-<h3 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a><strong>进制转换</strong></h3><p>短除法，反复整除留余</p>
-<p>要找到一种算法，可以自低而高的保留数位，然后自高而低的输出</p>
-<p>栈就是这样一种满足要求的数据结构</p>
-<h3 id="括号匹配"><a href="#括号匹配" class="headerlink" title="括号匹配"></a>括号匹配</h3><p>分治策略和减治策略是不可行的，他们只满足充分条件，不满足必要条件，这是一种由外而内的策略</p>
-<p><img src="/Users/markov/Desktop/blog_figures/e623455616f7414ab351c7903eaec48.jpg" srcset="/img/loading.gif" lazyload alt="e623455616f7414ab351c7903eaec48"></p>
-<p>思考一种由内而外的策略，从内部一点一点将紧邻的括号消去从而判断是否全局匹配，要想实现这种策略，可以考虑使用栈</p>
-<p><img src="/Users/markov/Desktop/blog_figures/4e95db1e7942d27c6250eca1540af12.jpg" srcset="/img/loading.gif" lazyload alt="4e95db1e7942d27c6250eca1540af12"></p>
-<h3 id="栈混洗"><a href="#栈混洗" class="headerlink" title="栈混洗"></a>栈混洗</h3><p>考察栈 $A,B,S$，只存在 $S.push(A.pop()),B.push(S.pop())$两个操作</p>
-<p>可以考察 $S$再度变空 $n$种情况，实际上就是对 $A$中除第一个元素外（因为第一个元素必然排在 $k$个元素的末尾）前 $k-1$个元素栈混洗再对后 $n-k$个元素栈混洗</p>
-<p>因此最后得到的组合数为</p>
-<p>$SP(n)&#x3D;\sum SP(k-1)\cdot SP(n-k)&#x3D;catalan(n)&#x3D;\frac{(2n)!}{(n+1)!\cdot n!}$</p>
-<p><strong>检测禁形</strong></p>
-<p>对任何 $1≤i&lt;j&lt;k≤n,[…,k,…,i,…,j,…&gt;$，必然不是栈混洗</p>
-<p>即不存在“312”的模式</p>
-<p><strong>括号匹配</strong></p>
-<p>$S$经历了n次push和n次pop正好对应n对括号的匹配，所以n对括号匹配的排序数量也是卡特兰数</p>
-<h3 id="中缀表达式求值"><a href="#中缀表达式求值" class="headerlink" title="中缀表达式求值"></a>中缀表达式求值</h3><p>要先按照规则约定一个优先级，还要考察括号优先级</p>
-<h3 id="逆波兰表达式"><a href="#逆波兰表达式" class="headerlink" title="逆波兰表达式"></a>逆波兰表达式</h3><p>不使用括号，即可表示带优先级的运算关系，也可以称为后缀式</p>
-<p>用一个栈，遇到数就压入，遇到算符就弹出计算，更方便（好像）</p>
-<p><strong>中缀表达式与逆波兰表达式转换</strong></p>
-<p>将中缀表达式的每一次运算都用括号括起来，然后按照左括号和数字向下，运算符向上的规则写成一个起起伏伏的序列，这样每一个运算符都在同一高度上对应着一个右括号，然后将运算符移动到右括号对应的位置替换掉右括号，最后再落到同一排，转换就完成了</p>
-<p><img src="/Users/markov/Desktop/blog_figures/ed0ecda2e7675d6d2c12ed83b9e0161.jpg" srcset="/img/loading.gif" lazyload alt="ed0ecda2e7675d6d2c12ed83b9e0161"></p>
-<h1 id="3-队列的接口与实现"><a href="#3-队列的接口与实现" class="headerlink" title="3. 队列的接口与实现"></a>3. 队列的接口与实现</h1><p>队列只能在队尾插入，从队头删除，先进先出</p>
-<ul>
-<li>接口<ul>
-<li>enqueue()&#x2F;rear()</li>
-<li>dequeue()&#x2F;front()</li>
-</ul>
-</li>
-</ul>
-<h1 id="4-队列应用"><a href="#4-队列应用" class="headerlink" title="4. 队列应用"></a>4. 队列应用</h1><h3 id="直方图内最大矩形"><a href="#直方图内最大矩形" class="headerlink" title="直方图内最大矩形"></a>直方图内最大矩形</h3><p><strong>蛮力算法(Brute force)</strong></p>
-<p>逐一扫描选取最大的，复杂度 $O(n^{2})$</p>
-<p><strong>优化算法</strong></p>
-<p>对每一个直方矩形，找到它的左边界和右边界存起来即可，在找的过程中要进行适当的剪枝</p>
-<h1 id="5-栈与队列"><a href="#5-栈与队列" class="headerlink" title="5. 栈与队列"></a>5. 栈与队列</h1><h3 id="Steap-Stack-Heap"><a href="#Steap-Stack-Heap" class="headerlink" title="Steap &#x3D; Stack + Heap"></a>Steap &#x3D; Stack + Heap</h3><p><img src="/Users/markov/Desktop/blog_figures/1f6d3f3d79fe9975ddd9715022d7525.jpg" srcset="/img/loading.gif" lazyload alt="1f6d3f3d79fe9975ddd9715022d7525"></p>
-<p>这样可以快速得出栈中最大的元素，但是 $P$中存了大量重复的元素似乎有些浪费空间，可以对其进行适当的简化：</p>
-<p><img src="/Users/markov/Desktop/blog_figures/dad44ff2f88dfb585c38ac5092a116f.jpg" srcset="/img/loading.gif" lazyload alt="dad44ff2f88dfb585c38ac5092a116f"></p>
-<p>用压缩的方法，每个最大值部分存一个计数器，来了pop一个就-1，来更大的就push一个</p>
-<h3 id="Queap-Queue-Heap"><a href="#Queap-Queue-Heap" class="headerlink" title="Queap &#x3D; Queue + Heap"></a>Queap &#x3D; Queue + Heap</h3><p><img src="/Users/markov/Desktop/blog_figures/b276f1fcf9a3bd160aa344ab69864b7.jpg" srcset="/img/loading.gif" lazyload alt="b276f1fcf9a3bd160aa344ab69864b7"></p>
-<p>用队列时，更新复杂度就会变高，因为插入是从后缀插入， $P$要更新后缀的最大值</p>
-<p>同样的也可以用压缩的方法降低空间复杂度</p>
-<p><strong>为什么 $P$的后缀可进可出？</strong></p>
-<h3 id="双栈当队"><a href="#双栈当队" class="headerlink" title="双栈当队"></a>双栈当队</h3><p><strong>复杂度分析</strong></p>
-<ul>
-<li>Accounting</li>
-</ul>
-<p>思考每个元素要进行的操作数，无非入栈、出栈、再入栈、再出栈四种 $O(1)$操作，因此分摊复杂度是 $O(4)$，这个以元素为研究对象</p>
-<ul>
-<li>Aggregate（校长算总账）</li>
-</ul>
-<p>考虑队列是个学校，所有入过学的总数为 $e$，所有毕业的总数为 $d$，总共所花时间无非 $≤4d+3(e-d)$，则每次操作的分摊复杂度为 $\frac{3e+d}{e+d}&lt;3$，这个以操作为研究对象</p>
-<ul>
-<li>Potential（势能）</li>
-</ul>
-<p>很玄学的一个东西</p>
+<h1 id="3-红黑树"><a href="#3-红黑树" class="headerlink" title="3. 红黑树"></a>3. 红黑树</h1><p><img src="/Users/markov/Desktop/blog_figures/19b51d0fbf27991da17157afbacdbc2.jpg" srcset="/img/loading.gif" lazyload alt="19b51d0fbf27991da17157afbacdbc2"></p>
+<p>将红节点高度提升至与其黑父亲等高，实际上相当于一个(2,4)-B树，也是BBST</p>
+<h3 id="插入-2"><a href="#插入-2" class="headerlink" title="插入"></a>插入</h3><p>search()找到插入位置，然后染红（根节点要染成黑的），此时规则3可能会违反，可能会出现双红的情况</p>
+<p><strong>双红修正</strong></p>
+<p><img src="/Users/markov/Desktop/blog_figures/04b75ec9cc75f70b106aa86208fa4d7.jpg" srcset="/img/loading.gif" lazyload alt="04b75ec9cc75f70b106aa86208fa4d7"></p>
+<p>经过3-4重构之后，将中间节点染黑，子节点染红</p>
+<p><img src="/Users/markov/Desktop/blog_figures/5c938ded426d6d213c35582e88f175d.jpg" srcset="/img/loading.gif" lazyload alt="5c938ded426d6d213c35582e88f175d"></p>
+<p>相当于B树上溢，将g染红上升1层，然后将p, u染黑</p>
+<p>这样可能引起双红向上传播，则逐层实施双红解决策略</p>
+<p><strong>复杂度</strong></p>
+<p>$O(logn)$次重染色</p>
+<p>$O(1)$次旋转（旋转过后必然全局恢复）</p>
+<h3 id="删除-2"><a href="#删除-2" class="headerlink" title="删除"></a>删除</h3><p>按照原BST删除操作删除，3、4规则可能会违反</p>
+<p><img src="/Users/markov/Desktop/blog_figures/aa680f5c143d56e34dd03015fcb9fd9.jpg" srcset="/img/loading.gif" lazyload alt="aa680f5c143d56e34dd03015fcb9fd9"></p>
+<p><strong>双黑</strong></p>
+<p><img src="/Users/markov/Desktop/blog_figures/9e04d42570698e624a5919a49774869.jpg" srcset="/img/loading.gif" lazyload alt="9e04d42570698e624a5919a49774869"></p>
+<p>3-4重构</p>
+<p><img src="/Users/markov/Desktop/blog_figures/b547cd00db3bc766dba512205da1bf6.jpg" srcset="/img/loading.gif" lazyload alt="b547cd00db3bc766dba512205da1bf6"></p>
+<p><img src="/Users/markov/Desktop/blog_figures/20d87921fc6d1281f143bdbb7ed26e4.jpg" srcset="/img/loading.gif" lazyload alt="20d87921fc6d1281f143bdbb7ed26e4"></p>
+<p>局部修复之后，父节点会下溢，仍然可以看成原父节点是个黑节点，从而进行双黑修正</p>
+<p><img src="/Users/markov/Desktop/blog_figures/57b257d49517194bbfd38353fc7c205.jpg" srcset="/img/loading.gif" lazyload alt="57b257d49517194bbfd38353fc7c205"></p>
+<p><strong>复杂度</strong></p>
+<p>$O(\log n)$次重染色</p>
+<p>$O(1)$次旋转（旋转过后必然全局恢复）</p>
+<p>红黑树考前再看看！！</p>
 
                 
               </div>
@@ -367,7 +356,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div></div>
-      <div>https://markouv.github.io/2023/08/14/DSA/PS-04 Stack + Queue/</div>
+      <div>https://markouv.github.io/2023/08/14/PS-08 Advanced Search Trees/</div>
     </div>
     <div class="license-meta">
       
@@ -411,7 +400,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/08/14/DSA/PS-05%20Binary%20Trees/" title="">
+                      <a href="/2023/08/14/PS-09%20Dictionary/" title="">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile"></span>
                         <span class="visible-mobile">上一篇</span>
@@ -421,7 +410,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/08/14/DSA/PS-03%20List/" title="">
+                      <a href="/2023/08/14/PS-07%20Search%20Tree%20Applications/" title="">
                         <span class="hidden-mobile"></span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>

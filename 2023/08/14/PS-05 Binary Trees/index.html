@@ -16,25 +16,19 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="PS-09 Dictionary[TOC] 1. 词典词条的key和value突破了数字的限制 散列：原理可能存在的key数量很多，但实际存在的key很少，为了节省空间，我们采用散列表  冲突有可能出现 $key_{1}≠key_{2}$，但是 $hash(key_{1})&#x3D;hash(key_{2})$的情况 2. 散列函数 除余法除余时选取素数，可使数据对散列表的覆盖最充分，分布最均匀">
+    <meta name="description" content="PS-05 Binary Trees[TOC] 1. 树一种连通无环图 节点深度即为从根节点到达该节点的路径长度 根的深度为0 所有叶子中深度最大者称为子树的高度 空树高度取作-1 树的表示用父亲节点+孩子节点表示 任何一棵有根有序的多叉树都可以转化为二叉树 满二叉树 高为 $h$的二叉树节点数 $n&#x3D;2^{h+1}-1$ 真二叉树 每个节点都有两个孩子 2. 二叉树实现 先序遍历123">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kov&#39;s blog">
-<meta property="og:url" content="https://markouv.github.io/2023/08/14/DSA/PS-09%20Dictionary/index.html">
+<meta property="og:url" content="https://markouv.github.io/2023/08/14/PS-05%20Binary%20Trees/index.html">
 <meta property="og:site_name" content="Kov&#39;s blog">
-<meta property="og:description" content="PS-09 Dictionary[TOC] 1. 词典词条的key和value突破了数字的限制 散列：原理可能存在的key数量很多，但实际存在的key很少，为了节省空间，我们采用散列表  冲突有可能出现 $key_{1}≠key_{2}$，但是 $hash(key_{1})&#x3D;hash(key_{2})$的情况 2. 散列函数 除余法除余时选取素数，可使数据对散列表的覆盖最充分，分布最均匀">
+<meta property="og:description" content="PS-05 Binary Trees[TOC] 1. 树一种连通无环图 节点深度即为从根节点到达该节点的路径长度 根的深度为0 所有叶子中深度最大者称为子树的高度 空树高度取作-1 树的表示用父亲节点+孩子节点表示 任何一棵有根有序的多叉树都可以转化为二叉树 满二叉树 高为 $h$的二叉树节点数 $n&#x3D;2^{h+1}-1$ 真二叉树 每个节点都有两个孩子 2. 二叉树实现 先序遍历123">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/32855079dcb7ccc5f1f93c829c4ebae.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/419895227157f83a9939d976997233b.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/eaf65b8e882e0a37a729f3b3c72ded4.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/a1dec55dd1026e0a4b5c3b364a97dbd.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/00bbe90ddf4ba8bee277ab6f7d40947.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/76270e5235418d36ab00f0abb6d9430.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/c2246e7f7a321ac3b0f27c165804351.jpg">
-<meta property="article:published_time" content="2023-08-14T07:07:35.719Z">
-<meta property="article:modified_time" content="2023-08-14T07:42:37.699Z">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/b83ad580ec96c01a25bf966e23d4b2a.jpg">
+<meta property="article:published_time" content="2023-08-14T07:04:51.293Z">
+<meta property="article:modified_time" content="2023-08-14T07:28:27.535Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/32855079dcb7ccc5f1f93c829c4ebae.jpg">
+<meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/b83ad580ec96c01a25bf966e23d4b2a.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -217,7 +211,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-08-14 15:07" pubdate>
+        <time datetime="2023-08-14 15:04" pubdate>
           2023年8月14日 下午
         </time>
       </span>
@@ -229,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          1.3k 字
         
       </span>
     
@@ -240,7 +234,7 @@
         
         
         
-          10 分钟
+          11 分钟
         
       </span>
     
@@ -282,59 +276,60 @@
             
               <div class="markdown-body">
                 
-                <h1 id="PS-09-Dictionary"><a href="#PS-09-Dictionary" class="headerlink" title="PS-09 Dictionary"></a>PS-09 Dictionary</h1><p>[TOC]</p>
-<h1 id="1-词典"><a href="#1-词典" class="headerlink" title="1. 词典"></a>1. 词典</h1><p>词条的key和value突破了数字的限制</p>
-<h3 id="散列：原理"><a href="#散列：原理" class="headerlink" title="散列：原理"></a>散列：原理</h3><p>可能存在的key数量很多，但实际存在的key很少，为了节省空间，我们采用散列表</p>
-<p><img src="/Users/markov/Desktop/blog_figures/32855079dcb7ccc5f1f93c829c4ebae.jpg" srcset="/img/loading.gif" lazyload alt="32855079dcb7ccc5f1f93c829c4ebae"></p>
-<h3 id="冲突"><a href="#冲突" class="headerlink" title="冲突"></a>冲突</h3><p>有可能出现 $key_{1}≠key_{2}$，但是 $hash(key_{1})&#x3D;hash(key_{2})$的情况</p>
-<h1 id="2-散列函数"><a href="#2-散列函数" class="headerlink" title="2. 散列函数"></a>2. 散列函数</h1><p><img src="/Users/markov/Desktop/blog_figures/419895227157f83a9939d976997233b.jpg" srcset="/img/loading.gif" lazyload alt="419895227157f83a9939d976997233b"></p>
-<h3 id="除余法"><a href="#除余法" class="headerlink" title="除余法"></a>除余法</h3><p>除余时选取素数，可使数据对散列表的覆盖最充分，分布最均匀</p>
-<h3 id="MAD法"><a href="#MAD法" class="headerlink" title="MAD法"></a>MAD法</h3><p><img src="/Users/markov/Desktop/blog_figures/eaf65b8e882e0a37a729f3b3c72ded4.jpg" srcset="/img/loading.gif" lazyload alt="eaf65b8e882e0a37a729f3b3c72ded4"></p>
-<p>散列函数设计的越随机越好</p>
-<h3 id="伪随机数法"><a href="#伪随机数法" class="headerlink" title="伪随机数法"></a>伪随机数法</h3><p>因各平台随机数生成方法差异很大，该方法可移植性差</p>
-<h1 id="3-排解冲突"><a href="#3-排解冲突" class="headerlink" title="3. 排解冲突"></a>3. 排解冲突</h1><h3 id="开放散列"><a href="#开放散列" class="headerlink" title="开放散列"></a>开放散列</h3><p><strong>多槽位</strong></p>
-<p>预先将每个bucket细分成几个槽</p>
-<p>但是细分程度无法确定，可能不够，也可能空间浪费</p>
-<p><strong>公共溢出区</strong></p>
-<p>将溢出元素放在额外开辟的区域中，但是一旦溢出就要遍历溢出区</p>
-<p><strong>独立链</strong></p>
-<p>每个bucket里存入一个链表用以存放冲突，但是指针本身会占用很多空间，调用也很慢</p>
-<h3 id="封闭散列"><a href="#封闭散列" class="headerlink" title="封闭散列"></a>封闭散列</h3><p><strong>线性试探</strong></p>
-<p>从 $hash(key)$的对应位置开始试探如果失败则转向下一个桶，直到成功或抵达空桶（失败）</p>
-<p>插入：插入到线性试探为空的位置</p>
-<p>删除：不能直接删除，因为可能会使线性试探提前中断，要采取懒惰删除的策略</p>
-<p><strong>懒惰删除</strong></p>
-<p>仅将删除位置做一个标记</p>
-<p>当查找时，标记位置看作非空，但是必不匹配</p>
-<p>当插入时，标记位置看作空，可以插入元素</p>
-<h3 id="重散列"><a href="#重散列" class="headerlink" title="重散列"></a>重散列</h3><p>当装填因子过大时，考虑开辟一个更大的散列表，然后将原来散列表的元素集体迁移到新的散列，注意迁移时不可以简单的线性迁移，要回归到hash()之前的key，按照新的散列规则重新计算插入</p>
-<p><strong>平方试探</strong></p>
-<p>但发生冲突时，可以聪明地跳出冲突区域，减少试探次数</p>
-<p>当表长 $M$为素数时，装填因子 $\lambda&lt;0.5$，可以保证散列表正常运行</p>
-<p>否则可能会出现在几个元素中反复横跳的情况</p>
-<p><strong>双向平方试探</strong></p>
-<p>交替地沿两个方向试探</p>
-<p>取表长为 $M&#x3D;4k+3$，可以保证试探前 $M$项均互异</p>
-<h1 id="4-桶排序"><a href="#4-桶排序" class="headerlink" title="4. 桶排序"></a>4. 桶排序</h1><p><img src="/Users/markov/Desktop/blog_figures/a1dec55dd1026e0a4b5c3b364a97dbd.jpg" srcset="/img/loading.gif" lazyload alt="a1dec55dd1026e0a4b5c3b364a97dbd"></p>
-<p><img src="/Users/markov/Desktop/blog_figures/00bbe90ddf4ba8bee277ab6f7d40947.jpg" srcset="/img/loading.gif" lazyload alt="00bbe90ddf4ba8bee277ab6f7d40947"></p>
-<h3 id="最大缝隙"><a href="#最大缝隙" class="headerlink" title="最大缝隙"></a>最大缝隙</h3><p>找出 $n$个点中间隔最大的一段，采用分桶排序，算法复杂度可达 $O(n)$</p>
-<p><img src="/Users/markov/Desktop/blog_figures/76270e5235418d36ab00f0abb6d9430.jpg" srcset="/img/loading.gif" lazyload alt="76270e5235418d36ab00f0abb6d9430"></p>
-<h3 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h3><p>关键码由多个域组成</p>
-<p>排序时由低位到高位，可保证算法的稳定性</p>
-<p><strong>整数排序</strong></p>
-<p>每个元素化为 $d$个域，可直接套用基数排序算法</p>
-<h3 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h3><p>“小集合+大数据”类型</p>
-<p>按数字大小排序之后，还要按种类排序</p>
-<p>经过分桶统计出种类的数量，确定每个种类对应的区间</p>
-<p>自后向前扫描，将对应的种类放到尾部，然后计数减一</p>
-<p><strong>为什么自后向前？因为分桶的时候最终记的是每个种类最末尾位置的指针</strong></p>
-<p>空间复杂度 $O(n)$</p>
-<h3 id="跳转表"><a href="#跳转表" class="headerlink" title="跳转表"></a>跳转表</h3><p>每个元素的塔高期望为2，所以空间复杂度期望为 $O(n)$</p>
-<p>整体期望塔高为 $O(logn)$</p>
-<p><strong>查找时间复杂度</strong></p>
-<p><img src="/Users/markov/Desktop/blog_figures/c2246e7f7a321ac3b0f27c165804351.jpg" srcset="/img/loading.gif" lazyload alt="c2246e7f7a321ac3b0f27c165804351"></p>
-<p>纵向跳转为层高： $O(logn)$</p>
-<p>横向跳转时，每次都落在塔顶上，每层的塔顶期望的只有2个，因此也为 $O(logn)$</p>
+                <h1 id="PS-05-Binary-Trees"><a href="#PS-05-Binary-Trees" class="headerlink" title="PS-05 Binary Trees"></a>PS-05 Binary Trees</h1><p>[TOC]</p>
+<h1 id="1-树"><a href="#1-树" class="headerlink" title="1. 树"></a>1. 树</h1><p>一种连通无环图</p>
+<p>节点深度即为从根节点到达该节点的路径长度</p>
+<p>根的深度为0</p>
+<p>所有叶子中深度最大者称为子树的高度</p>
+<p>空树高度取作-1</p>
+<h3 id="树的表示"><a href="#树的表示" class="headerlink" title="树的表示"></a>树的表示</h3><p>用父亲节点+孩子节点表示</p>
+<p>任何一棵有根有序的多叉树都可以转化为二叉树</p>
+<p><strong>满二叉树</strong></p>
+<p>高为 $h$的二叉树节点数 $n&#x3D;2^{h+1}-1$</p>
+<p><strong>真二叉树</strong></p>
+<p>每个节点都有两个孩子</p>
+<h1 id="2-二叉树"><a href="#2-二叉树" class="headerlink" title="2. 二叉树"></a>2. 二叉树</h1><h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p><img src="/Users/markov/Desktop/blog_figures/b83ad580ec96c01a25bf966e23d4b2a.jpg" srcset="/img/loading.gif" lazyload alt="b83ad580ec96c01a25bf966e23d4b2a"></p>
+<h3 id="先序遍历"><a href="#先序遍历" class="headerlink" title="先序遍历"></a>先序遍历</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">void</span> <span class="hljs-title function_">traverse</span>(<span class="hljs-params">x, visit</span>)&#123;<br>	<span class="hljs-title function_">visit</span>(x);<br>	<span class="hljs-title function_">traverse</span>(x-&gt;lc, visit);<br>	<span class="hljs-title function_">traverse</span>(x-&gt;rc, visit);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>制约：递归深度有限</p>
+<p><strong>改进</strong></p>
+<p>先访问最左侧的一根藤，然后自下而上访问藤上每个右子树，每个右子树仍以同样的方式遍历</p>
+<p>用栈来实现</p>
+<h3 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">void</span> <span class="hljs-title function_">tarverse</span>(<span class="hljs-params">x, visit</span>)&#123;<br>	<span class="hljs-title function_">traverse</span>(x-&gt;lc, visit);<br>	<span class="hljs-title function_">visit</span>(x);<br>	<span class="hljs-title function_">traverse</span>(x-&gt;rc, visit);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>迭代方法</strong></p>
+<p>先从最左侧的藤走下去，走到最深处，然后从下而上遍历藤上节点以及右子树</p>
+<p>用栈来实现</p>
+<p>在中序遍历意义下，如果有右孩子，直接后继为最靠左的右后代，</p>
+<p>如果没有，反过来想，应是以该节点为直接前驱的节点</p>
+<h3 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">void</span> <span class="hljs-title function_">tarverse</span>(<span class="hljs-params">x, visit</span>)&#123;<br>	<span class="hljs-title function_">traverse</span>(x-&gt;lc, visit);<br>	<span class="hljs-title function_">traverse</span>(x-&gt;rc, visit);<br>	<span class="hljs-title function_">visit</span>(x);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>迭代</strong></p>
+<p>尽量沿左走，如果左走不了，则向右，直到无路可走，然后自下而上遍历节点以及右子树（如果有的话）</p>
+<p>还是用栈来实现</p>
+<h3 id="层次遍历"><a href="#层次遍历" class="headerlink" title="层次遍历"></a>层次遍历</h3><p>（广度优先搜索hhh）</p>
+<p>运用队列来迭代</p>
+<p><strong>完全二叉树</strong></p>
+<ul>
+<li>底层叶子只居于最底下两层，且最后一层的叶子都靠在最左侧的真二叉树</li>
+<li>叶子节点不比内部节点少，至多多出来一个</li>
+<li>辅助队列最大规模 $n&#x2F;2$向上取整</li>
+</ul>
+<h3 id="重构"><a href="#重构" class="headerlink" title="重构"></a>重构</h3><p>可以用两个向量或列表来重构二叉树</p>
+<p><strong>先序&#x2F;后序+中序</strong></p>
+<p>完全可行，在先序的头或后序的尾找到中间节点，再在中序中找到中间节点分割即可，左边就对应左子树，右边则对应右子树</p>
+<p><strong>先序+后序</strong></p>
+<p>当原二叉树有左右两棵子树时，通过查找两棵子树的根节点也能把左右子树对应的序列区分开来，但是当只有一棵子树时，就不行了</p>
+<h1 id="3-Huffman-编码树"><a href="#3-Huffman-编码树" class="headerlink" title="3. Huffman 编码树"></a>3. Huffman 编码树</h1><p>关键：不同字符的编码互不为前缀（Prefix-Free Code)</p>
+<p>平均编码长度等于叶节点的平均深度</p>
+<p><strong>最优编码树</strong></p>
+<p>平均编码长度最小者，最特别的是真完全树，否则可以通过交换节点来实现最优</p>
+<p>但实际上不同字符的出现频率并不相同，叶节点的平均深度要加上频率的权重，此时完全树就未必是最优编码树</p>
+<p>考虑频率时，要把频率高的字符放在高处，频率低的字符放在低处</p>
+<p><strong>贪心策略</strong></p>
+<p>所有字符单节点作为一棵树，组成森林，按频率将树从小到大排序，取出频率最小的两棵树组成一棵新的树，然后放回森林中，如此循环往复，最终组成一棵完整的树，符合频率低的在低处，频率高的在高处</p>
+<p>如果采用向量或者列表，复杂度要 $O(n^{2})$</p>
+<p>如果采用优先级队列，复杂度为 $O(nlogn)$</p>
 
                 
               </div>
@@ -353,7 +348,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div></div>
-      <div>https://markouv.github.io/2023/08/14/DSA/PS-09 Dictionary/</div>
+      <div>https://markouv.github.io/2023/08/14/PS-05 Binary Trees/</div>
     </div>
     <div class="license-meta">
       
@@ -397,7 +392,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/08/14/DSA/PS-12%20Priority%20Queue/" title="">
+                      <a href="/2023/08/14/PS-06%20Binary%20Search%20Trees/" title="">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile"></span>
                         <span class="visible-mobile">上一篇</span>
@@ -407,7 +402,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/08/14/DSA/PS-08%20Advanced%20Search%20Trees/" title="">
+                      <a href="/2023/08/14/PS-04%20Stack%20+%20Queue/" title="">
                         <span class="hidden-mobile"></span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>

@@ -16,21 +16,22 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="PS-12 Priority Queue[TOC] 1. 优先级队列基本实现使getMax()，delMax()，insert()均只需 $O(logn)$的时间，并且实现起来很简单，不必维护全序关系 完全二叉堆 要求在逻辑意义上， $\forall i,H[i]≤H[parent(i)$ 插入先在尾部插入，然后和其逻辑次序的父亲比较，如果更大则交换，然后就这样一层一层比较，逐层上滤，直到不大于父">
+    <meta name="description" content="PS-13 String[TOC] 1. 串实际上就是字符串 2. 模式匹配$Text$和 $Pattern$的匹配 蛮力算法抓住 $Pattern$的头，和 $Text$串的每个元素逐一比对，如果匹配成功再深入 $Pattern$串比对 最好情况： $\Omega (n)$ 最坏情况： $O(n\cdot m)$ KMP算法 关键在于构建一个表，记录每个位置如果匹配失败，则更新成 $Patter">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kov&#39;s blog">
-<meta property="og:url" content="https://markouv.github.io/2023/08/14/DSA/PS-12%20Priority%20Queue/index.html">
+<meta property="og:url" content="https://markouv.github.io/2023/08/14/PS-13%20String/index.html">
 <meta property="og:site_name" content="Kov&#39;s blog">
-<meta property="og:description" content="PS-12 Priority Queue[TOC] 1. 优先级队列基本实现使getMax()，delMax()，insert()均只需 $O(logn)$的时间，并且实现起来很简单，不必维护全序关系 完全二叉堆 要求在逻辑意义上， $\forall i,H[i]≤H[parent(i)$ 插入先在尾部插入，然后和其逻辑次序的父亲比较，如果更大则交换，然后就这样一层一层比较，逐层上滤，直到不大于父">
+<meta property="og:description" content="PS-13 String[TOC] 1. 串实际上就是字符串 2. 模式匹配$Text$和 $Pattern$的匹配 蛮力算法抓住 $Pattern$的头，和 $Text$串的每个元素逐一比对，如果匹配成功再深入 $Pattern$串比对 最好情况： $\Omega (n)$ 最坏情况： $O(n\cdot m)$ KMP算法 关键在于构建一个表，记录每个位置如果匹配失败，则更新成 $Patter">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/ffd3f8850a8185b8e9445d41fe588af.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/8ae48f81a930cc03a061c7227b9968a.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/87f9daabc4c578869b81378ae9d6337.jpg">
-<meta property="article:published_time" content="2023-08-14T07:07:49.978Z">
-<meta property="article:modified_time" content="2023-08-14T07:44:56.178Z">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/3d55590162be0cc924c1323ce29f98b.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/ea1ada7716d4a841827518b5322587f.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/cb7483acadb758959fabfd07d7a5022.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/10c168d09b6790f7986f9c1f681fc7a.jpg">
+<meta property="article:published_time" content="2023-08-14T07:08:14.566Z">
+<meta property="article:modified_time" content="2023-08-14T07:47:29.183Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/ffd3f8850a8185b8e9445d41fe588af.jpg">
+<meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/3d55590162be0cc924c1323ce29f98b.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -213,7 +214,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-08-14 15:07" pubdate>
+        <time datetime="2023-08-14 15:08" pubdate>
           2023年8月14日 下午
         </time>
       </span>
@@ -225,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          671 字
+          1.2k 字
         
       </span>
     
@@ -236,7 +237,7 @@
         
         
         
-          6 分钟
+          11 分钟
         
       </span>
     
@@ -278,23 +279,46 @@
             
               <div class="markdown-body">
                 
-                <h1 id="PS-12-Priority-Queue"><a href="#PS-12-Priority-Queue" class="headerlink" title="PS-12 Priority Queue"></a>PS-12 Priority Queue</h1><p>[TOC]</p>
-<h1 id="1-优先级队列"><a href="#1-优先级队列" class="headerlink" title="1. 优先级队列"></a>1. 优先级队列</h1><h3 id="基本实现"><a href="#基本实现" class="headerlink" title="基本实现"></a>基本实现</h3><p>使getMax()，delMax()，insert()均只需 $O(logn)$的时间，并且实现起来很简单，不必维护全序关系</p>
-<h3 id="完全二叉堆"><a href="#完全二叉堆" class="headerlink" title="完全二叉堆"></a>完全二叉堆</h3><p><img src="/Users/markov/Desktop/blog_figures/ffd3f8850a8185b8e9445d41fe588af.jpg" srcset="/img/loading.gif" lazyload alt="ffd3f8850a8185b8e9445d41fe588af"></p>
-<p>要求在逻辑意义上， $\forall i,H[i]≤H[parent(i)$</p>
-<h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><p>先在尾部插入，然后和其逻辑次序的父亲比较，如果更大则交换，然后就这样一层一层比较，逐层上滤，直到不大于父亲或到达顶端，所需时间为 $O(logn)$</p>
-<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>接口只实现删除极大元素即顶部元素，将尾部元素拿到顶上来，然后与其逻辑的两个孩子比较，取三者中的最大者当父亲，就这样逐层下滤，直到满足条件为止，所需时间为 $O(logn)$</p>
-<h1 id="2-批量建堆"><a href="#2-批量建堆" class="headerlink" title="2. 批量建堆"></a>2. 批量建堆</h1><h3 id="自上而下的上滤（蛮力算法）"><a href="#自上而下的上滤（蛮力算法）" class="headerlink" title="自上而下的上滤（蛮力算法）"></a>自上而下的上滤（蛮力算法）</h3><p>自顶层元素，逐一上滤，最终建堆</p>
-<p>但是所需时间会达到 $O(nlogn)$，那还不如直接全排序</p>
-<h3 id="自下而上的下滤"><a href="#自下而上的下滤" class="headerlink" title="自下而上的下滤"></a>自下而上的下滤</h3><p>从尾部的内部节点开始，从后往前逐一下滤，最终建堆</p>
-<p>不变性：顶层元素下滤到两个满足堆序性的子堆中，全局必然满足堆序性</p>
-<p>在这种情况下，每个内部节点下滤所花时间正比于其高度而非深度，而高度低的内部节点更多，所以显然比正比于深度的蛮力算法更省时间</p>
-<p><img src="/Users/markov/Desktop/blog_figures/8ae48f81a930cc03a061c7227b9968a.jpg" srcset="/img/loading.gif" lazyload alt="8ae48f81a930cc03a061c7227b9968a"></p>
-<h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3><p>insert()最坏情况是 $O(logn)$，平均情况是多少？</p>
-<p>平均情况下，由于有一半的元素分布在最底层，插入一个元素向上攀升一层的概率是 $1&#x2F;2$，这样攀升高度构成了一个几何分布，平均高度为 $O(2)$</p>
-<h1 id="3-堆排序"><a href="#3-堆排序" class="headerlink" title="3. 堆排序"></a>3. 堆排序</h1><p><img src="/Users/markov/Desktop/blog_figures/87f9daabc4c578869b81378ae9d6337.jpg" srcset="/img/loading.gif" lazyload alt="87f9daabc4c578869b81378ae9d6337"></p>
-<p>首先整体序列构造成一个完全二叉堆，然后逐一删除顶部元素（实际上就是把极大元素扔到尾部去），这样就实现了整体的堆排序</p>
-<p>复杂度是 $O(n+nlogn)$</p>
+                <h1 id="PS-13-String"><a href="#PS-13-String" class="headerlink" title="PS-13 String"></a>PS-13 String</h1><p>[TOC]</p>
+<h1 id="1-串"><a href="#1-串" class="headerlink" title="1. 串"></a>1. 串</h1><p>实际上就是字符串</p>
+<h1 id="2-模式匹配"><a href="#2-模式匹配" class="headerlink" title="2. 模式匹配"></a>2. 模式匹配</h1><p>$Text$和 $Pattern$的匹配</p>
+<h3 id="蛮力算法"><a href="#蛮力算法" class="headerlink" title="蛮力算法"></a>蛮力算法</h3><p>抓住 $Pattern$的头，和 $Text$串的每个元素逐一比对，如果匹配成功再深入 $Pattern$串比对</p>
+<p>最好情况： $\Omega (n)$</p>
+<p>最坏情况： $O(n\cdot m)$</p>
+<h3 id="KMP算法"><a href="#KMP算法" class="headerlink" title="KMP算法"></a>KMP算法</h3><p><img src="/Users/markov/Desktop/blog_figures/3d55590162be0cc924c1323ce29f98b.jpg" srcset="/img/loading.gif" lazyload alt="3d55590162be0cc924c1323ce29f98b"></p>
+<p>关键在于构建一个表，记录每个位置如果匹配失败，则更新成 $Pattern$串的 $j$前面的哪一个元素，即 $t$</p>
+<p><strong>查询表</strong></p>
+<p>当前 $j$个元素已经匹配时，我们只需找到在已匹配的串中，最长的前缀和后缀自匹配，然后就能确定 $t$，依此来构建查询表 $next[0,m)$，在 $j$处失配，将其换为 $next[j]$即可</p>
+<p>$next[0]$恒为-1</p>
+<p><strong>为什么要取最长的自匹配？为了使移动的距离最小，不至于回溯</strong></p>
+<p><strong>构造next[]表</strong></p>
+<p>next[0]必然恒为-1，属于通配符</p>
+<p>next[1]按照规则也必然为0</p>
+<p>当已知next[0]，…，next[j]时，如何确定next[j+1]？</p>
+<p>其实就是让0~j去自匹配，先看j和next[j]是否匹配，如果匹配next[j+1]就在next[j]的基础上+1，如果不匹配，就再看j和next[next[j]]是否匹配，匹配则在此基础上+1，否则继续查询下去</p>
+<p><strong>复杂度</strong></p>
+<p><img src="/Users/markov/Desktop/blog_figures/ea1ada7716d4a841827518b5322587f.jpg" srcset="/img/loading.gif" lazyload alt="ea1ada7716d4a841827518b5322587f"></p>
+<p>绿色和红色的比对，落到一条线上也不过 $O(n)$，需要考虑的是黄色的比对</p>
+<p><img src="/Users/markov/Desktop/blog_figures/cb7483acadb758959fabfd07d7a5022.jpg" srcset="/img/loading.gif" lazyload alt="cb7483acadb758959fabfd07d7a5022"></p>
+<p>怎么设计出来的？？？</p>
+<p><strong>再改进</strong></p>
+<p>KMP算法有一种很笨的情况，就是j和next[j]的元素是一样的，这样会导致在替换过后也必然失配，我们要避免这样的情况发生</p>
+<p>在构造查询表时，在每个元素赋值之前，要先看这个元素和赋值的元素是否相等，否则要赋将赋值元素的next[]（由于不变性，赋值元素的next[]必然与其本身不相等，因此这样一次即可）</p>
+<p><strong>注意</strong></p>
+<p>当匹配的字符集越小，成功的概率越大，KMP算法的优势才明显，否则蛮力算法期望上来讲也不过走两步，性能也是 $O(2n)$</p>
+<h3 id="BM算法：BC策略"><a href="#BM算法：BC策略" class="headerlink" title="BM算法：BC策略"></a>BM算法：BC策略</h3><p>每次比对从 $Pattern$的末尾开始，如果发生失配，找到 $Pattern$失配位置前有没有对应失配位置 $Text$的字符，如果有则移动到对应位置，再从后往前比对，没有则整体后移</p>
+<p><strong>bc[]表</strong></p>
+<p>构造字符集的哈希表，对应字符存入 $Pattern$中秩最大的位置，在应用时，如果 $Text$字符在 $Pattern$失配位置之后，则 $Pattern$只移动一位即可</p>
+<p><strong>性能</strong></p>
+<p>$O(n&#x2F;m)$</p>
+<p>最差仍是蛮力算法</p>
+<p>单次匹配概率越小，P越长，优势越明显</p>
+<h3 id="BM算法：GS策略"><a href="#BM算法：GS策略" class="headerlink" title="BM算法：GS策略"></a>BM算法：GS策略</h3><p>找到匹配后缀的自匹配（或部分匹配）前缀，与KMP的策略相同</p>
+<h3 id="性能比较"><a href="#性能比较" class="headerlink" title="性能比较"></a>性能比较</h3><p><img src="/Users/markov/Desktop/blog_figures/10c168d09b6790f7986f9c1f681fc7a.jpg" srcset="/img/loading.gif" lazyload alt="10c168d09b6790f7986f9c1f681fc7a"></p>
+<h1 id="3-Karp-Rabin算法"><a href="#3-Karp-Rabin算法" class="headerlink" title="3. Karp-Rabin算法"></a>3. Karp-Rabin算法</h1><h3 id="串即是数"><a href="#串即是数" class="headerlink" title="串即是数"></a>串即是数</h3><p>哥德尔的思想，世间万物都能用自然数来表示！</p>
+<h3 id="散列"><a href="#散列" class="headerlink" title="散列"></a>散列</h3><p>将 $Text$串的每一指纹换算成数，再用 $hash()$压缩存入散列中，把 $Pattern$也转化，再与散列比对，比对成功之后，再取出原指纹比对</p>
+<p>相邻指纹之间的散列可由上一指纹求出下一指纹，比如求余，减去头的影响，加上尾部的影响即可</p>
+<h1 id="4-键树"><a href="#4-键树" class="headerlink" title="4. 键树"></a>4. 键树</h1><p>？？？</p>
 
                 
               </div>
@@ -313,7 +337,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div></div>
-      <div>https://markouv.github.io/2023/08/14/DSA/PS-12 Priority Queue/</div>
+      <div>https://markouv.github.io/2023/08/14/PS-13 String/</div>
     </div>
     <div class="license-meta">
       
@@ -357,7 +381,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/08/14/DSA/PS-13%20String/" title="">
+                      <a href="/2023/08/14/PS-14%20Sorting%20+%20Selection/" title="">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile"></span>
                         <span class="visible-mobile">上一篇</span>
@@ -367,7 +391,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/08/14/DSA/PS-09%20Dictionary/" title="">
+                      <a href="/2023/08/14/PS-12%20Priority%20Queue/" title="">
                         <span class="hidden-mobile"></span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>

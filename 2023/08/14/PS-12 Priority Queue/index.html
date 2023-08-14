@@ -16,23 +16,21 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="PS-14 Sorting + Selection1. 快速排序策略找到一个轴点，然后将元素与轴点比较，小的放在左边，大的放在右边  轴点：在本来有序向量中所属位置的点 但轴点不是一开始就有的，因此我们要培养轴点 快速划分：LUG版随机的选取候选者，比如 $elem[0]$，然后由 $lo$到 $hi$，交替向内移动，先从 $hi$开始比较，有小于轴点的即转到 $lo$，如此反复，各元素最多移动1">
+    <meta name="description" content="PS-12 Priority Queue[TOC] 1. 优先级队列基本实现使getMax()，delMax()，insert()均只需 $O(logn)$的时间，并且实现起来很简单，不必维护全序关系 完全二叉堆 要求在逻辑意义上， $\forall i,H[i]≤H[parent(i)$ 插入先在尾部插入，然后和其逻辑次序的父亲比较，如果更大则交换，然后就这样一层一层比较，逐层上滤，直到不大于父">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kov&#39;s blog">
-<meta property="og:url" content="https://markouv.github.io/2023/08/14/DSA/PS-14%20Sorting%20+%20Selection/index.html">
+<meta property="og:url" content="https://markouv.github.io/2023/08/14/PS-12%20Priority%20Queue/index.html">
 <meta property="og:site_name" content="Kov&#39;s blog">
-<meta property="og:description" content="PS-14 Sorting + Selection1. 快速排序策略找到一个轴点，然后将元素与轴点比较，小的放在左边，大的放在右边  轴点：在本来有序向量中所属位置的点 但轴点不是一开始就有的，因此我们要培养轴点 快速划分：LUG版随机的选取候选者，比如 $elem[0]$，然后由 $lo$到 $hi$，交替向内移动，先从 $hi$开始比较，有小于轴点的即转到 $lo$，如此反复，各元素最多移动1">
+<meta property="og:description" content="PS-12 Priority Queue[TOC] 1. 优先级队列基本实现使getMax()，delMax()，insert()均只需 $O(logn)$的时间，并且实现起来很简单，不必维护全序关系 完全二叉堆 要求在逻辑意义上， $\forall i,H[i]≤H[parent(i)$ 插入先在尾部插入，然后和其逻辑次序的父亲比较，如果更大则交换，然后就这样一层一层比较，逐层上滤，直到不大于父">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/50f5424f5cbd0bfe2ef0e0c0e3cca4c.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/3512a0b41fb9f022cded7e3682c2bd5.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/2032df4966842da313a6fb512cce2fc.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/6ae2ecf648a03af380f21191d1701c6.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/6f47805e333cbe915661fed600695a1.jpg">
-<meta property="article:published_time" content="2023-08-14T07:08:25.921Z">
-<meta property="article:modified_time" content="2023-08-14T07:51:32.506Z">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/ffd3f8850a8185b8e9445d41fe588af.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/8ae48f81a930cc03a061c7227b9968a.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/87f9daabc4c578869b81378ae9d6337.jpg">
+<meta property="article:published_time" content="2023-08-14T07:07:49.978Z">
+<meta property="article:modified_time" content="2023-08-14T07:44:56.178Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/50f5424f5cbd0bfe2ef0e0c0e3cca4c.jpg">
+<meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/ffd3f8850a8185b8e9445d41fe588af.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -215,7 +213,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-08-14 15:08" pubdate>
+        <time datetime="2023-08-14 15:07" pubdate>
           2023年8月14日 下午
         </time>
       </span>
@@ -227,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          948 字
+          671 字
         
       </span>
     
@@ -238,7 +236,7 @@
         
         
         
-          8 分钟
+          6 分钟
         
       </span>
     
@@ -280,35 +278,23 @@
             
               <div class="markdown-body">
                 
-                <h1 id="PS-14-Sorting-Selection"><a href="#PS-14-Sorting-Selection" class="headerlink" title="PS-14 Sorting + Selection"></a>PS-14 Sorting + Selection</h1><h1 id="1-快速排序"><a href="#1-快速排序" class="headerlink" title="1. 快速排序"></a>1. 快速排序</h1><h3 id="策略"><a href="#策略" class="headerlink" title="策略"></a>策略</h3><p>找到一个轴点，然后将元素与轴点比较，小的放在左边，大的放在右边</p>
-<p><img src="/Users/markov/Desktop/blog_figures/50f5424f5cbd0bfe2ef0e0c0e3cca4c.jpg" srcset="/img/loading.gif" lazyload alt="50f5424f5cbd0bfe2ef0e0c0e3cca4c"></p>
-<p>轴点：在本来有序向量中所属位置的点</p>
-<p>但轴点不是一开始就有的，因此我们要培养轴点</p>
-<h3 id="快速划分：LUG版"><a href="#快速划分：LUG版" class="headerlink" title="快速划分：LUG版"></a>快速划分：LUG版</h3><p>随机的选取候选者，比如 $elem[0]$，然后由 $lo$到 $hi$，交替向内移动，先从 $hi$开始比较，有小于轴点的即转到 $lo$，如此反复，各元素最多移动1次，因此划分只需 $O(n)$的时间</p>
-<p>一般在选取候选者时有一步随机的交换，目的是使原本不随机的序列变得随机</p>
-<p><strong>递归深度</strong></p>
-<p>此算法所需额外空间仅为 $O(1)$，但没考虑递归的深度，递归深度可能会有最坏的情况达到 $O(n)$，</p>
-<p>但是概率非常非常低，期望来讲大概率还是 $O(logn)$，因此我们认为该算法还是就地的</p>
-<p><strong>迭代</strong></p>
-<p>或者也可以采取迭代的办法，大任务先入栈，小任务后入栈，需要的辅助栈空间也不过 $O(logn)$</p>
-<p><strong>比较次数</strong></p>
-<p>$T(n)&#x3D;(n-1)+\frac{1}{n}\sum_{k&#x3D;0}^{n-1}[T(k)+T(n-k-1)]&#x3D;(n-1)+\frac{2}{n}\sum_{k&#x3D;0}^{n-1}T(k)$</p>
-<p>经过一系列化简</p>
-<p>$\frac{T(n)}{n+1}-\frac{T(n-1)}{n}&#x3D;\frac{4}{n+1}-\frac{2}{n}$</p>
-<p>经过累加法得</p>
-<p>$\frac{T(n)}{n+1}\approx 2\ln n$</p>
-<p>$T(n)\approx 1.386\cdot nlogn$</p>
-<p>也可以采用后向分析的方法：</p>
-<p><img src="/Users/markov/Desktop/blog_figures/3512a0b41fb9f022cded7e3682c2bd5.jpg" srcset="/img/loading.gif" lazyload alt="3512a0b41fb9f022cded7e3682c2bd5"></p>
-<h3 id="几种排序算法对比"><a href="#几种排序算法对比" class="headerlink" title="几种排序算法对比"></a>几种排序算法对比</h3><p><img src="/Users/markov/Desktop/blog_figures/2032df4966842da313a6fb512cce2fc.jpg" srcset="/img/loading.gif" lazyload alt="2032df4966842da313a6fb512cce2fc"></p>
-<h3 id="快速划分：DUP版"><a href="#快速划分：DUP版" class="headerlink" title="快速划分：DUP版"></a>快速划分：DUP版</h3><p>大量元素重复时，会导致划分的失衡，使得递归深度过大，DUP版将原算法中比较的等号去掉，这样可以缓解失衡的问题，降低递归的深度</p>
-<h3 id="快速划分：LGU版"><a href="#快速划分：LGU版" class="headerlink" title="快速划分：LGU版"></a>快速划分：LGU版</h3><p>顺序遍历元素，逐一和轴点比较，less则放在序列的L部分（实则是和G中第一个元素交换），greater则不需要移动，直接继续拓展，是非常简单的一种算法</p>
-<p><img src="/Users/markov/Desktop/blog_figures/6ae2ecf648a03af380f21191d1701c6.jpg" srcset="/img/loading.gif" lazyload alt="6ae2ecf648a03af380f21191d1701c6"></p>
-<p>以上算法都存在不稳定的问题</p>
-<h1 id="2-选取"><a href="#2-选取" class="headerlink" title="2. 选取"></a>2. 选取</h1><h3 id="QuickSelect"><a href="#QuickSelect" class="headerlink" title="QuickSelect"></a>QuickSelect</h3><p>经过反复地做quicksort中的partition操作，最终选出第k大的元素</p>
-<p>期望的复杂度为 $O(n)$，但仍存在最坏情况！</p>
-<h3 id="LinearSelect"><a href="#LinearSelect" class="headerlink" title="LinearSelect"></a>LinearSelect</h3><p><img src="/Users/markov/Desktop/blog_figures/6f47805e333cbe915661fed600695a1.jpg" srcset="/img/loading.gif" lazyload alt="6f47805e333cbe915661fed600695a1"></p>
-<h1 id="3-希尔排序"><a href="#3-希尔排序" class="headerlink" title="3. 希尔排序"></a>3. 希尔排序</h1><p>相隔一定步长的插值排序，步长按特定的序列从大到小变化</p>
+                <h1 id="PS-12-Priority-Queue"><a href="#PS-12-Priority-Queue" class="headerlink" title="PS-12 Priority Queue"></a>PS-12 Priority Queue</h1><p>[TOC]</p>
+<h1 id="1-优先级队列"><a href="#1-优先级队列" class="headerlink" title="1. 优先级队列"></a>1. 优先级队列</h1><h3 id="基本实现"><a href="#基本实现" class="headerlink" title="基本实现"></a>基本实现</h3><p>使getMax()，delMax()，insert()均只需 $O(logn)$的时间，并且实现起来很简单，不必维护全序关系</p>
+<h3 id="完全二叉堆"><a href="#完全二叉堆" class="headerlink" title="完全二叉堆"></a>完全二叉堆</h3><p><img src="/Users/markov/Desktop/blog_figures/ffd3f8850a8185b8e9445d41fe588af.jpg" srcset="/img/loading.gif" lazyload alt="ffd3f8850a8185b8e9445d41fe588af"></p>
+<p>要求在逻辑意义上， $\forall i,H[i]≤H[parent(i)$</p>
+<h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><p>先在尾部插入，然后和其逻辑次序的父亲比较，如果更大则交换，然后就这样一层一层比较，逐层上滤，直到不大于父亲或到达顶端，所需时间为 $O(logn)$</p>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>接口只实现删除极大元素即顶部元素，将尾部元素拿到顶上来，然后与其逻辑的两个孩子比较，取三者中的最大者当父亲，就这样逐层下滤，直到满足条件为止，所需时间为 $O(logn)$</p>
+<h1 id="2-批量建堆"><a href="#2-批量建堆" class="headerlink" title="2. 批量建堆"></a>2. 批量建堆</h1><h3 id="自上而下的上滤（蛮力算法）"><a href="#自上而下的上滤（蛮力算法）" class="headerlink" title="自上而下的上滤（蛮力算法）"></a>自上而下的上滤（蛮力算法）</h3><p>自顶层元素，逐一上滤，最终建堆</p>
+<p>但是所需时间会达到 $O(nlogn)$，那还不如直接全排序</p>
+<h3 id="自下而上的下滤"><a href="#自下而上的下滤" class="headerlink" title="自下而上的下滤"></a>自下而上的下滤</h3><p>从尾部的内部节点开始，从后往前逐一下滤，最终建堆</p>
+<p>不变性：顶层元素下滤到两个满足堆序性的子堆中，全局必然满足堆序性</p>
+<p>在这种情况下，每个内部节点下滤所花时间正比于其高度而非深度，而高度低的内部节点更多，所以显然比正比于深度的蛮力算法更省时间</p>
+<p><img src="/Users/markov/Desktop/blog_figures/8ae48f81a930cc03a061c7227b9968a.jpg" srcset="/img/loading.gif" lazyload alt="8ae48f81a930cc03a061c7227b9968a"></p>
+<h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3><p>insert()最坏情况是 $O(logn)$，平均情况是多少？</p>
+<p>平均情况下，由于有一半的元素分布在最底层，插入一个元素向上攀升一层的概率是 $1&#x2F;2$，这样攀升高度构成了一个几何分布，平均高度为 $O(2)$</p>
+<h1 id="3-堆排序"><a href="#3-堆排序" class="headerlink" title="3. 堆排序"></a>3. 堆排序</h1><p><img src="/Users/markov/Desktop/blog_figures/87f9daabc4c578869b81378ae9d6337.jpg" srcset="/img/loading.gif" lazyload alt="87f9daabc4c578869b81378ae9d6337"></p>
+<p>首先整体序列构造成一个完全二叉堆，然后逐一删除顶部元素（实际上就是把极大元素扔到尾部去），这样就实现了整体的堆排序</p>
+<p>复杂度是 $O(n+nlogn)$</p>
 
                 
               </div>
@@ -327,7 +313,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div></div>
-      <div>https://markouv.github.io/2023/08/14/DSA/PS-14 Sorting + Selection/</div>
+      <div>https://markouv.github.io/2023/08/14/PS-12 Priority Queue/</div>
     </div>
     <div class="license-meta">
       
@@ -371,11 +357,17 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2023/08/14/PS-13%20String/" title="">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/08/14/DSA/PS-13%20String/" title="">
+                      <a href="/2023/08/14/PS-09%20Dictionary/" title="">
                         <span class="hidden-mobile"></span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>

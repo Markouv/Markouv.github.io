@@ -16,19 +16,20 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="PS-05 Binary Trees[TOC] 1. 树一种连通无环图 节点深度即为从根节点到达该节点的路径长度 根的深度为0 所有叶子中深度最大者称为子树的高度 空树高度取作-1 树的表示用父亲节点+孩子节点表示 任何一棵有根有序的多叉树都可以转化为二叉树 满二叉树 高为 $h$的二叉树节点数 $n&#x3D;2^{h+1}-1$ 真二叉树 每个节点都有两个孩子 2. 二叉树实现 先序遍历123">
+    <meta name="description" content="PS-01 Introduction[TOC] 1. 计算：算法算法定义：在特定计算模型下（例如：计算机），旨在解决特定问题的指令序列  特点： 正确性：可以解决指定的问题 确定性：描述为基本操作组成的序列 可行性：每一个基本操作都能实现，并且是在常数时间内完成的 有穷性： 对于一个特定问题都可以经过有限次基本操作解决    Hailstone序列$Hailstone(n)&#x3D;\begin">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kov&#39;s blog">
-<meta property="og:url" content="https://markouv.github.io/2023/08/14/DSA/PS-05%20Binary%20Trees/index.html">
+<meta property="og:url" content="https://markouv.github.io/2023/08/14/PS-01%20Introduction/index.html">
 <meta property="og:site_name" content="Kov&#39;s blog">
-<meta property="og:description" content="PS-05 Binary Trees[TOC] 1. 树一种连通无环图 节点深度即为从根节点到达该节点的路径长度 根的深度为0 所有叶子中深度最大者称为子树的高度 空树高度取作-1 树的表示用父亲节点+孩子节点表示 任何一棵有根有序的多叉树都可以转化为二叉树 满二叉树 高为 $h$的二叉树节点数 $n&#x3D;2^{h+1}-1$ 真二叉树 每个节点都有两个孩子 2. 二叉树实现 先序遍历123">
+<meta property="og:description" content="PS-01 Introduction[TOC] 1. 计算：算法算法定义：在特定计算模型下（例如：计算机），旨在解决特定问题的指令序列  特点： 正确性：可以解决指定的问题 确定性：描述为基本操作组成的序列 可行性：每一个基本操作都能实现，并且是在常数时间内完成的 有穷性： 对于一个特定问题都可以经过有限次基本操作解决    Hailstone序列$Hailstone(n)&#x3D;\begin">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/b83ad580ec96c01a25bf966e23d4b2a.jpg">
-<meta property="article:published_time" content="2023-08-14T07:04:51.293Z">
-<meta property="article:modified_time" content="2023-08-14T07:28:27.535Z">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/d01eb997e1e13f9190b0fe0e636b377.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/95334c7e1a63fd8b52fb3b5358b3346.jpg">
+<meta property="article:published_time" content="2023-08-14T06:53:21.745Z">
+<meta property="article:modified_time" content="2023-08-14T07:01:59.542Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/b83ad580ec96c01a25bf966e23d4b2a.jpg">
+<meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/d01eb997e1e13f9190b0fe0e636b377.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -211,7 +212,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-08-14 15:04" pubdate>
+        <time datetime="2023-08-14 14:53" pubdate>
           2023年8月14日 下午
         </time>
       </span>
@@ -223,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k 字
+          3.1k 字
         
       </span>
     
@@ -234,7 +235,7 @@
         
         
         
-          11 分钟
+          26 分钟
         
       </span>
     
@@ -276,60 +277,126 @@
             
               <div class="markdown-body">
                 
-                <h1 id="PS-05-Binary-Trees"><a href="#PS-05-Binary-Trees" class="headerlink" title="PS-05 Binary Trees"></a>PS-05 Binary Trees</h1><p>[TOC]</p>
-<h1 id="1-树"><a href="#1-树" class="headerlink" title="1. 树"></a>1. 树</h1><p>一种连通无环图</p>
-<p>节点深度即为从根节点到达该节点的路径长度</p>
-<p>根的深度为0</p>
-<p>所有叶子中深度最大者称为子树的高度</p>
-<p>空树高度取作-1</p>
-<h3 id="树的表示"><a href="#树的表示" class="headerlink" title="树的表示"></a>树的表示</h3><p>用父亲节点+孩子节点表示</p>
-<p>任何一棵有根有序的多叉树都可以转化为二叉树</p>
-<p><strong>满二叉树</strong></p>
-<p>高为 $h$的二叉树节点数 $n&#x3D;2^{h+1}-1$</p>
-<p><strong>真二叉树</strong></p>
-<p>每个节点都有两个孩子</p>
-<h1 id="2-二叉树"><a href="#2-二叉树" class="headerlink" title="2. 二叉树"></a>2. 二叉树</h1><h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p><img src="/Users/markov/Desktop/blog_figures/b83ad580ec96c01a25bf966e23d4b2a.jpg" srcset="/img/loading.gif" lazyload alt="b83ad580ec96c01a25bf966e23d4b2a"></p>
-<h3 id="先序遍历"><a href="#先序遍历" class="headerlink" title="先序遍历"></a>先序遍历</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">void</span> <span class="hljs-title function_">traverse</span>(<span class="hljs-params">x, visit</span>)&#123;<br>	<span class="hljs-title function_">visit</span>(x);<br>	<span class="hljs-title function_">traverse</span>(x-&gt;lc, visit);<br>	<span class="hljs-title function_">traverse</span>(x-&gt;rc, visit);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>制约：递归深度有限</p>
-<p><strong>改进</strong></p>
-<p>先访问最左侧的一根藤，然后自下而上访问藤上每个右子树，每个右子树仍以同样的方式遍历</p>
-<p>用栈来实现</p>
-<h3 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">void</span> <span class="hljs-title function_">tarverse</span>(<span class="hljs-params">x, visit</span>)&#123;<br>	<span class="hljs-title function_">traverse</span>(x-&gt;lc, visit);<br>	<span class="hljs-title function_">visit</span>(x);<br>	<span class="hljs-title function_">traverse</span>(x-&gt;rc, visit);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p><strong>迭代方法</strong></p>
-<p>先从最左侧的藤走下去，走到最深处，然后从下而上遍历藤上节点以及右子树</p>
-<p>用栈来实现</p>
-<p>在中序遍历意义下，如果有右孩子，直接后继为最靠左的右后代，</p>
-<p>如果没有，反过来想，应是以该节点为直接前驱的节点</p>
-<h3 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">void</span> <span class="hljs-title function_">tarverse</span>(<span class="hljs-params">x, visit</span>)&#123;<br>	<span class="hljs-title function_">traverse</span>(x-&gt;lc, visit);<br>	<span class="hljs-title function_">traverse</span>(x-&gt;rc, visit);<br>	<span class="hljs-title function_">visit</span>(x);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p><strong>迭代</strong></p>
-<p>尽量沿左走，如果左走不了，则向右，直到无路可走，然后自下而上遍历节点以及右子树（如果有的话）</p>
-<p>还是用栈来实现</p>
-<h3 id="层次遍历"><a href="#层次遍历" class="headerlink" title="层次遍历"></a>层次遍历</h3><p>（广度优先搜索hhh）</p>
-<p>运用队列来迭代</p>
-<p><strong>完全二叉树</strong></p>
+                <h1 id="PS-01-Introduction"><a href="#PS-01-Introduction" class="headerlink" title="PS-01 Introduction"></a>PS-01 Introduction</h1><p>[TOC]</p>
+<h1 id="1-计算：算法"><a href="#1-计算：算法" class="headerlink" title="1. 计算：算法"></a>1. 计算：算法</h1><h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a><strong>算法</strong></h3><p>定义：在特定计算模型下（例如：计算机），旨在解决特定问题的指令序列</p>
 <ul>
-<li>底层叶子只居于最底下两层，且最后一层的叶子都靠在最左侧的真二叉树</li>
-<li>叶子节点不比内部节点少，至多多出来一个</li>
-<li>辅助队列最大规模 $n&#x2F;2$向上取整</li>
+<li>特点：<ul>
+<li>正确性：可以解决指定的问题</li>
+<li>确定性：描述为基本操作组成的序列</li>
+<li>可行性：每一个基本操作都能实现，并且是在常数时间内完成的</li>
+<li>有穷性： 对于一个特定问题都可以经过有限次基本操作解决</li>
 </ul>
-<h3 id="重构"><a href="#重构" class="headerlink" title="重构"></a>重构</h3><p>可以用两个向量或列表来重构二叉树</p>
-<p><strong>先序&#x2F;后序+中序</strong></p>
-<p>完全可行，在先序的头或后序的尾找到中间节点，再在中序中找到中间节点分割即可，左边就对应左子树，右边则对应右子树</p>
-<p><strong>先序+后序</strong></p>
-<p>当原二叉树有左右两棵子树时，通过查找两棵子树的根节点也能把左右子树对应的序列区分开来，但是当只有一棵子树时，就不行了</p>
-<h1 id="3-Huffman-编码树"><a href="#3-Huffman-编码树" class="headerlink" title="3. Huffman 编码树"></a>3. Huffman 编码树</h1><p>关键：不同字符的编码互不为前缀（Prefix-Free Code)</p>
-<p>平均编码长度等于叶节点的平均深度</p>
-<p><strong>最优编码树</strong></p>
-<p>平均编码长度最小者，最特别的是真完全树，否则可以通过交换节点来实现最优</p>
-<p>但实际上不同字符的出现频率并不相同，叶节点的平均深度要加上频率的权重，此时完全树就未必是最优编码树</p>
-<p>考虑频率时，要把频率高的字符放在高处，频率低的字符放在低处</p>
-<p><strong>贪心策略</strong></p>
-<p>所有字符单节点作为一棵树，组成森林，按频率将树从小到大排序，取出频率最小的两棵树组成一棵新的树，然后放回森林中，如此循环往复，最终组成一棵完整的树，符合频率低的在低处，频率高的在高处</p>
-<p>如果采用向量或者列表，复杂度要 $O(n^{2})$</p>
-<p>如果采用优先级队列，复杂度为 $O(nlogn)$</p>
+</li>
+</ul>
+<h3 id="Hailstone序列"><a href="#Hailstone序列" class="headerlink" title="Hailstone序列"></a><strong>Hailstone序列</strong></h3><p>$Hailstone(n)&#x3D;\begin{cases}{1}&amp;n \leq 1\{n}\bigcup Hailstone(n&#x2F;2)&amp;n&#x3D;even\{n}\bigcup Hailstone(3n+1)&amp;n&#x3D;odd\end{cases}$</p>
+<p>对任意的 $n$ ，Hailstone都能得到最终结果1，说明这个算法是有穷的，但还未在数学上证明</p>
+<h3 id="几何分布"><a href="#几何分布" class="headerlink" title="几何分布"></a><strong>几何分布</strong></h3><p>$P(X&#x3D;n)&#x3D;(1-p)^{n-1}p$</p>
+<p>$E(X)&#x3D;\frac{1}{p}$</p>
+<h1 id="2-计算模型：统一尺度"><a href="#2-计算模型：统一尺度" class="headerlink" title="2. 计算模型：统一尺度"></a>2. 计算模型：统一尺度</h1><h3 id="图灵机"><a href="#图灵机" class="headerlink" title="图灵机"></a><strong>图灵机</strong></h3><p>为不同算法的代价的衡量提供一个统一的尺度，从而可以更好地评价算法的优劣</p>
+<ul>
+<li>组成<ul>
+<li>Tape：一条纸带，被划分为无数个单元格，每个单元格上存储一个字符，表示该单元格的一个状态，每个单元格初始状态为 <strong>#</strong></li>
+<li>Head：每个时刻都对准某一单元格，可以对单元格内的字符读取或改写，并可以在下一个时刻转向左&#x2F;右</li>
+<li>Alphabet：每个单元格内的字符表</li>
+<li>State：图灵机每个时刻都在某一确定的状态，当Head转入h时，停机</li>
+</ul>
+</li>
+</ul>
+<p>计算成本：从启动到停机所经历的转移次数</p>
+<p>$(q, c; d, L&#x2F;R, p)$表示当前状态为q，Head所在单元格字符为c；将当前字符改写为d，并在下一时刻向左&#x2F;右转移，状态转变为p</p>
+<h3 id="RAM-（Random-Access-Machine）"><a href="#RAM-（Random-Access-Machine）" class="headerlink" title="RAM （Random Access Machine）"></a><strong>RAM （Random Access Machine）</strong></h3><p>同样为评价算法的效率提供统一的尺度</p>
+<p>例：Ceiling Division（向上取整除法）</p>
+<p><strong>思考：在TM、RAM等模型中衡量算法效率，为何通常只考查运行时间？空间呢？</strong></p>
+<p>主要是出于研究和分析的便利性考虑。这是因为对于许多算法来说，运行时间是最主要的性能指标，而空间复杂度往往与算法的时间复杂度相关，可以通过时间复杂度的分析间接得出。</p>
+<h1 id="3-渐进复杂度"><a href="#3-渐进复杂度" class="headerlink" title="3. 渐进复杂度"></a>3. 渐进复杂度</h1><p>$T(n)&#x3D;O(f(n))$渐进上界  $\exist c&gt;0,s.t.T(n)&lt;cf(n),\forall n\gg 2$</p>
+<p>$T(n)&#x3D;\Omega (f(n))$渐进下界</p>
+<p>$T(n)&#x3D; \Theta (f(n))$渐进确界</p>
+<h3 id="O-1-常数复杂度"><a href="#O-1-常数复杂度" class="headerlink" title="O (1)常数复杂度"></a><strong>O (1)常数复杂度</strong></h3><p>$2023\times 2023&#x3D;O(1)$，甚至 $2023^{2023}&#x3D;O(1)$，从渐进的角度来看确实如此</p>
+<p><strong>一段代码是否为常数执行时间应具体分析</strong>！</p>
+<ul>
+<li>代码中可能包含循环：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">for</span>(i = <span class="hljs-number">0</span>; i &lt; n; i += n/<span class="hljs-number">2023</span> + <span class="hljs-number">1</span>) <span class="hljs-comment">//2023,O(1)</span><br></code></pre></td></tr></table></figure>
+
+<p>分析：</p>
+<p>假设 $2023k &lt; n &lt; 2023(k+1)$，则经过2023步循环之后 $i&#x3D;2023(k+1)$必然大于 $n$，所以该循环是常熟复杂度的</p>
+<ul>
+<li>代码中可能包含分支</li>
+<li>代码中可能包含（递归）调用</li>
+</ul>
+<h3 id="O-log-c-n-多项式对数复杂度"><a href="#O-log-c-n-多项式对数复杂度" class="headerlink" title="O ( $log^{c}$n)多项式对数复杂度"></a>O ( $log^{c}$n)多项式对数复杂度</h3><p>复杂度无限接近于常数，非常好！</p>
+<h3 id="O-n-c-多项式复杂度"><a href="#O-n-c-多项式复杂度" class="headerlink" title="O ( $n^{c}$)多项式复杂度"></a>O ( $n^{c}$)多项式复杂度</h3><p>线性复杂度 $O(n)$，通常就已经很不错了</p>
+<h3 id="O-2-n-指数复杂度"><a href="#O-2-n-指数复杂度" class="headerlink" title="O ( $2^{n}$)指数复杂度"></a>O ( $2^{n}$)指数复杂度</h3><p>NP-complete算法，无法忍受！！！</p>
+<p>例如：subsetsum问题</p>
+<p><strong>注</strong>：O(nlogn)的算法最常出现，但不一定是最优，比如排序、Huffman编码（可以用桶排序在O(n)实现）</p>
+<h1 id="4-复杂度分析"><a href="#4-复杂度分析" class="headerlink" title="4. 复杂度分析"></a>4. 复杂度分析</h1><ul>
+<li>主要方法<ul>
+<li>迭代（级数求和）</li>
+<li>递归（递归跟踪+递推方程）</li>
+<li>实用（猜测+验证）</li>
+</ul>
+</li>
+</ul>
+<p><strong>级数</strong></p>
+<p>算术级数：与末项平方同阶 $T(n)&#x3D;1+2+…+n&#x3D;O(n^{2})$</p>
+<p>幂方级数：比幂次高出一阶 $T(n)&#x3D;\sum k^{d}&#x3D;O(n^{d+1})$</p>
+<p>几何级数：与末项同阶 $T(n)&#x3D;a^{0}+a^{1}+a^{2}+…+a^{n}&#x3D;O(a^{n})$</p>
+<p>收敛级数：</p>
+<p>$\sum \frac{1}{(k-1)k}&#x3D;O(1)$</p>
+<p>$\sum 1&#x2F;k^{2}&#x3D;O(1)$</p>
+<p>$\sum \frac{1}{k^{2}-1}&#x3D;O(1)$</p>
+<p>调和级数： $h(n)&#x3D;\sum 1&#x2F;k&#x3D;\Theta (logn)$</p>
+<p>对数级数： $\sum lnk&#x3D;\Theta (nlogn)$</p>
+<p>对数+线性+指数： $\sum klogk&#x3D;O(n^{2}logn)$</p>
+<p>$\sum k\cdot 2^{k}&#x3D;O(n\cdot 2^{n})$</p>
+<p><strong>迭代</strong></p>
+<p>具体问题具体分析…</p>
+<p><strong>封底估算</strong></p>
+<ul>
+<li>1天&#x3D; $10^{5}$秒</li>
+<li>$2^{10}&#x3D;10^{3}$</li>
+</ul>
+<h1 id="5-减而治之-Decrease-and-conquer"><a href="#5-减而治之-Decrease-and-conquer" class="headerlink" title="5. 减而治之(Decrease and conquer)"></a>5. 减而治之(Decrease and conquer)</h1><p>求解大规模的问题，可以：</p>
+<ul>
+<li>将其划分为两个子问题，一个规模减小，一个平凡</li>
+<li>分别求解子问题</li>
+</ul>
+<p><strong>递归跟踪</strong></p>
+<p>写出每一个递归实例，分别计算复杂度再求和</p>
+<p><strong>递推方程</strong></p>
+<p>根据一个问题和子问题的递推关系求其复杂度，例如 $T(n)&#x3D;T(n-1)+O(1)$</p>
+<h1 id="6-分而治之-Divide-and-conquer"><a href="#6-分而治之-Divide-and-conquer" class="headerlink" title="6. 分而治之(Divide and conquer)"></a>6. 分而治之(Divide and conquer)</h1><p>求解大规模问题吧，可以：</p>
+<ul>
+<li>将其划分为若干个子问题，且规模相当</li>
+<li>分别求解子问题</li>
+</ul>
+<h3 id="主定理"><a href="#主定理" class="headerlink" title="主定理"></a><strong>主定理</strong></h3><p>若递推关系式为 $T(n)&#x3D;a\cdot T(n&#x2F;b)+O(f(n))$</p>
+<ul>
+<li>若 $f(n)&#x3D;O(n^{log_{b}a-\epsilon})$，其实就是 $f(n)$阶数比 $n^{log_{b}a}$小， $T(n)&#x3D;\Theta(n^{log_{b}a})$</li>
+<li>若 $f(n)&#x3D;\Theta (n^{log_{b}a}\cdot log^{k}n)$， $T(n)&#x3D;\Theta (n^{log_{b}a}\cdot log^{k+1}n)$</li>
+<li>若 $f(n)&#x3D;\Omega (n^{log_{b}a+\epsilon})$， $T(n)&#x3D;\Theta (f(n))$</li>
+</ul>
+<h1 id="7-动态规划：记忆法"><a href="#7-动态规划：记忆法" class="headerlink" title="7. 动态规划：记忆法"></a>7. 动态规划：记忆法</h1><h3 id="斐波那契数列"><a href="#斐波那契数列" class="headerlink" title="斐波那契数列"></a><strong>斐波那契数列</strong></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">int</span> <span class="hljs-title function_">fib</span><span class="hljs-params">(n)</span>&#123;<span class="hljs-keyword">return</span> (<span class="hljs-number">2</span> &gt; n)? n: fib(n<span class="hljs-number">-1</span>) + fib(n<span class="hljs-number">-2</span>);&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这种递归方法非常慢，因为使用了大量重复的计算结果</p>
+<p>采用动态规划迭代的方法， $T(n)&#x3D;O(n)$</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs jsx">f = <span class="hljs-number">1</span>;    <span class="hljs-comment">//fib(-1)</span><br>g = <span class="hljs-number">0</span>;    <span class="hljs-comment">//fib(0)</span><br><span class="hljs-keyword">while</span>(<span class="hljs-number">0</span> &lt; n--)&#123;<br>	g = g + f;<br>	f = g - f;<br>&#125;<br><span class="hljs-keyword">return</span> g;<br></code></pre></td></tr></table></figure>
+
+<h3 id="最长公共子序列"><a href="#最长公共子序列" class="headerlink" title="最长公共子序列"></a>最长公共子序列</h3><p><strong>理解</strong></p>
+<p>从减而治之和递归的角度来理解，考虑长度为n的字符串A，长度为m的字符串B，对LCS(n, m)，考虑三种情况：</p>
+<ul>
+<li>若 $n&#x3D;0或m&#x3D;0$，则返回0</li>
+<li>若 $A[n-1]&#x3D;B[m-1]$，则返回 $LCS(n-1,m-1)+1$</li>
+<li>若不相等，则返回 $max(LCS(n-1, m), LCS(n, m-1))$</li>
+</ul>
+<p>但是这种方法复杂度极高，甚至是指数级</p>
+<p><strong>动态规划版本（感觉像是知道答案写过程一样）</strong></p>
+<p>实际上查找的过程可以记录在一张表上：</p>
+<p><img src="/Users/markov/Desktop/blog_figures/d01eb997e1e13f9190b0fe0e636b377.jpg" srcset="/img/loading.gif" lazyload alt="d01eb997e1e13f9190b0fe0e636b377"></p>
+<p>再从递归的角度理解，如果 $A[n-1]&#x3D;B[m-1]$， $table(n,m)&#x3D;table(n-1,m-1)+1$，如果不相等，则 $table(n,m)&#x3D;max(table(n-1,m),table(n,m-1))$</p>
+<p>按照这样的规则，我们可以用迭代的方法填写这张表，最终结果即为所求：</p>
+<p><img src="/Users/markov/Desktop/blog_figures/95334c7e1a63fd8b52fb3b5358b3346.jpg" srcset="/img/loading.gif" lazyload alt="95334c7e1a63fd8b52fb3b5358b3346"></p>
+<p>这里保证 $m≤n$，一是为了降低空间复杂度，二是降低时间复杂度（这是工程上的问题）</p>
 
                 
               </div>
@@ -348,7 +415,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div></div>
-      <div>https://markouv.github.io/2023/08/14/DSA/PS-05 Binary Trees/</div>
+      <div>https://markouv.github.io/2023/08/14/PS-01 Introduction/</div>
     </div>
     <div class="license-meta">
       
@@ -392,7 +459,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/08/14/DSA/PS-06%20Binary%20Search%20Trees/" title="">
+                      <a href="/2023/08/14/PS-02%20Vector/" title="">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile"></span>
                         <span class="visible-mobile">上一篇</span>
@@ -402,8 +469,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/08/14/DSA/PS-04%20Stack%20+%20Queue/" title="">
-                        <span class="hidden-mobile"></span>
+                      <a href="/2023/08/12/hello-world/" title="Hello World">
+                        <span class="hidden-mobile">Hello World</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
