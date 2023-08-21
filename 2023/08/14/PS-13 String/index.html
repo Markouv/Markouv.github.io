@@ -18,12 +18,12 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="PS-13 String[TOC] 1. 串实际上就是字符串 2. 模式匹配$Text$和 $Pattern$的匹配 蛮力算法抓住 $Pattern$的头，和 $Text$串的每个元素逐一比对，如果匹配成功再深入 $Pattern$串比对 最好情况： $\Omega (n)$ 最坏情况： $O(n\cdot m)$ KMP算法 关键在于构建一个表，记录每个位置如果匹配失败，则更新成 $Patter">
+    <meta name="description" content="PS-13 String [TOC] 1. 串 实际上就是字符串 2. 模式匹配 $Text$和 $Pattern$的匹配 蛮力算法 抓住 $Pattern$的头，和 $Text$串的每个元素逐一比对，如果匹配成功再深入 $Pattern$串比对 最好情况： $\Omega (n)$ 最坏情况： $O(n\cdot m)$ KMP算法  关键在于构建一个表，记录每个位置如果匹配失败，则更新成 $P">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kov&#39;s blog">
 <meta property="og:url" content="https://markouv.github.io/2023/08/14/PS-13%20String/index.html">
 <meta property="og:site_name" content="Kov&#39;s blog">
-<meta property="og:description" content="PS-13 String[TOC] 1. 串实际上就是字符串 2. 模式匹配$Text$和 $Pattern$的匹配 蛮力算法抓住 $Pattern$的头，和 $Text$串的每个元素逐一比对，如果匹配成功再深入 $Pattern$串比对 最好情况： $\Omega (n)$ 最坏情况： $O(n\cdot m)$ KMP算法 关键在于构建一个表，记录每个位置如果匹配失败，则更新成 $Patter">
+<meta property="og:description" content="PS-13 String [TOC] 1. 串 实际上就是字符串 2. 模式匹配 $Text$和 $Pattern$的匹配 蛮力算法 抓住 $Pattern$的头，和 $Text$串的每个元素逐一比对，如果匹配成功再深入 $Pattern$串比对 最好情况： $\Omega (n)$ 最坏情况： $O(n\cdot m)$ KMP算法  关键在于构建一个表，记录每个位置如果匹配失败，则更新成 $P">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/3d55590162be0cc924c1323ce29f98b.jpg">
 <meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/ea1ada7716d4a841827518b5322587f.jpg">
@@ -281,13 +281,18 @@
             
               <div class="markdown-body">
                 
-                <h1 id="PS-13-String"><a href="#PS-13-String" class="headerlink" title="PS-13 String"></a>PS-13 String</h1><p>[TOC]</p>
-<h1 id="1-串"><a href="#1-串" class="headerlink" title="1. 串"></a>1. 串</h1><p>实际上就是字符串</p>
-<h1 id="2-模式匹配"><a href="#2-模式匹配" class="headerlink" title="2. 模式匹配"></a>2. 模式匹配</h1><p>$Text$和 $Pattern$的匹配</p>
-<h3 id="蛮力算法"><a href="#蛮力算法" class="headerlink" title="蛮力算法"></a>蛮力算法</h3><p>抓住 $Pattern$的头，和 $Text$串的每个元素逐一比对，如果匹配成功再深入 $Pattern$串比对</p>
+                <h1>PS-13 String</h1>
+<p>[TOC]</p>
+<h1>1. 串</h1>
+<p>实际上就是字符串</p>
+<h1>2. 模式匹配</h1>
+<p>$Text$和 $Pattern$的匹配</p>
+<h3 id="蛮力算法">蛮力算法</h3>
+<p>抓住 $Pattern$的头，和 $Text$串的每个元素逐一比对，如果匹配成功再深入 $Pattern$串比对</p>
 <p>最好情况： $\Omega (n)$</p>
 <p>最坏情况： $O(n\cdot m)$</p>
-<h3 id="KMP算法"><a href="#KMP算法" class="headerlink" title="KMP算法"></a>KMP算法</h3><p><img src="/Users/markov/Desktop/blog/source/img/3d55590162be0cc924c1323ce29f98b.jpg" srcset="/img/loading.gif" lazyload alt="3d55590162be0cc924c1323ce29f98b"></p>
+<h3 id="KMP算法">KMP算法</h3>
+<p><img src="/Users/markov/Desktop/blog/source/img/3d55590162be0cc924c1323ce29f98b.jpg" srcset="/img/loading.gif" lazyload alt="3d55590162be0cc924c1323ce29f98b"></p>
 <p>关键在于构建一个表，记录每个位置如果匹配失败，则更新成 $Pattern$串的 $j$前面的哪一个元素，即 $t$</p>
 <p><strong>查询表</strong></p>
 <p>当前 $j$个元素已经匹配时，我们只需找到在已匹配的串中，最长的前缀和后缀自匹配，然后就能确定 $t$，依此来构建查询表 $next[0,m)$，在 $j$处失配，将其换为 $next[j]$即可</p>
@@ -308,19 +313,26 @@
 <p>在构造查询表时，在每个元素赋值之前，要先看这个元素和赋值的元素是否相等，否则要赋将赋值元素的next[]（由于不变性，赋值元素的next[]必然与其本身不相等，因此这样一次即可）</p>
 <p><strong>注意</strong></p>
 <p>当匹配的字符集越小，成功的概率越大，KMP算法的优势才明显，否则蛮力算法期望上来讲也不过走两步，性能也是 $O(2n)$</p>
-<h3 id="BM算法：BC策略"><a href="#BM算法：BC策略" class="headerlink" title="BM算法：BC策略"></a>BM算法：BC策略</h3><p>每次比对从 $Pattern$的末尾开始，如果发生失配，找到 $Pattern$失配位置前有没有对应失配位置 $Text$的字符，如果有则移动到对应位置，再从后往前比对，没有则整体后移</p>
+<h3 id="BM算法：BC策略">BM算法：BC策略</h3>
+<p>每次比对从 $Pattern$的末尾开始，如果发生失配，找到 $Pattern$失配位置前有没有对应失配位置 $Text$的字符，如果有则移动到对应位置，再从后往前比对，没有则整体后移</p>
 <p><strong>bc[]表</strong></p>
 <p>构造字符集的哈希表，对应字符存入 $Pattern$中秩最大的位置，在应用时，如果 $Text$字符在 $Pattern$失配位置之后，则 $Pattern$只移动一位即可</p>
 <p><strong>性能</strong></p>
-<p>$O(n&#x2F;m)$</p>
+<p>$O(n/m)$</p>
 <p>最差仍是蛮力算法</p>
 <p>单次匹配概率越小，P越长，优势越明显</p>
-<h3 id="BM算法：GS策略"><a href="#BM算法：GS策略" class="headerlink" title="BM算法：GS策略"></a>BM算法：GS策略</h3><p>找到匹配后缀的自匹配（或部分匹配）前缀，与KMP的策略相同</p>
-<h3 id="性能比较"><a href="#性能比较" class="headerlink" title="性能比较"></a>性能比较</h3><p><img src="/Users/markov/Desktop/blog/source/img/10c168d09b6790f7986f9c1f681fc7a.jpg" srcset="/img/loading.gif" lazyload alt="10c168d09b6790f7986f9c1f681fc7a"></p>
-<h1 id="3-Karp-Rabin算法"><a href="#3-Karp-Rabin算法" class="headerlink" title="3. Karp-Rabin算法"></a>3. Karp-Rabin算法</h1><h3 id="串即是数"><a href="#串即是数" class="headerlink" title="串即是数"></a>串即是数</h3><p>哥德尔的思想，世间万物都能用自然数来表示！</p>
-<h3 id="散列"><a href="#散列" class="headerlink" title="散列"></a>散列</h3><p>将 $Text$串的每一指纹换算成数，再用 $hash()$压缩存入散列中，把 $Pattern$也转化，再与散列比对，比对成功之后，再取出原指纹比对</p>
+<h3 id="BM算法：GS策略">BM算法：GS策略</h3>
+<p>找到匹配后缀的自匹配（或部分匹配）前缀，与KMP的策略相同</p>
+<h3 id="性能比较">性能比较</h3>
+<p><img src="/Users/markov/Desktop/blog/source/img/10c168d09b6790f7986f9c1f681fc7a.jpg" srcset="/img/loading.gif" lazyload alt="10c168d09b6790f7986f9c1f681fc7a"></p>
+<h1>3. Karp-Rabin算法</h1>
+<h3 id="串即是数">串即是数</h3>
+<p>哥德尔的思想，世间万物都能用自然数来表示！</p>
+<h3 id="散列">散列</h3>
+<p>将 $Text$串的每一指纹换算成数，再用 $hash()$压缩存入散列中，把 $Pattern$也转化，再与散列比对，比对成功之后，再取出原指纹比对</p>
 <p>相邻指纹之间的散列可由上一指纹求出下一指纹，比如求余，减去头的影响，加上尾部的影响即可</p>
-<h1 id="4-键树"><a href="#4-键树" class="headerlink" title="4. 键树"></a>4. 键树</h1><p>？？？</p>
+<h1>4. 键树</h1>
+<p>？？？</p>
 
                 
               </div>

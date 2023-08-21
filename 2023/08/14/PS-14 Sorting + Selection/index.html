@@ -18,12 +18,12 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="PS-14 Sorting + Selection1. 快速排序策略找到一个轴点，然后将元素与轴点比较，小的放在左边，大的放在右边  轴点：在本来有序向量中所属位置的点 但轴点不是一开始就有的，因此我们要培养轴点 快速划分：LUG版随机的选取候选者，比如 $elem[0]$，然后由 $lo$到 $hi$，交替向内移动，先从 $hi$开始比较，有小于轴点的即转到 $lo$，如此反复，各元素最多移动1">
+    <meta name="description" content="PS-14 Sorting + Selection 1. 快速排序 策略 找到一个轴点，然后将元素与轴点比较，小的放在左边，大的放在右边  轴点：在本来有序向量中所属位置的点 但轴点不是一开始就有的，因此我们要培养轴点 快速划分：LUG版 随机的选取候选者，比如 $elem[0]$，然后由 $lo$到 $hi$，交替向内移动，先从 $hi$开始比较，有小于轴点的即转到 $lo$，如此反复，各元素最">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kov&#39;s blog">
 <meta property="og:url" content="https://markouv.github.io/2023/08/14/PS-14%20Sorting%20+%20Selection/index.html">
 <meta property="og:site_name" content="Kov&#39;s blog">
-<meta property="og:description" content="PS-14 Sorting + Selection1. 快速排序策略找到一个轴点，然后将元素与轴点比较，小的放在左边，大的放在右边  轴点：在本来有序向量中所属位置的点 但轴点不是一开始就有的，因此我们要培养轴点 快速划分：LUG版随机的选取候选者，比如 $elem[0]$，然后由 $lo$到 $hi$，交替向内移动，先从 $hi$开始比较，有小于轴点的即转到 $lo$，如此反复，各元素最多移动1">
+<meta property="og:description" content="PS-14 Sorting + Selection 1. 快速排序 策略 找到一个轴点，然后将元素与轴点比较，小的放在左边，大的放在右边  轴点：在本来有序向量中所属位置的点 但轴点不是一开始就有的，因此我们要培养轴点 快速划分：LUG版 随机的选取候选者，比如 $elem[0]$，然后由 $lo$到 $hi$，交替向内移动，先从 $hi$开始比较，有小于轴点的即转到 $lo$，如此反复，各元素最">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/50f5424f5cbd0bfe2ef0e0c0e3cca4c.jpg">
 <meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/3512a0b41fb9f022cded7e3682c2bd5.jpg">
@@ -229,7 +229,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          948 字
+          923 字
         
       </span>
     
@@ -282,11 +282,15 @@
             
               <div class="markdown-body">
                 
-                <h1 id="PS-14-Sorting-Selection"><a href="#PS-14-Sorting-Selection" class="headerlink" title="PS-14 Sorting + Selection"></a>PS-14 Sorting + Selection</h1><h1 id="1-快速排序"><a href="#1-快速排序" class="headerlink" title="1. 快速排序"></a>1. 快速排序</h1><h3 id="策略"><a href="#策略" class="headerlink" title="策略"></a>策略</h3><p>找到一个轴点，然后将元素与轴点比较，小的放在左边，大的放在右边</p>
+                <h1>PS-14 Sorting + Selection</h1>
+<h1>1. 快速排序</h1>
+<h3 id="策略">策略</h3>
+<p>找到一个轴点，然后将元素与轴点比较，小的放在左边，大的放在右边</p>
 <p><img src="/Users/markov/Desktop/blog/source/img/50f5424f5cbd0bfe2ef0e0c0e3cca4c.jpg" srcset="/img/loading.gif" lazyload alt="50f5424f5cbd0bfe2ef0e0c0e3cca4c"></p>
 <p>轴点：在本来有序向量中所属位置的点</p>
 <p>但轴点不是一开始就有的，因此我们要培养轴点</p>
-<h3 id="快速划分：LUG版"><a href="#快速划分：LUG版" class="headerlink" title="快速划分：LUG版"></a>快速划分：LUG版</h3><p>随机的选取候选者，比如 $elem[0]$，然后由 $lo$到 $hi$，交替向内移动，先从 $hi$开始比较，有小于轴点的即转到 $lo$，如此反复，各元素最多移动1次，因此划分只需 $O(n)$的时间</p>
+<h3 id="快速划分：LUG版">快速划分：LUG版</h3>
+<p>随机的选取候选者，比如 $elem[0]$，然后由 $lo$到 $hi$，交替向内移动，先从 $hi$开始比较，有小于轴点的即转到 $lo$，如此反复，各元素最多移动1次，因此划分只需 $O(n)$的时间</p>
 <p>一般在选取候选者时有一步随机的交换，目的是使原本不随机的序列变得随机</p>
 <p><strong>递归深度</strong></p>
 <p>此算法所需额外空间仅为 $O(1)$，但没考虑递归的深度，递归深度可能会有最坏的情况达到 $O(n)$，</p>
@@ -294,23 +298,30 @@
 <p><strong>迭代</strong></p>
 <p>或者也可以采取迭代的办法，大任务先入栈，小任务后入栈，需要的辅助栈空间也不过 $O(logn)$</p>
 <p><strong>比较次数</strong></p>
-<p>$T(n)&#x3D;(n-1)+\frac{1}{n}\sum_{k&#x3D;0}^{n-1}[T(k)+T(n-k-1)]&#x3D;(n-1)+\frac{2}{n}\sum_{k&#x3D;0}^{n-1}T(k)$</p>
+<p>$T(n)=(n-1)+\frac{1}{n}\sum_{k=0}^{n-1}[T(k)+T(n-k-1)]=(n-1)+\frac{2}{n}\sum_{k=0}^{n-1}T(k)$</p>
 <p>经过一系列化简</p>
-<p>$\frac{T(n)}{n+1}-\frac{T(n-1)}{n}&#x3D;\frac{4}{n+1}-\frac{2}{n}$</p>
+<p>$\frac{T(n)}{n+1}-\frac{T(n-1)}{n}=\frac{4}{n+1}-\frac{2}{n}$</p>
 <p>经过累加法得</p>
 <p>$\frac{T(n)}{n+1}\approx 2\ln n$</p>
 <p>$T(n)\approx 1.386\cdot nlogn$</p>
 <p>也可以采用后向分析的方法：</p>
 <p><img src="/Users/markov/Desktop/blog/source/img/3512a0b41fb9f022cded7e3682c2bd5.jpg" srcset="/img/loading.gif" lazyload alt="3512a0b41fb9f022cded7e3682c2bd5"></p>
-<h3 id="几种排序算法对比"><a href="#几种排序算法对比" class="headerlink" title="几种排序算法对比"></a>几种排序算法对比</h3><p><img src="/Users/markov/Desktop/blog/source/img/2032df4966842da313a6fb512cce2fc.jpg" srcset="/img/loading.gif" lazyload alt="2032df4966842da313a6fb512cce2fc"></p>
-<h3 id="快速划分：DUP版"><a href="#快速划分：DUP版" class="headerlink" title="快速划分：DUP版"></a>快速划分：DUP版</h3><p>大量元素重复时，会导致划分的失衡，使得递归深度过大，DUP版将原算法中比较的等号去掉，这样可以缓解失衡的问题，降低递归的深度</p>
-<h3 id="快速划分：LGU版"><a href="#快速划分：LGU版" class="headerlink" title="快速划分：LGU版"></a>快速划分：LGU版</h3><p>顺序遍历元素，逐一和轴点比较，less则放在序列的L部分（实则是和G中第一个元素交换），greater则不需要移动，直接继续拓展，是非常简单的一种算法</p>
+<h3 id="几种排序算法对比">几种排序算法对比</h3>
+<p><img src="/Users/markov/Desktop/blog/source/img/2032df4966842da313a6fb512cce2fc.jpg" srcset="/img/loading.gif" lazyload alt="2032df4966842da313a6fb512cce2fc"></p>
+<h3 id="快速划分：DUP版">快速划分：DUP版</h3>
+<p>大量元素重复时，会导致划分的失衡，使得递归深度过大，DUP版将原算法中比较的等号去掉，这样可以缓解失衡的问题，降低递归的深度</p>
+<h3 id="快速划分：LGU版">快速划分：LGU版</h3>
+<p>顺序遍历元素，逐一和轴点比较，less则放在序列的L部分（实则是和G中第一个元素交换），greater则不需要移动，直接继续拓展，是非常简单的一种算法</p>
 <p><img src="/Users/markov/Desktop/blog/source/img/6ae2ecf648a03af380f21191d1701c6.jpg" srcset="/img/loading.gif" lazyload alt="6ae2ecf648a03af380f21191d1701c6"></p>
 <p>以上算法都存在不稳定的问题</p>
-<h1 id="2-选取"><a href="#2-选取" class="headerlink" title="2. 选取"></a>2. 选取</h1><h3 id="QuickSelect"><a href="#QuickSelect" class="headerlink" title="QuickSelect"></a>QuickSelect</h3><p>经过反复地做quicksort中的partition操作，最终选出第k大的元素</p>
+<h1>2. 选取</h1>
+<h3 id="QuickSelect">QuickSelect</h3>
+<p>经过反复地做quicksort中的partition操作，最终选出第k大的元素</p>
 <p>期望的复杂度为 $O(n)$，但仍存在最坏情况！</p>
-<h3 id="LinearSelect"><a href="#LinearSelect" class="headerlink" title="LinearSelect"></a>LinearSelect</h3><p><img src="/Users/markov/Desktop/blog/source/img/6f47805e333cbe915661fed600695a1.jpg" srcset="/img/loading.gif" lazyload alt="6f47805e333cbe915661fed600695a1"></p>
-<h1 id="3-希尔排序"><a href="#3-希尔排序" class="headerlink" title="3. 希尔排序"></a>3. 希尔排序</h1><p>相隔一定步长的插值排序，步长按特定的序列从大到小变化</p>
+<h3 id="LinearSelect">LinearSelect</h3>
+<p><img src="/Users/markov/Desktop/blog/source/img/6f47805e333cbe915661fed600695a1.jpg" srcset="/img/loading.gif" lazyload alt="6f47805e333cbe915661fed600695a1"></p>
+<h1>3. 希尔排序</h1>
+<p>相隔一定步长的插值排序，步长按特定的序列从大到小变化</p>
 
                 
               </div>

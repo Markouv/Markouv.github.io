@@ -18,12 +18,12 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="PS-08 Advanced Search Trees1. Splay Tree（伸展树）由于访问的局部性，访问一个节点以后可能不久就再次访问，于是把每次访问的节点移到树根，这样的树叫做伸展树 每次移动都要通过zig,zag一层一层地爬上去，如果周期性地访问，分摊复杂度可达 $\Omega (n^{2})$ 双层伸展 每次伸展要一起看两层，从祖父旋转 插入先通过search()找到不大于插入节点的">
+    <meta name="description" content="PS-08 Advanced Search Trees 1. Splay Tree（伸展树） 由于访问的局部性，访问一个节点以后可能不久就再次访问，于是把每次访问的节点移到树根，这样的树叫做伸展树 每次移动都要通过zig,zag一层一层地爬上去，如果周期性地访问，分摊复杂度可达 $\Omega (n^{2})$ 双层伸展  每次伸展要一起看两层，从祖父旋转 插入 先通过search()找到不大于插">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kov&#39;s blog">
 <meta property="og:url" content="https://markouv.github.io/2023/08/14/PS-08%20Advanced%20Search%20Trees/index.html">
 <meta property="og:site_name" content="Kov&#39;s blog">
-<meta property="og:description" content="PS-08 Advanced Search Trees1. Splay Tree（伸展树）由于访问的局部性，访问一个节点以后可能不久就再次访问，于是把每次访问的节点移到树根，这样的树叫做伸展树 每次移动都要通过zig,zag一层一层地爬上去，如果周期性地访问，分摊复杂度可达 $\Omega (n^{2})$ 双层伸展 每次伸展要一起看两层，从祖父旋转 插入先通过search()找到不大于插入节点的">
+<meta property="og:description" content="PS-08 Advanced Search Trees 1. Splay Tree（伸展树） 由于访问的局部性，访问一个节点以后可能不久就再次访问，于是把每次访问的节点移到树根，这样的树叫做伸展树 每次移动都要通过zig,zag一层一层地爬上去，如果周期性地访问，分摊复杂度可达 $\Omega (n^{2})$ 双层伸展  每次伸展要一起看两层，从祖父旋转 插入 先通过search()找到不大于插">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/4db243df40e8eb226f784a6af1ab8eb.jpg">
 <meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/19b51d0fbf27991da17157afbacdbc2.jpg">
@@ -286,38 +286,51 @@
             
               <div class="markdown-body">
                 
-                <h1 id="PS-08-Advanced-Search-Trees"><a href="#PS-08-Advanced-Search-Trees" class="headerlink" title="PS-08 Advanced Search Trees"></a>PS-08 Advanced Search Trees</h1><h1 id="1-Splay-Tree（伸展树）"><a href="#1-Splay-Tree（伸展树）" class="headerlink" title="1. Splay Tree（伸展树）"></a>1. Splay Tree（伸展树）</h1><p>由于访问的局部性，访问一个节点以后可能不久就再次访问，于是把每次访问的节点移到树根，这样的树叫做伸展树</p>
+                <h1>PS-08 Advanced Search Trees</h1>
+<h1>1. Splay Tree（伸展树）</h1>
+<p>由于访问的局部性，访问一个节点以后可能不久就再次访问，于是把每次访问的节点移到树根，这样的树叫做伸展树</p>
 <p>每次移动都要通过zig,zag一层一层地爬上去，如果周期性地访问，分摊复杂度可达 $\Omega (n^{2})$</p>
-<h3 id="双层伸展"><a href="#双层伸展" class="headerlink" title="双层伸展"></a>双层伸展</h3><p><img src="/Users/markov/Desktop/blog/source/img/4db243df40e8eb226f784a6af1ab8eb.jpg" srcset="/img/loading.gif" lazyload alt="4db243df40e8eb226f784a6af1ab8eb"></p>
+<h3 id="双层伸展">双层伸展</h3>
+<p><img src="/Users/markov/Desktop/blog/source/img/4db243df40e8eb226f784a6af1ab8eb.jpg" srcset="/img/loading.gif" lazyload alt="4db243df40e8eb226f784a6af1ab8eb"></p>
 <p>每次伸展要一起看两层，从祖父旋转</p>
-<h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a><strong>插入</strong></h3><p>先通过search()找到不大于插入节点的最大节点并伸展至根，然后再在根的头上生成新节点</p>
-<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>通过search()找到目标节点，伸展至根然后删除，删除后从右子树中找到最小节点伸展至根作为新的根</p>
-<h3 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h3><p>分摊复杂度为 $O(logn)$</p>
+<h3 id="插入"><strong>插入</strong></h3>
+<p>先通过search()找到不大于插入节点的最大节点并伸展至根，然后再在根的头上生成新节点</p>
+<h3 id="删除">删除</h3>
+<p>通过search()找到目标节点，伸展至根然后删除，删除后从右子树中找到最小节点伸展至根作为新的根</p>
+<h3 id="复杂度">复杂度</h3>
+<p>分摊复杂度为 $O(logn)$</p>
 <p><strong>分析</strong></p>
 <p>运用势能分析法</p>
-<h1 id="2-B树"><a href="#2-B树" class="headerlink" title="2. B树"></a>2. B树</h1><ul>
+<h1>2. B树</h1>
+<ul>
 <li>存储器规模增长速度远远小于问题规模增长速度</li>
 <li>增大存储器规模会使访问速度变慢</li>
 <li>存储器有内部级联结构，不同级联结构访问速度不同，访问内存1s，访问磁盘则需要一天</li>
 <li>相邻存储级别之间的数据传输在算法时间中占的更多</li>
 </ul>
-<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>每d代合并为1个超级节点，每个节点有 $m&#x3D;2^{d}$条支路， $m-1$个关键码</p>
-<p>内部节点分支个数为 $m&#x2F;2≤n≤m$，关键码个数为 $n-1$</p>
+<h3 id="结构">结构</h3>
+<p>每d代合并为1个超级节点，每个节点有 $m=2^{d}$条支路， $m-1$个关键码</p>
+<p>内部节点分支个数为 $m/2≤n≤m$，关键码个数为 $n-1$</p>
 <p>但是根节点关键码个数 $n≥1$即可</p>
-<h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><p>在每个节点中顺序查找，查找失败则转到下一层继续查找（相当于1次I&#x2F;O操作）</p>
+<h3 id="查找">查找</h3>
+<p>在每个节点中顺序查找，查找失败则转到下一层继续查找（相当于1次I/O操作）</p>
 <p>运行时间 $O(logn)$</p>
-<h3 id="插入-1"><a href="#插入-1" class="headerlink" title="插入"></a>插入</h3><p>先通过search()找到插入位置，如果上溢，取出中位数关键码移到上层，原节点分裂为两个</p>
+<h3 id="插入-2">插入</h3>
+<p>先通过search()找到插入位置，如果上溢，取出中位数关键码移到上层，原节点分裂为两个</p>
 <p>若父亲也上溢，用同样的办法分裂，若上溢向上传播，则逐层解决直到根</p>
-<h3 id="删除-1"><a href="#删除-1" class="headerlink" title="删除"></a>删除</h3><p>先通过search()找到删除位置，如果不是叶子节点，则找到直接后继与其交换，然后在直接后继的位置将其删除</p>
+<h3 id="删除-2">删除</h3>
+<p>先通过search()找到删除位置，如果不是叶子节点，则找到直接后继与其交换，然后在直接后继的位置将其删除</p>
 <p>如果下溢，看左右兄弟的规模：</p>
 <ul>
 <li>如果左兄弟有盈余，将左兄弟的最大关键码移到父亲节点上来，将父亲节点的分界关键码移到被删除的节点中</li>
 <li>如果右兄弟有盈余，将右兄弟的最小关键码移到父亲节点上来，将父亲节点的分界关键码移到被删除的节点中</li>
 <li>如果左右兄弟都不够，则选择左兄弟或右兄弟，将其父亲的分界关键码拿下来两个节点合并为一个节点，但可能引起向上传播，则逐层修复</li>
 </ul>
-<h1 id="3-红黑树"><a href="#3-红黑树" class="headerlink" title="3. 红黑树"></a>3. 红黑树</h1><p><img src="/Users/markov/Desktop/blog/source/img/19b51d0fbf27991da17157afbacdbc2.jpg" srcset="/img/loading.gif" lazyload alt="19b51d0fbf27991da17157afbacdbc2"></p>
+<h1>3. 红黑树</h1>
+<p><img src="/Users/markov/Desktop/blog/source/img/19b51d0fbf27991da17157afbacdbc2.jpg" srcset="/img/loading.gif" lazyload alt="19b51d0fbf27991da17157afbacdbc2"></p>
 <p>将红节点高度提升至与其黑父亲等高，实际上相当于一个(2,4)-B树，也是BBST</p>
-<h3 id="插入-2"><a href="#插入-2" class="headerlink" title="插入"></a>插入</h3><p>search()找到插入位置，然后染红（根节点要染成黑的），此时规则3可能会违反，可能会出现双红的情况</p>
+<h3 id="插入-3">插入</h3>
+<p>search()找到插入位置，然后染红（根节点要染成黑的），此时规则3可能会违反，可能会出现双红的情况</p>
 <p><strong>双红修正</strong></p>
 <p><img src="/Users/markov/Desktop/blog/source/img/04b75ec9cc75f70b106aa86208fa4d7.jpg" srcset="/img/loading.gif" lazyload alt="04b75ec9cc75f70b106aa86208fa4d7"></p>
 <p>经过3-4重构之后，将中间节点染黑，子节点染红</p>
@@ -327,7 +340,8 @@
 <p><strong>复杂度</strong></p>
 <p>$O(logn)$次重染色</p>
 <p>$O(1)$次旋转（旋转过后必然全局恢复）</p>
-<h3 id="删除-2"><a href="#删除-2" class="headerlink" title="删除"></a>删除</h3><p>按照原BST删除操作删除，3、4规则可能会违反</p>
+<h3 id="删除-3">删除</h3>
+<p>按照原BST删除操作删除，3、4规则可能会违反</p>
 <p><img src="/Users/markov/Desktop/blog/source/img/aa680f5c143d56e34dd03015fcb9fd9.jpg" srcset="/img/loading.gif" lazyload alt="aa680f5c143d56e34dd03015fcb9fd9"></p>
 <p><strong>双黑</strong></p>
 <p><img src="/Users/markov/Desktop/blog/source/img/9e04d42570698e624a5919a49774869.jpg" srcset="/img/loading.gif" lazyload alt="9e04d42570698e624a5919a49774869"></p>
