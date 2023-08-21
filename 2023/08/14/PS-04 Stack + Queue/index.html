@@ -12,6 +12,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
   <meta name="theme-color" content="#2f4154">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
@@ -23,17 +25,17 @@
 <meta property="og:site_name" content="Kov&#39;s blog">
 <meta property="og:description" content="PS-04 Stack + Queue[TOC] 1. 栈的接口与实现栈只能在栈顶插入和删除，后进先出  接口 size() &#x2F; empty() push() pop() top()    2. 栈的应用函数调用栈递归算法所用的空间主要取决于递归的深度，而不是递归实例的总数（因为递归实例并不是同时出现，每层递归只调用一个递归实例） 尾递归当每次递归只出现在最后一步时，这个递归就可以消除，">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/e623455616f7414ab351c7903eaec48.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/4e95db1e7942d27c6250eca1540af12.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/ed0ecda2e7675d6d2c12ed83b9e0161.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/1f6d3f3d79fe9975ddd9715022d7525.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/dad44ff2f88dfb585c38ac5092a116f.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/b276f1fcf9a3bd160aa344ab69864b7.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/e623455616f7414ab351c7903eaec48.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/4e95db1e7942d27c6250eca1540af12.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/ed0ecda2e7675d6d2c12ed83b9e0161.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/1f6d3f3d79fe9975ddd9715022d7525.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/dad44ff2f88dfb585c38ac5092a116f.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/b276f1fcf9a3bd160aa344ab69864b7.jpg">
 <meta property="article:published_time" content="2023-08-14T07:02:49.178Z">
-<meta property="article:modified_time" content="2023-08-14T07:27:08.119Z">
+<meta property="article:modified_time" content="2023-08-21T08:33:04.474Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/e623455616f7414ab351c7903eaec48.jpg">
+<meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/e623455616f7414ab351c7903eaec48.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -298,9 +300,9 @@
 <p>要找到一种算法，可以自低而高的保留数位，然后自高而低的输出</p>
 <p>栈就是这样一种满足要求的数据结构</p>
 <h3 id="括号匹配"><a href="#括号匹配" class="headerlink" title="括号匹配"></a>括号匹配</h3><p>分治策略和减治策略是不可行的，他们只满足充分条件，不满足必要条件，这是一种由外而内的策略</p>
-<p><img src="/Users/markov/Desktop/blog_figures/e623455616f7414ab351c7903eaec48.jpg" srcset="/img/loading.gif" lazyload alt="e623455616f7414ab351c7903eaec48"></p>
+<p><img src="/Users/markov/Desktop/blog/source/img/e623455616f7414ab351c7903eaec48.jpg" srcset="/img/loading.gif" lazyload alt="e623455616f7414ab351c7903eaec48"></p>
 <p>思考一种由内而外的策略，从内部一点一点将紧邻的括号消去从而判断是否全局匹配，要想实现这种策略，可以考虑使用栈</p>
-<p><img src="/Users/markov/Desktop/blog_figures/4e95db1e7942d27c6250eca1540af12.jpg" srcset="/img/loading.gif" lazyload alt="4e95db1e7942d27c6250eca1540af12"></p>
+<p><img src="/Users/markov/Desktop/blog/source/img/4e95db1e7942d27c6250eca1540af12.jpg" srcset="/img/loading.gif" lazyload alt="4e95db1e7942d27c6250eca1540af12"></p>
 <h3 id="栈混洗"><a href="#栈混洗" class="headerlink" title="栈混洗"></a>栈混洗</h3><p>考察栈 $A,B,S$，只存在 $S.push(A.pop()),B.push(S.pop())$两个操作</p>
 <p>可以考察 $S$再度变空 $n$种情况，实际上就是对 $A$中除第一个元素外（因为第一个元素必然排在 $k$个元素的末尾）前 $k-1$个元素栈混洗再对后 $n-k$个元素栈混洗</p>
 <p>因此最后得到的组合数为</p>
@@ -315,7 +317,7 @@
 <p>用一个栈，遇到数就压入，遇到算符就弹出计算，更方便（好像）</p>
 <p><strong>中缀表达式与逆波兰表达式转换</strong></p>
 <p>将中缀表达式的每一次运算都用括号括起来，然后按照左括号和数字向下，运算符向上的规则写成一个起起伏伏的序列，这样每一个运算符都在同一高度上对应着一个右括号，然后将运算符移动到右括号对应的位置替换掉右括号，最后再落到同一排，转换就完成了</p>
-<p><img src="/Users/markov/Desktop/blog_figures/ed0ecda2e7675d6d2c12ed83b9e0161.jpg" srcset="/img/loading.gif" lazyload alt="ed0ecda2e7675d6d2c12ed83b9e0161"></p>
+<p><img src="/Users/markov/Desktop/blog/source/img/ed0ecda2e7675d6d2c12ed83b9e0161.jpg" srcset="/img/loading.gif" lazyload alt="ed0ecda2e7675d6d2c12ed83b9e0161"></p>
 <h1 id="3-队列的接口与实现"><a href="#3-队列的接口与实现" class="headerlink" title="3. 队列的接口与实现"></a>3. 队列的接口与实现</h1><p>队列只能在队尾插入，从队头删除，先进先出</p>
 <ul>
 <li>接口<ul>
@@ -328,11 +330,11 @@
 <p>逐一扫描选取最大的，复杂度 $O(n^{2})$</p>
 <p><strong>优化算法</strong></p>
 <p>对每一个直方矩形，找到它的左边界和右边界存起来即可，在找的过程中要进行适当的剪枝</p>
-<h1 id="5-栈与队列"><a href="#5-栈与队列" class="headerlink" title="5. 栈与队列"></a>5. 栈与队列</h1><h3 id="Steap-Stack-Heap"><a href="#Steap-Stack-Heap" class="headerlink" title="Steap &#x3D; Stack + Heap"></a>Steap &#x3D; Stack + Heap</h3><p><img src="/Users/markov/Desktop/blog_figures/1f6d3f3d79fe9975ddd9715022d7525.jpg" srcset="/img/loading.gif" lazyload alt="1f6d3f3d79fe9975ddd9715022d7525"></p>
+<h1 id="5-栈与队列"><a href="#5-栈与队列" class="headerlink" title="5. 栈与队列"></a>5. 栈与队列</h1><h3 id="Steap-Stack-Heap"><a href="#Steap-Stack-Heap" class="headerlink" title="Steap &#x3D; Stack + Heap"></a>Steap &#x3D; Stack + Heap</h3><p><img src="/Users/markov/Desktop/blog/source/img/1f6d3f3d79fe9975ddd9715022d7525.jpg" srcset="/img/loading.gif" lazyload alt="1f6d3f3d79fe9975ddd9715022d7525"></p>
 <p>这样可以快速得出栈中最大的元素，但是 $P$中存了大量重复的元素似乎有些浪费空间，可以对其进行适当的简化：</p>
-<p><img src="/Users/markov/Desktop/blog_figures/dad44ff2f88dfb585c38ac5092a116f.jpg" srcset="/img/loading.gif" lazyload alt="dad44ff2f88dfb585c38ac5092a116f"></p>
+<p><img src="/Users/markov/Desktop/blog/source/img/dad44ff2f88dfb585c38ac5092a116f.jpg" srcset="/img/loading.gif" lazyload alt="dad44ff2f88dfb585c38ac5092a116f"></p>
 <p>用压缩的方法，每个最大值部分存一个计数器，来了pop一个就-1，来更大的就push一个</p>
-<h3 id="Queap-Queue-Heap"><a href="#Queap-Queue-Heap" class="headerlink" title="Queap &#x3D; Queue + Heap"></a>Queap &#x3D; Queue + Heap</h3><p><img src="/Users/markov/Desktop/blog_figures/b276f1fcf9a3bd160aa344ab69864b7.jpg" srcset="/img/loading.gif" lazyload alt="b276f1fcf9a3bd160aa344ab69864b7"></p>
+<h3 id="Queap-Queue-Heap"><a href="#Queap-Queue-Heap" class="headerlink" title="Queap &#x3D; Queue + Heap"></a>Queap &#x3D; Queue + Heap</h3><p><img src="/Users/markov/Desktop/blog/source/img/b276f1fcf9a3bd160aa344ab69864b7.jpg" srcset="/img/loading.gif" lazyload alt="b276f1fcf9a3bd160aa344ab69864b7"></p>
 <p>用队列时，更新复杂度就会变高，因为插入是从后缀插入， $P$要更新后缀的最大值</p>
 <p>同样的也可以用压缩的方法降低空间复杂度</p>
 <p><strong>为什么 $P$的后缀可进可出？</strong></p>

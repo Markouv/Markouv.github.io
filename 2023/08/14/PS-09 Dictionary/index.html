@@ -12,6 +12,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
   <meta name="theme-color" content="#2f4154">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
@@ -23,18 +25,18 @@
 <meta property="og:site_name" content="Kov&#39;s blog">
 <meta property="og:description" content="PS-09 Dictionary[TOC] 1. 词典词条的key和value突破了数字的限制 散列：原理可能存在的key数量很多，但实际存在的key很少，为了节省空间，我们采用散列表  冲突有可能出现 $key_{1}≠key_{2}$，但是 $hash(key_{1})&#x3D;hash(key_{2})$的情况 2. 散列函数 除余法除余时选取素数，可使数据对散列表的覆盖最充分，分布最均匀">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/32855079dcb7ccc5f1f93c829c4ebae.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/419895227157f83a9939d976997233b.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/eaf65b8e882e0a37a729f3b3c72ded4.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/a1dec55dd1026e0a4b5c3b364a97dbd.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/00bbe90ddf4ba8bee277ab6f7d40947.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/76270e5235418d36ab00f0abb6d9430.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/c2246e7f7a321ac3b0f27c165804351.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/32855079dcb7ccc5f1f93c829c4ebae.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/419895227157f83a9939d976997233b.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/eaf65b8e882e0a37a729f3b3c72ded4.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/a1dec55dd1026e0a4b5c3b364a97dbd.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/00bbe90ddf4ba8bee277ab6f7d40947.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/76270e5235418d36ab00f0abb6d9430.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/c2246e7f7a321ac3b0f27c165804351.jpg">
 <meta property="article:published_time" content="2023-08-14T07:07:35.719Z">
-<meta property="article:modified_time" content="2023-08-14T07:42:37.699Z">
+<meta property="article:modified_time" content="2023-08-21T08:35:23.197Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/32855079dcb7ccc5f1f93c829c4ebae.jpg">
+<meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/32855079dcb7ccc5f1f93c829c4ebae.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -285,11 +287,11 @@
                 <h1 id="PS-09-Dictionary"><a href="#PS-09-Dictionary" class="headerlink" title="PS-09 Dictionary"></a>PS-09 Dictionary</h1><p>[TOC]</p>
 <h1 id="1-词典"><a href="#1-词典" class="headerlink" title="1. 词典"></a>1. 词典</h1><p>词条的key和value突破了数字的限制</p>
 <h3 id="散列：原理"><a href="#散列：原理" class="headerlink" title="散列：原理"></a>散列：原理</h3><p>可能存在的key数量很多，但实际存在的key很少，为了节省空间，我们采用散列表</p>
-<p><img src="/Users/markov/Desktop/blog_figures/32855079dcb7ccc5f1f93c829c4ebae.jpg" srcset="/img/loading.gif" lazyload alt="32855079dcb7ccc5f1f93c829c4ebae"></p>
+<p><img src="/Users/markov/Desktop/blog/source/img/32855079dcb7ccc5f1f93c829c4ebae.jpg" srcset="/img/loading.gif" lazyload alt="32855079dcb7ccc5f1f93c829c4ebae"></p>
 <h3 id="冲突"><a href="#冲突" class="headerlink" title="冲突"></a>冲突</h3><p>有可能出现 $key_{1}≠key_{2}$，但是 $hash(key_{1})&#x3D;hash(key_{2})$的情况</p>
-<h1 id="2-散列函数"><a href="#2-散列函数" class="headerlink" title="2. 散列函数"></a>2. 散列函数</h1><p><img src="/Users/markov/Desktop/blog_figures/419895227157f83a9939d976997233b.jpg" srcset="/img/loading.gif" lazyload alt="419895227157f83a9939d976997233b"></p>
+<h1 id="2-散列函数"><a href="#2-散列函数" class="headerlink" title="2. 散列函数"></a>2. 散列函数</h1><p><img src="/Users/markov/Desktop/blog/source/img/419895227157f83a9939d976997233b.jpg" srcset="/img/loading.gif" lazyload alt="419895227157f83a9939d976997233b"></p>
 <h3 id="除余法"><a href="#除余法" class="headerlink" title="除余法"></a>除余法</h3><p>除余时选取素数，可使数据对散列表的覆盖最充分，分布最均匀</p>
-<h3 id="MAD法"><a href="#MAD法" class="headerlink" title="MAD法"></a>MAD法</h3><p><img src="/Users/markov/Desktop/blog_figures/eaf65b8e882e0a37a729f3b3c72ded4.jpg" srcset="/img/loading.gif" lazyload alt="eaf65b8e882e0a37a729f3b3c72ded4"></p>
+<h3 id="MAD法"><a href="#MAD法" class="headerlink" title="MAD法"></a>MAD法</h3><p><img src="/Users/markov/Desktop/blog/source/img/eaf65b8e882e0a37a729f3b3c72ded4.jpg" srcset="/img/loading.gif" lazyload alt="eaf65b8e882e0a37a729f3b3c72ded4"></p>
 <p>散列函数设计的越随机越好</p>
 <h3 id="伪随机数法"><a href="#伪随机数法" class="headerlink" title="伪随机数法"></a>伪随机数法</h3><p>因各平台随机数生成方法差异很大，该方法可移植性差</p>
 <h1 id="3-排解冲突"><a href="#3-排解冲突" class="headerlink" title="3. 排解冲突"></a>3. 排解冲突</h1><h3 id="开放散列"><a href="#开放散列" class="headerlink" title="开放散列"></a>开放散列</h3><p><strong>多槽位</strong></p>
@@ -315,10 +317,10 @@
 <p><strong>双向平方试探</strong></p>
 <p>交替地沿两个方向试探</p>
 <p>取表长为 $M&#x3D;4k+3$，可以保证试探前 $M$项均互异</p>
-<h1 id="4-桶排序"><a href="#4-桶排序" class="headerlink" title="4. 桶排序"></a>4. 桶排序</h1><p><img src="/Users/markov/Desktop/blog_figures/a1dec55dd1026e0a4b5c3b364a97dbd.jpg" srcset="/img/loading.gif" lazyload alt="a1dec55dd1026e0a4b5c3b364a97dbd"></p>
-<p><img src="/Users/markov/Desktop/blog_figures/00bbe90ddf4ba8bee277ab6f7d40947.jpg" srcset="/img/loading.gif" lazyload alt="00bbe90ddf4ba8bee277ab6f7d40947"></p>
+<h1 id="4-桶排序"><a href="#4-桶排序" class="headerlink" title="4. 桶排序"></a>4. 桶排序</h1><p><img src="/Users/markov/Desktop/blog/source/img/a1dec55dd1026e0a4b5c3b364a97dbd.jpg" srcset="/img/loading.gif" lazyload alt="a1dec55dd1026e0a4b5c3b364a97dbd"></p>
+<p><img src="/Users/markov/Desktop/blog/source/img/00bbe90ddf4ba8bee277ab6f7d40947.jpg" srcset="/img/loading.gif" lazyload alt="00bbe90ddf4ba8bee277ab6f7d40947"></p>
 <h3 id="最大缝隙"><a href="#最大缝隙" class="headerlink" title="最大缝隙"></a>最大缝隙</h3><p>找出 $n$个点中间隔最大的一段，采用分桶排序，算法复杂度可达 $O(n)$</p>
-<p><img src="/Users/markov/Desktop/blog_figures/76270e5235418d36ab00f0abb6d9430.jpg" srcset="/img/loading.gif" lazyload alt="76270e5235418d36ab00f0abb6d9430"></p>
+<p><img src="/Users/markov/Desktop/blog/source/img/76270e5235418d36ab00f0abb6d9430.jpg" srcset="/img/loading.gif" lazyload alt="76270e5235418d36ab00f0abb6d9430"></p>
 <h3 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h3><p>关键码由多个域组成</p>
 <p>排序时由低位到高位，可保证算法的稳定性</p>
 <p><strong>整数排序</strong></p>
@@ -332,7 +334,7 @@
 <h3 id="跳转表"><a href="#跳转表" class="headerlink" title="跳转表"></a>跳转表</h3><p>每个元素的塔高期望为2，所以空间复杂度期望为 $O(n)$</p>
 <p>整体期望塔高为 $O(logn)$</p>
 <p><strong>查找时间复杂度</strong></p>
-<p><img src="/Users/markov/Desktop/blog_figures/c2246e7f7a321ac3b0f27c165804351.jpg" srcset="/img/loading.gif" lazyload alt="c2246e7f7a321ac3b0f27c165804351"></p>
+<p><img src="/Users/markov/Desktop/blog/source/img/c2246e7f7a321ac3b0f27c165804351.jpg" srcset="/img/loading.gif" lazyload alt="c2246e7f7a321ac3b0f27c165804351"></p>
 <p>纵向跳转为层高： $O(logn)$</p>
 <p>横向跳转时，每次都落在塔顶上，每层的塔顶期望的只有2个，因此也为 $O(logn)$</p>
 

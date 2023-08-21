@@ -12,6 +12,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
   <meta name="theme-color" content="#2f4154">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
@@ -23,20 +25,20 @@
 <meta property="og:site_name" content="Kov&#39;s blog">
 <meta property="og:description" content="PS-08 Advanced Search Trees1. Splay Tree（伸展树）由于访问的局部性，访问一个节点以后可能不久就再次访问，于是把每次访问的节点移到树根，这样的树叫做伸展树 每次移动都要通过zig,zag一层一层地爬上去，如果周期性地访问，分摊复杂度可达 $\Omega (n^{2})$ 双层伸展 每次伸展要一起看两层，从祖父旋转 插入先通过search()找到不大于插入节点的">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/4db243df40e8eb226f784a6af1ab8eb.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/19b51d0fbf27991da17157afbacdbc2.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/04b75ec9cc75f70b106aa86208fa4d7.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/5c938ded426d6d213c35582e88f175d.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/aa680f5c143d56e34dd03015fcb9fd9.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/9e04d42570698e624a5919a49774869.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/b547cd00db3bc766dba512205da1bf6.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/20d87921fc6d1281f143bdbb7ed26e4.jpg">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/57b257d49517194bbfd38353fc7c205.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/4db243df40e8eb226f784a6af1ab8eb.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/19b51d0fbf27991da17157afbacdbc2.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/04b75ec9cc75f70b106aa86208fa4d7.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/5c938ded426d6d213c35582e88f175d.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/aa680f5c143d56e34dd03015fcb9fd9.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/9e04d42570698e624a5919a49774869.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/b547cd00db3bc766dba512205da1bf6.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/20d87921fc6d1281f143bdbb7ed26e4.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/57b257d49517194bbfd38353fc7c205.jpg">
 <meta property="article:published_time" content="2023-08-14T07:06:33.345Z">
-<meta property="article:modified_time" content="2023-08-14T07:37:33.102Z">
+<meta property="article:modified_time" content="2023-08-21T08:34:45.072Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/4db243df40e8eb226f784a6af1ab8eb.jpg">
+<meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/4db243df40e8eb226f784a6af1ab8eb.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -286,7 +288,7 @@
                 
                 <h1 id="PS-08-Advanced-Search-Trees"><a href="#PS-08-Advanced-Search-Trees" class="headerlink" title="PS-08 Advanced Search Trees"></a>PS-08 Advanced Search Trees</h1><h1 id="1-Splay-Tree（伸展树）"><a href="#1-Splay-Tree（伸展树）" class="headerlink" title="1. Splay Tree（伸展树）"></a>1. Splay Tree（伸展树）</h1><p>由于访问的局部性，访问一个节点以后可能不久就再次访问，于是把每次访问的节点移到树根，这样的树叫做伸展树</p>
 <p>每次移动都要通过zig,zag一层一层地爬上去，如果周期性地访问，分摊复杂度可达 $\Omega (n^{2})$</p>
-<h3 id="双层伸展"><a href="#双层伸展" class="headerlink" title="双层伸展"></a>双层伸展</h3><p><img src="/Users/markov/Desktop/blog_figures/4db243df40e8eb226f784a6af1ab8eb.jpg" srcset="/img/loading.gif" lazyload alt="4db243df40e8eb226f784a6af1ab8eb"></p>
+<h3 id="双层伸展"><a href="#双层伸展" class="headerlink" title="双层伸展"></a>双层伸展</h3><p><img src="/Users/markov/Desktop/blog/source/img/4db243df40e8eb226f784a6af1ab8eb.jpg" srcset="/img/loading.gif" lazyload alt="4db243df40e8eb226f784a6af1ab8eb"></p>
 <p>每次伸展要一起看两层，从祖父旋转</p>
 <h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a><strong>插入</strong></h3><p>先通过search()找到不大于插入节点的最大节点并伸展至根，然后再在根的头上生成新节点</p>
 <h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>通过search()找到目标节点，伸展至根然后删除，删除后从右子树中找到最小节点伸展至根作为新的根</p>
@@ -313,27 +315,27 @@
 <li>如果右兄弟有盈余，将右兄弟的最小关键码移到父亲节点上来，将父亲节点的分界关键码移到被删除的节点中</li>
 <li>如果左右兄弟都不够，则选择左兄弟或右兄弟，将其父亲的分界关键码拿下来两个节点合并为一个节点，但可能引起向上传播，则逐层修复</li>
 </ul>
-<h1 id="3-红黑树"><a href="#3-红黑树" class="headerlink" title="3. 红黑树"></a>3. 红黑树</h1><p><img src="/Users/markov/Desktop/blog_figures/19b51d0fbf27991da17157afbacdbc2.jpg" srcset="/img/loading.gif" lazyload alt="19b51d0fbf27991da17157afbacdbc2"></p>
+<h1 id="3-红黑树"><a href="#3-红黑树" class="headerlink" title="3. 红黑树"></a>3. 红黑树</h1><p><img src="/Users/markov/Desktop/blog/source/img/19b51d0fbf27991da17157afbacdbc2.jpg" srcset="/img/loading.gif" lazyload alt="19b51d0fbf27991da17157afbacdbc2"></p>
 <p>将红节点高度提升至与其黑父亲等高，实际上相当于一个(2,4)-B树，也是BBST</p>
 <h3 id="插入-2"><a href="#插入-2" class="headerlink" title="插入"></a>插入</h3><p>search()找到插入位置，然后染红（根节点要染成黑的），此时规则3可能会违反，可能会出现双红的情况</p>
 <p><strong>双红修正</strong></p>
-<p><img src="/Users/markov/Desktop/blog_figures/04b75ec9cc75f70b106aa86208fa4d7.jpg" srcset="/img/loading.gif" lazyload alt="04b75ec9cc75f70b106aa86208fa4d7"></p>
+<p><img src="/Users/markov/Desktop/blog/source/img/04b75ec9cc75f70b106aa86208fa4d7.jpg" srcset="/img/loading.gif" lazyload alt="04b75ec9cc75f70b106aa86208fa4d7"></p>
 <p>经过3-4重构之后，将中间节点染黑，子节点染红</p>
-<p><img src="/Users/markov/Desktop/blog_figures/5c938ded426d6d213c35582e88f175d.jpg" srcset="/img/loading.gif" lazyload alt="5c938ded426d6d213c35582e88f175d"></p>
+<p><img src="/Users/markov/Desktop/blog/source/img/5c938ded426d6d213c35582e88f175d.jpg" srcset="/img/loading.gif" lazyload alt="5c938ded426d6d213c35582e88f175d"></p>
 <p>相当于B树上溢，将g染红上升1层，然后将p, u染黑</p>
 <p>这样可能引起双红向上传播，则逐层实施双红解决策略</p>
 <p><strong>复杂度</strong></p>
 <p>$O(logn)$次重染色</p>
 <p>$O(1)$次旋转（旋转过后必然全局恢复）</p>
 <h3 id="删除-2"><a href="#删除-2" class="headerlink" title="删除"></a>删除</h3><p>按照原BST删除操作删除，3、4规则可能会违反</p>
-<p><img src="/Users/markov/Desktop/blog_figures/aa680f5c143d56e34dd03015fcb9fd9.jpg" srcset="/img/loading.gif" lazyload alt="aa680f5c143d56e34dd03015fcb9fd9"></p>
+<p><img src="/Users/markov/Desktop/blog/source/img/aa680f5c143d56e34dd03015fcb9fd9.jpg" srcset="/img/loading.gif" lazyload alt="aa680f5c143d56e34dd03015fcb9fd9"></p>
 <p><strong>双黑</strong></p>
-<p><img src="/Users/markov/Desktop/blog_figures/9e04d42570698e624a5919a49774869.jpg" srcset="/img/loading.gif" lazyload alt="9e04d42570698e624a5919a49774869"></p>
+<p><img src="/Users/markov/Desktop/blog/source/img/9e04d42570698e624a5919a49774869.jpg" srcset="/img/loading.gif" lazyload alt="9e04d42570698e624a5919a49774869"></p>
 <p>3-4重构</p>
-<p><img src="/Users/markov/Desktop/blog_figures/b547cd00db3bc766dba512205da1bf6.jpg" srcset="/img/loading.gif" lazyload alt="b547cd00db3bc766dba512205da1bf6"></p>
-<p><img src="/Users/markov/Desktop/blog_figures/20d87921fc6d1281f143bdbb7ed26e4.jpg" srcset="/img/loading.gif" lazyload alt="20d87921fc6d1281f143bdbb7ed26e4"></p>
+<p><img src="/Users/markov/Desktop/blog/source/img/b547cd00db3bc766dba512205da1bf6.jpg" srcset="/img/loading.gif" lazyload alt="b547cd00db3bc766dba512205da1bf6"></p>
+<p><img src="/Users/markov/Desktop/blog/source/img/20d87921fc6d1281f143bdbb7ed26e4.jpg" srcset="/img/loading.gif" lazyload alt="20d87921fc6d1281f143bdbb7ed26e4"></p>
 <p>局部修复之后，父节点会下溢，仍然可以看成原父节点是个黑节点，从而进行双黑修正</p>
-<p><img src="/Users/markov/Desktop/blog_figures/57b257d49517194bbfd38353fc7c205.jpg" srcset="/img/loading.gif" lazyload alt="57b257d49517194bbfd38353fc7c205"></p>
+<p><img src="/Users/markov/Desktop/blog/source/img/57b257d49517194bbfd38353fc7c205.jpg" srcset="/img/loading.gif" lazyload alt="57b257d49517194bbfd38353fc7c205"></p>
 <p><strong>复杂度</strong></p>
 <p>$O(\log n)$次重染色</p>
 <p>$O(1)$次旋转（旋转过后必然全局恢复）</p>

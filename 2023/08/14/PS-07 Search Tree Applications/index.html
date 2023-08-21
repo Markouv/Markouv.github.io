@@ -12,6 +12,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
   <meta name="theme-color" content="#2f4154">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
@@ -23,12 +25,12 @@
 <meta property="og:site_name" content="Kov&#39;s blog">
 <meta property="og:description" content="PS-07 Search Tree Applications[TOC] 1. Range Query1-D将所有点组织成一个有序的向量，通过二分查找找到最右的边界，然后反向report，这样的复杂度是 $O(logn+r)$， $r$是report所需的固定时间无法优化 2-D点分布在二维平面上，用上闭下开，右闭左开的区间去框住 2. K-D Tree2-D先递归地划分区域 找到中间点，奇数层竖直">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/13cbe466ce1581f6c8e0dd6a9eefbb4.jpg">
+<meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/13cbe466ce1581f6c8e0dd6a9eefbb4.jpg">
 <meta property="article:published_time" content="2023-08-14T07:05:41.693Z">
-<meta property="article:modified_time" content="2023-08-14T07:29:59.166Z">
+<meta property="article:modified_time" content="2023-08-21T08:34:01.595Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog_figures/13cbe466ce1581f6c8e0dd6a9eefbb4.jpg">
+<meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/13cbe466ce1581f6c8e0dd6a9eefbb4.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -284,7 +286,7 @@
 <p>最终K-D树为 $logn$层</p>
 <p><strong>Quadtree</strong></p>
 <p>将区域四等分四等分的划分，但是可能会出现空的区域</p>
-<h3 id="Query"><a href="#Query" class="headerlink" title="Query"></a>Query</h3><p><img src="/Users/markov/Desktop/blog_figures/13cbe466ce1581f6c8e0dd6a9eefbb4.jpg" srcset="/img/loading.gif" lazyload alt="13cbe466ce1581f6c8e0dd6a9eefbb4"></p>
+<h3 id="Query"><a href="#Query" class="headerlink" title="Query"></a>Query</h3><p><img src="/Users/markov/Desktop/blog/source/img/13cbe466ce1581f6c8e0dd6a9eefbb4.jpg" srcset="/img/loading.gif" lazyload alt="13cbe466ce1581f6c8e0dd6a9eefbb4"></p>
 <h3 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h3><p>构建K-D树的时间复杂度为 $O(nlogn)$</p>
 <p>空间复杂度为 $O(n)$</p>
 <p>查询复杂度为 $O(\sqrt{n}+r)$为什么？？？</p>
