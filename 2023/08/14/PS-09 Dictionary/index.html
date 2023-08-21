@@ -18,12 +18,12 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="PS-09 Dictionary [TOC] 1. 词典 词条的key和value突破了数字的限制 散列：原理 可能存在的key数量很多，但实际存在的key很少，为了节省空间，我们采用散列表  冲突 有可能出现 $key_{1}≠key_{2}$，但是 $hash(key_{1})&#x3D;hash(key_{2})$的情况 2. 散列函数  除余法 除余时选取素数，可使数据对散列表的覆盖最充分，分布最均">
+    <meta name="description" content="1. 词典 词条的key和value突破了数字的限制 散列：原理 可能存在的key数量很多，但实际存在的key很少，为了节省空间，我们采用散列表  冲突 有可能出现 $key_{1}≠key_{2}$，但是 $hash(key_{1})&#x3D;hash(key_{2})$的情况 2. 散列函数  除余法 除余时选取素数，可使数据对散列表的覆盖最充分，分布最均匀 MAD法  散列函数设计的越随机越好 伪随">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kov&#39;s blog">
+<meta property="og:title" content="PS-09 Dictionary">
 <meta property="og:url" content="https://markouv.github.io/2023/08/14/PS-09%20Dictionary/index.html">
 <meta property="og:site_name" content="Kov&#39;s blog">
-<meta property="og:description" content="PS-09 Dictionary [TOC] 1. 词典 词条的key和value突破了数字的限制 散列：原理 可能存在的key数量很多，但实际存在的key很少，为了节省空间，我们采用散列表  冲突 有可能出现 $key_{1}≠key_{2}$，但是 $hash(key_{1})&#x3D;hash(key_{2})$的情况 2. 散列函数  除余法 除余时选取素数，可使数据对散列表的覆盖最充分，分布最均">
+<meta property="og:description" content="1. 词典 词条的key和value突破了数字的限制 散列：原理 可能存在的key数量很多，但实际存在的key很少，为了节省空间，我们采用散列表  冲突 有可能出现 $key_{1}≠key_{2}$，但是 $hash(key_{1})&#x3D;hash(key_{2})$的情况 2. 散列函数  除余法 除余时选取素数，可使数据对散列表的覆盖最充分，分布最均匀 MAD法  散列函数设计的越随机越好 伪随">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/32855079dcb7ccc5f1f93c829c4ebae.jpg">
 <meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/419895227157f83a9939d976997233b.jpg">
@@ -33,8 +33,9 @@
 <meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/76270e5235418d36ab00f0abb6d9430.jpg">
 <meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/c2246e7f7a321ac3b0f27c165804351.jpg">
 <meta property="article:published_time" content="2023-08-14T07:07:35.719Z">
-<meta property="article:modified_time" content="2023-08-21T08:35:23.197Z">
+<meta property="article:modified_time" content="2023-08-21T09:40:12.425Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="DSA">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/32855079dcb7ccc5f1f93c829c4ebae.jpg">
   
@@ -42,7 +43,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Kov&#39;s blog</title>
+  <title>PS-09 Dictionary - Kov&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -53,6 +54,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
 
 
 
@@ -220,7 +223,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="PS-09 Dictionary"></span>
           
         </div>
 
@@ -254,7 +257,7 @@
         
         
         
-          10 分钟
+          9 分钟
         
       </span>
     
@@ -291,14 +294,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">PS-09 Dictionary</h1>
             
             
               <div class="markdown-body">
                 
-                <h1>PS-09 Dictionary</h1>
-<p>[TOC]</p>
-<h1>1. 词典</h1>
+                <h1>1. 词典</h1>
 <p>词条的key和value突破了数字的限制</p>
 <h3 id="散列：原理">散列：原理</h3>
 <p>可能存在的key数量很多，但实际存在的key很少，为了节省空间，我们采用散列表</p>
@@ -374,6 +375,41 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/CS/" class="category-chain-item">CS</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/CS/DSA/" class="category-chain-item">DSA</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/DSA/" class="print-no-link">#DSA</a>
+      
+    </div>
   
 </div>
 
@@ -383,7 +419,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
+      <div>PS-09 Dictionary</div>
       <div>https://markouv.github.io/2023/08/14/PS-09 Dictionary/</div>
     </div>
     <div class="license-meta">
@@ -428,9 +464,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/08/14/PS-12%20Priority%20Queue/" title="">
+                      <a href="/2023/08/14/PS-12%20Priority%20Queue/" title="PS-12 Priority Queue">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
+                        <span class="hidden-mobile">PS-12 Priority Queue</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -438,8 +474,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/08/14/PS-08%20Advanced%20Search%20Trees/" title="">
-                        <span class="hidden-mobile"></span>
+                      <a href="/2023/08/14/PS-08%20Advanced%20Search%20Trees/" title="PS-08 Advanced Search Trees">
+                        <span class="hidden-mobile">PS-08 Advanced Search Trees</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -496,6 +532,11 @@
 
 
   
+
+
+  
+  
+
 
 
 

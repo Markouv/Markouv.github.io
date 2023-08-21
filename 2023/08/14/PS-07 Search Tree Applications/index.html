@@ -18,17 +18,18 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="PS-07 Search Tree Applications [TOC] 1. Range Query 1-D 将所有点组织成一个有序的向量，通过二分查找找到最右的边界，然后反向report，这样的复杂度是 $O(logn+r)$， $r$是report所需的固定时间无法优化 2-D 点分布在二维平面上，用上闭下开，右闭左开的区间去框住 2. K-D Tree 2-D 先递归地划分区域 找到中间点">
+    <meta name="description" content="1. Range Query 1-D 将所有点组织成一个有序的向量，通过二分查找找到最右的边界，然后反向report，这样的复杂度是 $O(logn+r)$， $r$是report所需的固定时间无法优化 2-D 点分布在二维平面上，用上闭下开，右闭左开的区间去框住 2. K-D Tree 2-D 先递归地划分区域 找到中间点，奇数层竖直划分，偶数层水平划分，划分区域为右上闭，左下开 最终K-D树为">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kov&#39;s blog">
+<meta property="og:title" content="PS-07 Search Tree Application">
 <meta property="og:url" content="https://markouv.github.io/2023/08/14/PS-07%20Search%20Tree%20Applications/index.html">
 <meta property="og:site_name" content="Kov&#39;s blog">
-<meta property="og:description" content="PS-07 Search Tree Applications [TOC] 1. Range Query 1-D 将所有点组织成一个有序的向量，通过二分查找找到最右的边界，然后反向report，这样的复杂度是 $O(logn+r)$， $r$是report所需的固定时间无法优化 2-D 点分布在二维平面上，用上闭下开，右闭左开的区间去框住 2. K-D Tree 2-D 先递归地划分区域 找到中间点">
+<meta property="og:description" content="1. Range Query 1-D 将所有点组织成一个有序的向量，通过二分查找找到最右的边界，然后反向report，这样的复杂度是 $O(logn+r)$， $r$是report所需的固定时间无法优化 2-D 点分布在二维平面上，用上闭下开，右闭左开的区间去框住 2. K-D Tree 2-D 先递归地划分区域 找到中间点，奇数层竖直划分，偶数层水平划分，划分区域为右上闭，左下开 最终K-D树为">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/13cbe466ce1581f6c8e0dd6a9eefbb4.jpg">
 <meta property="article:published_time" content="2023-08-14T07:05:41.693Z">
-<meta property="article:modified_time" content="2023-08-21T08:34:01.595Z">
+<meta property="article:modified_time" content="2023-08-21T09:38:47.270Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="DSA">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/13cbe466ce1581f6c8e0dd6a9eefbb4.jpg">
   
@@ -36,7 +37,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Kov&#39;s blog</title>
+  <title>PS-07 Search Tree Application - Kov&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -47,6 +48,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
 
 
 
@@ -214,7 +217,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="PS-07 Search Tree Application"></span>
           
         </div>
 
@@ -237,7 +240,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          826 字
+          794 字
         
       </span>
     
@@ -285,14 +288,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">PS-07 Search Tree Application</h1>
             
             
               <div class="markdown-body">
                 
-                <h1>PS-07 Search Tree Applications</h1>
-<p>[TOC]</p>
-<h1>1. Range Query</h1>
+                <h1>1. Range Query</h1>
 <h3 id="1-D">1-D</h3>
 <p>将所有点组织成一个有序的向量，通过二分查找找到最右的边界，然后反向report，这样的复杂度是 $O(logn+r)$， $r$是report所需的固定时间无法优化</p>
 <h3 id="2-D">2-D</h3>
@@ -332,6 +333,41 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/CS/" class="category-chain-item">CS</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/CS/DSA/" class="category-chain-item">DSA</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/DSA/" class="print-no-link">#DSA</a>
+      
+    </div>
   
 </div>
 
@@ -341,7 +377,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
+      <div>PS-07 Search Tree Application</div>
       <div>https://markouv.github.io/2023/08/14/PS-07 Search Tree Applications/</div>
     </div>
     <div class="license-meta">
@@ -386,9 +422,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/08/14/PS-08%20Advanced%20Search%20Trees/" title="">
+                      <a href="/2023/08/14/PS-08%20Advanced%20Search%20Trees/" title="PS-08 Advanced Search Trees">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
+                        <span class="hidden-mobile">PS-08 Advanced Search Trees</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -396,8 +432,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/08/14/PS-06%20Binary%20Search%20Trees/" title="">
-                        <span class="hidden-mobile"></span>
+                      <a href="/2023/08/14/PS-06%20Binary%20Search%20Trees/" title="PS-06 Binary Search Tree">
+                        <span class="hidden-mobile">PS-06 Binary Search Tree</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -454,6 +490,11 @@
 
 
   
+
+
+  
+  
+
 
 
 

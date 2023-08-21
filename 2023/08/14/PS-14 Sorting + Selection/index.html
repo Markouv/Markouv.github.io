@@ -18,12 +18,12 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="PS-14 Sorting + Selection 1. 快速排序 策略 找到一个轴点，然后将元素与轴点比较，小的放在左边，大的放在右边  轴点：在本来有序向量中所属位置的点 但轴点不是一开始就有的，因此我们要培养轴点 快速划分：LUG版 随机的选取候选者，比如 $elem[0]$，然后由 $lo$到 $hi$，交替向内移动，先从 $hi$开始比较，有小于轴点的即转到 $lo$，如此反复，各元素最">
+    <meta name="description" content="1. 快速排序 策略 找到一个轴点，然后将元素与轴点比较，小的放在左边，大的放在右边  轴点：在本来有序向量中所属位置的点 但轴点不是一开始就有的，因此我们要培养轴点 快速划分：LUG版 随机的选取候选者，比如 $elem[0]$，然后由 $lo$到 $hi$，交替向内移动，先从 $hi$开始比较，有小于轴点的即转到 $lo$，如此反复，各元素最多移动1次，因此划分只需 $O(n)$的时间 一般在">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kov&#39;s blog">
+<meta property="og:title" content="PS-14 Sorting + Selection">
 <meta property="og:url" content="https://markouv.github.io/2023/08/14/PS-14%20Sorting%20+%20Selection/index.html">
 <meta property="og:site_name" content="Kov&#39;s blog">
-<meta property="og:description" content="PS-14 Sorting + Selection 1. 快速排序 策略 找到一个轴点，然后将元素与轴点比较，小的放在左边，大的放在右边  轴点：在本来有序向量中所属位置的点 但轴点不是一开始就有的，因此我们要培养轴点 快速划分：LUG版 随机的选取候选者，比如 $elem[0]$，然后由 $lo$到 $hi$，交替向内移动，先从 $hi$开始比较，有小于轴点的即转到 $lo$，如此反复，各元素最">
+<meta property="og:description" content="1. 快速排序 策略 找到一个轴点，然后将元素与轴点比较，小的放在左边，大的放在右边  轴点：在本来有序向量中所属位置的点 但轴点不是一开始就有的，因此我们要培养轴点 快速划分：LUG版 随机的选取候选者，比如 $elem[0]$，然后由 $lo$到 $hi$，交替向内移动，先从 $hi$开始比较，有小于轴点的即转到 $lo$，如此反复，各元素最多移动1次，因此划分只需 $O(n)$的时间 一般在">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/50f5424f5cbd0bfe2ef0e0c0e3cca4c.jpg">
 <meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/3512a0b41fb9f022cded7e3682c2bd5.jpg">
@@ -31,8 +31,9 @@
 <meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/6ae2ecf648a03af380f21191d1701c6.jpg">
 <meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/6f47805e333cbe915661fed600695a1.jpg">
 <meta property="article:published_time" content="2023-08-14T07:08:25.921Z">
-<meta property="article:modified_time" content="2023-08-21T08:36:55.718Z">
+<meta property="article:modified_time" content="2023-08-21T09:42:57.933Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="DSA">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/50f5424f5cbd0bfe2ef0e0c0e3cca4c.jpg">
   
@@ -40,7 +41,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Kov&#39;s blog</title>
+  <title>PS-14 Sorting + Selection - Kov&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -51,6 +52,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
 
 
 
@@ -218,7 +221,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="PS-14 Sorting + Selection"></span>
           
         </div>
 
@@ -241,7 +244,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          923 字
+          901 字
         
       </span>
     
@@ -289,13 +292,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">PS-14 Sorting + Selection</h1>
             
             
               <div class="markdown-body">
                 
-                <h1>PS-14 Sorting + Selection</h1>
-<h1>1. 快速排序</h1>
+                <h1>1. 快速排序</h1>
 <h3 id="策略">策略</h3>
 <p>找到一个轴点，然后将元素与轴点比较，小的放在左边，大的放在右边</p>
 <p><img src="/Users/markov/Desktop/blog/source/img/50f5424f5cbd0bfe2ef0e0c0e3cca4c.jpg" srcset="/img/loading.gif" lazyload alt="50f5424f5cbd0bfe2ef0e0c0e3cca4c"></p>
@@ -342,6 +344,41 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/CS/" class="category-chain-item">CS</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/CS/DSA/" class="category-chain-item">DSA</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/DSA/" class="print-no-link">#DSA</a>
+      
+    </div>
   
 </div>
 
@@ -351,7 +388,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
+      <div>PS-14 Sorting + Selection</div>
       <div>https://markouv.github.io/2023/08/14/PS-14 Sorting + Selection/</div>
     </div>
     <div class="license-meta">
@@ -400,8 +437,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/08/14/PS-13%20String/" title="">
-                        <span class="hidden-mobile"></span>
+                      <a href="/2023/08/14/PS-13%20String/" title="PS-13 String">
+                        <span class="hidden-mobile">PS-13 String</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -458,6 +495,11 @@
 
 
   
+
+
+  
+  
+
 
 
 

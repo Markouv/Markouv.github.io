@@ -18,12 +18,12 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="PS-02 Vector [TOC] 1. 从数组到向量 寻秩访问 其实就和数组一样… 向量ADT接口  可扩充向量 开辟内部数组并使用一段地址连续的物理空间 $capacity$：总容量 $size$：实际规模 静态管理时容易出现 $size&gt;capacity$或 $size\ll capacity$的情况，以至上溢或者下溢，因此需要动态调整容量 动态空间管理 在即将上溢时，将向量的容量加">
+    <meta name="description" content="1. 从数组到向量 寻秩访问 其实就和数组一样… 向量ADT接口  可扩充向量 开辟内部数组并使用一段地址连续的物理空间 $capacity$：总容量 $size$：实际规模 静态管理时容易出现 $size&gt;capacity$或 $size\ll capacity$的情况，以至上溢或者下溢，因此需要动态调整容量 动态空间管理 在即将上溢时，将向量的容量加倍，注意还需要将原来向量的元素迁移到新">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kov&#39;s blog">
+<meta property="og:title" content="PS-02 Vector">
 <meta property="og:url" content="https://markouv.github.io/2023/08/14/PS-02%20Vector/index.html">
 <meta property="og:site_name" content="Kov&#39;s blog">
-<meta property="og:description" content="PS-02 Vector [TOC] 1. 从数组到向量 寻秩访问 其实就和数组一样… 向量ADT接口  可扩充向量 开辟内部数组并使用一段地址连续的物理空间 $capacity$：总容量 $size$：实际规模 静态管理时容易出现 $size&gt;capacity$或 $size\ll capacity$的情况，以至上溢或者下溢，因此需要动态调整容量 动态空间管理 在即将上溢时，将向量的容量加">
+<meta property="og:description" content="1. 从数组到向量 寻秩访问 其实就和数组一样… 向量ADT接口  可扩充向量 开辟内部数组并使用一段地址连续的物理空间 $capacity$：总容量 $size$：实际规模 静态管理时容易出现 $size&gt;capacity$或 $size\ll capacity$的情况，以至上溢或者下溢，因此需要动态调整容量 动态空间管理 在即将上溢时，将向量的容量加倍，注意还需要将原来向量的元素迁移到新">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/45b2bec29dbaf4cc63c273ddb4719a6.jpg">
 <meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/21dca81624b9eb707679a150513b29e.jpg">
@@ -36,8 +36,9 @@
 <meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/b7f6965c350d5dc9b59a01bbd076973.jpg">
 <meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/8bf861e667f2353b3a6fe5f39e67d16.jpg">
 <meta property="article:published_time" content="2023-08-14T07:02:23.823Z">
-<meta property="article:modified_time" content="2023-08-21T08:31:51.212Z">
+<meta property="article:modified_time" content="2023-08-21T09:34:50.546Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="DSA">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/45b2bec29dbaf4cc63c273ddb4719a6.jpg">
   
@@ -45,7 +46,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Kov&#39;s blog</title>
+  <title>PS-02 Vector - Kov&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -56,6 +57,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
 
 
 
@@ -223,7 +226,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="PS-02 Vector"></span>
           
         </div>
 
@@ -294,14 +297,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">PS-02 Vector</h1>
             
             
               <div class="markdown-body">
                 
-                <h1>PS-02 Vector</h1>
-<p>[TOC]</p>
-<h1>1. 从数组到向量</h1>
+                <h1>1. 从数组到向量</h1>
 <h3 id="寻秩访问">寻秩访问</h3>
 <p>其实就和数组一样…</p>
 <h3 id="向量ADT接口">向量ADT接口</h3>
@@ -398,6 +399,41 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/CS/" class="category-chain-item">CS</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/CS/DSA/" class="category-chain-item">DSA</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/DSA/" class="print-no-link">#DSA</a>
+      
+    </div>
   
 </div>
 
@@ -407,7 +443,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
+      <div>PS-02 Vector</div>
       <div>https://markouv.github.io/2023/08/14/PS-02 Vector/</div>
     </div>
     <div class="license-meta">
@@ -452,9 +488,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/08/14/PS-03%20List/" title="">
+                      <a href="/2023/08/14/PS-03%20List/" title="PS-03 List">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
+                        <span class="hidden-mobile">PS-03 List</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -520,6 +556,11 @@
 
 
   
+
+
+  
+  
+
 
 
 

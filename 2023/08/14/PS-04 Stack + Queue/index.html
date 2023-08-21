@@ -18,12 +18,12 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="PS-04 Stack + Queue [TOC] 1. 栈的接口与实现 栈只能在栈顶插入和删除，后进先出  接口  size() &#x2F; empty() push() pop() top()    2. 栈的应用 函数调用栈 递归算法所用的空间主要取决于递归的深度，而不是递归实例的总数（因为递归实例并不是同时出现，每层递归只调用一个递归实例） 尾递归 当每次递归只出现在最后一步时，这个递归就可以消除">
+    <meta name="description" content="PS-04 Stack + Queue 1. 栈的接口与实现 栈只能在栈顶插入和删除，后进先出  接口  size() &#x2F; empty() push() pop() top()    2. 栈的应用 函数调用栈 递归算法所用的空间主要取决于递归的深度，而不是递归实例的总数（因为递归实例并不是同时出现，每层递归只调用一个递归实例） 尾递归 当每次递归只出现在最后一步时，这个递归就可以消除，时间上会有">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kov&#39;s blog">
+<meta property="og:title" content="PS-04 Stack + Queue">
 <meta property="og:url" content="https://markouv.github.io/2023/08/14/PS-04%20Stack%20+%20Queue/index.html">
 <meta property="og:site_name" content="Kov&#39;s blog">
-<meta property="og:description" content="PS-04 Stack + Queue [TOC] 1. 栈的接口与实现 栈只能在栈顶插入和删除，后进先出  接口  size() &#x2F; empty() push() pop() top()    2. 栈的应用 函数调用栈 递归算法所用的空间主要取决于递归的深度，而不是递归实例的总数（因为递归实例并不是同时出现，每层递归只调用一个递归实例） 尾递归 当每次递归只出现在最后一步时，这个递归就可以消除">
+<meta property="og:description" content="PS-04 Stack + Queue 1. 栈的接口与实现 栈只能在栈顶插入和删除，后进先出  接口  size() &#x2F; empty() push() pop() top()    2. 栈的应用 函数调用栈 递归算法所用的空间主要取决于递归的深度，而不是递归实例的总数（因为递归实例并不是同时出现，每层递归只调用一个递归实例） 尾递归 当每次递归只出现在最后一步时，这个递归就可以消除，时间上会有">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/e623455616f7414ab351c7903eaec48.jpg">
 <meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/4e95db1e7942d27c6250eca1540af12.jpg">
@@ -32,8 +32,9 @@
 <meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/dad44ff2f88dfb585c38ac5092a116f.jpg">
 <meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/b276f1fcf9a3bd160aa344ab69864b7.jpg">
 <meta property="article:published_time" content="2023-08-14T07:02:49.178Z">
-<meta property="article:modified_time" content="2023-08-21T08:33:04.474Z">
+<meta property="article:modified_time" content="2023-08-21T09:35:23.280Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="DSA">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/e623455616f7414ab351c7903eaec48.jpg">
   
@@ -41,7 +42,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Kov&#39;s blog</title>
+  <title>PS-04 Stack + Queue - Kov&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -52,6 +53,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
 
 
 
@@ -219,7 +222,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="PS-04 Stack + Queue"></span>
           
         </div>
 
@@ -290,13 +293,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">PS-04 Stack + Queue</h1>
             
             
               <div class="markdown-body">
                 
                 <h1>PS-04 Stack + Queue</h1>
-<p>[TOC]</p>
 <h1>1. 栈的接口与实现</h1>
 <p>栈只能在栈顶插入和删除，后进先出</p>
 <ul>
@@ -390,6 +392,41 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/CS/" class="category-chain-item">CS</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/CS/DSA/" class="category-chain-item">DSA</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/DSA/" class="print-no-link">#DSA</a>
+      
+    </div>
   
 </div>
 
@@ -399,7 +436,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
+      <div>PS-04 Stack + Queue</div>
       <div>https://markouv.github.io/2023/08/14/PS-04 Stack + Queue/</div>
     </div>
     <div class="license-meta">
@@ -444,9 +481,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/08/14/PS-05%20Binary%20Trees/" title="">
+                      <a href="/2023/08/14/PS-05%20Binary%20Trees/" title="PS-05 Binary Trees">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
+                        <span class="hidden-mobile">PS-05 Binary Trees</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -454,8 +491,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/08/14/PS-03%20List/" title="">
-                        <span class="hidden-mobile"></span>
+                      <a href="/2023/08/14/PS-03%20List/" title="PS-03 List">
+                        <span class="hidden-mobile">PS-03 List</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -512,6 +549,11 @@
 
 
   
+
+
+  
+  
+
 
 
 

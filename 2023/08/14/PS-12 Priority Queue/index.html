@@ -18,19 +18,20 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="PS-12 Priority Queue [TOC] 1. 优先级队列 基本实现 使getMax()，delMax()，insert()均只需 $O(logn)$的时间，并且实现起来很简单，不必维护全序关系 完全二叉堆  要求在逻辑意义上， $\forall i,H[i]≤H[parent(i)]$ 插入 先在尾部插入，然后和其逻辑次序的父亲比较，如果更大则交换，然后就这样一层一层比较，逐层上滤，">
+    <meta name="description" content="1. 优先级队列 基本实现 使getMax()，delMax()，insert()均只需 $O(logn)$的时间，并且实现起来很简单，不必维护全序关系 完全二叉堆  要求在逻辑意义上， $\forall i,H[i]≤H[parent(i)]$ 插入 先在尾部插入，然后和其逻辑次序的父亲比较，如果更大则交换，然后就这样一层一层比较，逐层上滤，直到不大于父亲或到达顶端，所需时间为 $O(logn)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kov&#39;s blog">
+<meta property="og:title" content="PS-12 Priority Queue">
 <meta property="og:url" content="https://markouv.github.io/2023/08/14/PS-12%20Priority%20Queue/index.html">
 <meta property="og:site_name" content="Kov&#39;s blog">
-<meta property="og:description" content="PS-12 Priority Queue [TOC] 1. 优先级队列 基本实现 使getMax()，delMax()，insert()均只需 $O(logn)$的时间，并且实现起来很简单，不必维护全序关系 完全二叉堆  要求在逻辑意义上， $\forall i,H[i]≤H[parent(i)]$ 插入 先在尾部插入，然后和其逻辑次序的父亲比较，如果更大则交换，然后就这样一层一层比较，逐层上滤，">
+<meta property="og:description" content="1. 优先级队列 基本实现 使getMax()，delMax()，insert()均只需 $O(logn)$的时间，并且实现起来很简单，不必维护全序关系 完全二叉堆  要求在逻辑意义上， $\forall i,H[i]≤H[parent(i)]$ 插入 先在尾部插入，然后和其逻辑次序的父亲比较，如果更大则交换，然后就这样一层一层比较，逐层上滤，直到不大于父亲或到达顶端，所需时间为 $O(logn)">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/ffd3f8850a8185b8e9445d41fe588af.jpg">
 <meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/8ae48f81a930cc03a061c7227b9968a.jpg">
 <meta property="og:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/87f9daabc4c578869b81378ae9d6337.jpg">
 <meta property="article:published_time" content="2023-08-14T07:07:49.978Z">
-<meta property="article:modified_time" content="2023-08-21T08:35:54.862Z">
+<meta property="article:modified_time" content="2023-08-21T09:41:59.363Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="DSA">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://markouv.github.io/Users/markov/Desktop/blog/source/img/ffd3f8850a8185b8e9445d41fe588af.jpg">
   
@@ -38,7 +39,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Kov&#39;s blog</title>
+  <title>PS-12 Priority Queue - Kov&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -49,6 +50,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
 
 
 
@@ -216,7 +219,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="PS-12 Priority Queue"></span>
           
         </div>
 
@@ -239,7 +242,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          667 字
+          644 字
         
       </span>
     
@@ -287,14 +290,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">PS-12 Priority Queue</h1>
             
             
               <div class="markdown-body">
                 
-                <h1>PS-12 Priority Queue</h1>
-<p>[TOC]</p>
-<h1>1. 优先级队列</h1>
+                <h1>1. 优先级队列</h1>
 <h3 id="基本实现">基本实现</h3>
 <p>使getMax()，delMax()，insert()均只需 $O(logn)$的时间，并且实现起来很简单，不必维护全序关系</p>
 <h3 id="完全二叉堆">完全二叉堆</h3>
@@ -328,6 +329,41 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/CS/" class="category-chain-item">CS</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/CS/DSA/" class="category-chain-item">DSA</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/DSA/" class="print-no-link">#DSA</a>
+      
+    </div>
   
 </div>
 
@@ -337,7 +373,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
+      <div>PS-12 Priority Queue</div>
       <div>https://markouv.github.io/2023/08/14/PS-12 Priority Queue/</div>
     </div>
     <div class="license-meta">
@@ -382,9 +418,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/08/14/PS-13%20String/" title="">
+                      <a href="/2023/08/14/PS-13%20String/" title="PS-13 String">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
+                        <span class="hidden-mobile">PS-13 String</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -392,8 +428,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/08/14/PS-09%20Dictionary/" title="">
-                        <span class="hidden-mobile"></span>
+                      <a href="/2023/08/14/PS-09%20Dictionary/" title="PS-09 Dictionary">
+                        <span class="hidden-mobile">PS-09 Dictionary</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -450,6 +486,11 @@
 
 
   
+
+
+  
+  
+
 
 
 
