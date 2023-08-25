@@ -18,23 +18,34 @@
   <meta name="author" content="Kov">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="Advanced Search Trees">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://markouv.github.io/2023/08/12/hello-world/index.html">
+<meta property="og:title" content="PS-08 Advanced Search Trees">
+<meta property="og:url" content="https://markouv.github.io/2023/08/14/CS/DSA/PS-08%20Advanced%20Search%20Trees/index.html">
 <meta property="og:site_name" content="Kov&#39;s blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="Advanced Search Trees">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-08-12T05:18:18.385Z">
-<meta property="article:modified_time" content="2023-08-21T09:46:52.437Z">
+<meta property="og:image" content="https://markouv.github.io/img/4db243df40e8eb226f784a6af1ab8eb.jpg">
+<meta property="og:image" content="https://markouv.github.io/img/19b51d0fbf27991da17157afbacdbc2.jpg">
+<meta property="og:image" content="https://markouv.github.io/img/04b75ec9cc75f70b106aa86208fa4d7.jpg">
+<meta property="og:image" content="https://markouv.github.io/img/5c938ded426d6d213c35582e88f175d.jpg">
+<meta property="og:image" content="https://markouv.github.io/img/aa680f5c143d56e34dd03015fcb9fd9.jpg">
+<meta property="og:image" content="https://markouv.github.io/img/9e04d42570698e624a5919a49774869.jpg">
+<meta property="og:image" content="https://markouv.github.io/img/b547cd00db3bc766dba512205da1bf6.jpg">
+<meta property="og:image" content="https://markouv.github.io/img/20d87921fc6d1281f143bdbb7ed26e4.jpg">
+<meta property="og:image" content="https://markouv.github.io/img/57b257d49517194bbfd38353fc7c205.jpg">
+<meta property="article:published_time" content="2023-08-14T07:06:33.345Z">
+<meta property="article:modified_time" content="2023-08-25T15:33:01.173Z">
 <meta property="article:author" content="Kov">
+<meta property="article:tag" content="DSA">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://markouv.github.io/img/4db243df40e8eb226f784a6af1ab8eb.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Hello World - Kov&#39;s blog</title>
+  <title>PS-08 Advanced Search Trees - Kov&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -45,6 +56,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
 
 
 
@@ -212,7 +225,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Hello World"></span>
+            <span id="subtitle" data-typed-text="PS-08 Advanced Search Trees"></span>
           
         </div>
 
@@ -223,8 +236,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-08-12 13:18" pubdate>
-          2023年8月12日 下午
+        <time datetime="2023-08-14 15:06" pubdate>
+          2023年8月14日 下午
         </time>
       </span>
     
@@ -235,7 +248,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          367 字
+          1.1k 字
         
       </span>
     
@@ -246,7 +259,7 @@
         
         
         
-          4 分钟
+          10 分钟
         
       </span>
     
@@ -283,25 +296,78 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Hello World</h1>
+            <h1 id="seo-header">PS-08 Advanced Search Trees</h1>
             
             
               <div class="markdown-body">
                 
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start">Quick Start</h2>
-<h3 id="Create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+                <h1>1. Splay Tree（伸展树）</h1>
+<p>由于访问的局部性，访问一个节点以后可能不久就再次访问，于是把每次访问的节点移到树根，这样的树叫做伸展树</p>
+<p>每次移动都要通过zig,zag一层一层地爬上去，如果周期性地访问，分摊复杂度可达 $\Omega (n^{2})$</p>
+<h3 id="双层伸展">双层伸展</h3>
+<p><img src="/img/4db243df40e8eb226f784a6af1ab8eb.jpg" srcset="/img/loading.gif" lazyload alt="4db243df40e8eb226f784a6af1ab8eb"></p>
+<p>每次伸展要一起看两层，从祖父旋转</p>
+<h3 id="插入"><strong>插入</strong></h3>
+<p>先通过search()找到不大于插入节点的最大节点并伸展至根，然后再在根的头上生成新节点</p>
+<h3 id="删除">删除</h3>
+<p>通过search()找到目标节点，伸展至根然后删除，删除后从右子树中找到最小节点伸展至根作为新的根</p>
+<h3 id="复杂度">复杂度</h3>
+<p>分摊复杂度为 $O(logn)$</p>
+<p><strong>分析</strong></p>
+<p>运用势能分析法</p>
+<h1>2. B树</h1>
+<ul>
+<li>存储器规模增长速度远远小于问题规模增长速度</li>
+<li>增大存储器规模会使访问速度变慢</li>
+<li>存储器有内部级联结构，不同级联结构访问速度不同，访问内存1s，访问磁盘则需要一天</li>
+<li>相邻存储级别之间的数据传输在算法时间中占的更多</li>
+</ul>
+<h3 id="结构">结构</h3>
+<p>每d代合并为1个超级节点，每个节点有 $m=2^{d}$条支路， $m-1$个关键码</p>
+<p>内部节点分支个数为 $m/2≤n≤m$，关键码个数为 $n-1$</p>
+<p>但是根节点关键码个数 $n≥1$即可</p>
+<h3 id="查找">查找</h3>
+<p>在每个节点中顺序查找，查找失败则转到下一层继续查找（相当于1次I/O操作）</p>
+<p>运行时间 $O(logn)$</p>
+<h3 id="插入-2">插入</h3>
+<p>先通过search()找到插入位置，如果上溢，取出中位数关键码移到上层，原节点分裂为两个</p>
+<p>若父亲也上溢，用同样的办法分裂，若上溢向上传播，则逐层解决直到根</p>
+<h3 id="删除-2">删除</h3>
+<p>先通过search()找到删除位置，如果不是叶子节点，则找到直接后继与其交换，然后在直接后继的位置将其删除</p>
+<p>如果下溢，看左右兄弟的规模：</p>
+<ul>
+<li>如果左兄弟有盈余，将左兄弟的最大关键码移到父亲节点上来，将父亲节点的分界关键码移到被删除的节点中</li>
+<li>如果右兄弟有盈余，将右兄弟的最小关键码移到父亲节点上来，将父亲节点的分界关键码移到被删除的节点中</li>
+<li>如果左右兄弟都不够，则选择左兄弟或右兄弟，将其父亲的分界关键码拿下来两个节点合并为一个节点，但可能引起向上传播，则逐层修复</li>
+</ul>
+<h1>3. 红黑树</h1>
+<p><img src="/img/19b51d0fbf27991da17157afbacdbc2.jpg" srcset="/img/loading.gif" lazyload alt="19b51d0fbf27991da17157afbacdbc2"></p>
+<p>将红节点高度提升至与其黑父亲等高，实际上相当于一个(2,4)-B树，也是BBST</p>
+<h3 id="插入-3">插入</h3>
+<p>search()找到插入位置，然后染红（根节点要染成黑的），此时规则3可能会违反，可能会出现双红的情况</p>
+<p><strong>双红修正</strong></p>
+<p><img src="/img/04b75ec9cc75f70b106aa86208fa4d7.jpg" srcset="/img/loading.gif" lazyload alt="04b75ec9cc75f70b106aa86208fa4d7"></p>
+<p>经过3-4重构之后，将中间节点染黑，子节点染红</p>
+<p><img src="/img/5c938ded426d6d213c35582e88f175d.jpg" srcset="/img/loading.gif" lazyload alt="5c938ded426d6d213c35582e88f175d"></p>
+<p>相当于B树上溢，将g染红上升1层，然后将p, u染黑</p>
+<p>这样可能引起双红向上传播，则逐层实施双红解决策略</p>
+<p><strong>复杂度</strong></p>
+<p>$O(logn)$次重染色</p>
+<p>$O(1)$次旋转（旋转过后必然全局恢复）</p>
+<h3 id="删除-3">删除</h3>
+<p>按照原BST删除操作删除，3、4规则可能会违反</p>
+<p><img src="/img/aa680f5c143d56e34dd03015fcb9fd9.jpg" srcset="/img/loading.gif" lazyload alt="aa680f5c143d56e34dd03015fcb9fd9"></p>
+<p><strong>双黑</strong></p>
+<p><img src="/img/9e04d42570698e624a5919a49774869.jpg" srcset="/img/loading.gif" lazyload alt="9e04d42570698e624a5919a49774869"></p>
+<p>3-4重构</p>
+<p><img src="/img/b547cd00db3bc766dba512205da1bf6.jpg" srcset="/img/loading.gif" lazyload alt="b547cd00db3bc766dba512205da1bf6"></p>
+<p><img src="/img/20d87921fc6d1281f143bdbb7ed26e4.jpg" srcset="/img/loading.gif" lazyload alt="20d87921fc6d1281f143bdbb7ed26e4"></p>
+<p>局部修复之后，父节点会下溢，仍然可以看成原父节点是个黑节点，从而进行双黑修正</p>
+<p><img src="/img/57b257d49517194bbfd38353fc7c205.jpg" srcset="/img/loading.gif" lazyload alt="57b257d49517194bbfd38353fc7c205"></p>
+<p><strong>复杂度</strong></p>
+<p>$O(\log n)$次重染色</p>
+<p>$O(1)$次旋转（旋转过后必然全局恢复）</p>
+<p>红黑树考前再看看！！</p>
 
                 
               </div>
@@ -310,6 +376,41 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/CS/" class="category-chain-item">CS</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/CS/DSA/" class="category-chain-item">DSA</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/DSA/" class="print-no-link">#DSA</a>
+      
+    </div>
   
 </div>
 
@@ -319,8 +420,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Hello World</div>
-      <div>https://markouv.github.io/2023/08/12/hello-world/</div>
+      <div>PS-08 Advanced Search Trees</div>
+      <div>https://markouv.github.io/2023/08/14/CS/DSA/PS-08 Advanced Search Trees/</div>
     </div>
     <div class="license-meta">
       
@@ -332,7 +433,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年8月12日</div>
+          <div>2023年8月14日</div>
         </div>
       
       
@@ -364,15 +465,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/08/14/CS/DSA/PS-01%20Introduction/" title="PS-01 Introduction">
+                      <a href="/2023/08/14/CS/DSA/PS-09%20Dictionary/" title="PS-09 Dictionary">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">PS-01 Introduction</span>
+                        <span class="hidden-mobile">PS-09 Dictionary</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2023/08/14/CS/DSA/PS-07%20Search%20Tree%20Applications/" title="PS-07 Search Tree Application">
+                        <span class="hidden-mobile">PS-07 Search Tree Application</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
@@ -426,6 +533,11 @@
 
 
   
+
+
+  
+  
+
 
 
 

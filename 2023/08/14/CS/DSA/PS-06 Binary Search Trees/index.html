@@ -18,23 +18,24 @@
   <meta name="author" content="Kov">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="Binary Search Tree">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://markouv.github.io/2023/08/12/hello-world/index.html">
+<meta property="og:title" content="PS-06 Binary Search Tree">
+<meta property="og:url" content="https://markouv.github.io/2023/08/14/CS/DSA/PS-06%20Binary%20Search%20Trees/index.html">
 <meta property="og:site_name" content="Kov&#39;s blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="Binary Search Tree">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-08-12T05:18:18.385Z">
-<meta property="article:modified_time" content="2023-08-21T09:46:52.437Z">
+<meta property="article:published_time" content="2023-08-14T07:05:16.266Z">
+<meta property="article:modified_time" content="2023-08-25T15:28:46.734Z">
 <meta property="article:author" content="Kov">
+<meta property="article:tag" content="DSA">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Hello World - Kov&#39;s blog</title>
+  <title>PS-06 Binary Search Tree - Kov&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -45,6 +46,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
 
 
 
@@ -212,7 +215,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Hello World"></span>
+            <span id="subtitle" data-typed-text="PS-06 Binary Search Tree"></span>
           
         </div>
 
@@ -223,8 +226,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-08-12 13:18" pubdate>
-          2023年8月12日 下午
+        <time datetime="2023-08-14 15:05" pubdate>
+          2023年8月14日 下午
         </time>
       </span>
     
@@ -235,7 +238,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          367 字
+          705 字
         
       </span>
     
@@ -246,7 +249,7 @@
         
         
         
-          4 分钟
+          6 分钟
         
       </span>
     
@@ -283,25 +286,54 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Hello World</h1>
+            <h1 id="seo-header">PS-06 Binary Search Tree</h1>
             
             
               <div class="markdown-body">
                 
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start">Quick Start</h2>
-<h3 id="Create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+                <h1>1. 二叉搜索树</h1>
+<p><strong>在中序遍历的意义下，搜索树必然单调非降</strong></p>
+<h3 id="接口">接口</h3>
+<ul>
+<li>search()</li>
+<li>insert()</li>
+<li>remove()</li>
+</ul>
+<p><strong>search</strong></p>
+<p>采取减而治之的策略，类似在做二分查找</p>
+<p><strong>insert</strong></p>
+<p>借助search()确定插入位置，然后由插入位置的父亲生出新的孩子</p>
+<p>插入位置都在叶子节点</p>
+<p><strong>remove</strong></p>
+<p>定位目标节点，当目标节点只有一个子树时，直接用子树替代；当有两个子树时，找到直接前驱或后继，与目标节点替换位置，然后在新的位置删除目标节点</p>
+<h3 id="期望树高">期望树高</h3>
+<p>从 $n$个元素随机排列的意义上，生成树的期望高度为 $logn$</p>
+<p>从 $n$个节点随机生成一棵树的意义上，树的种类数是一个卡特兰数，期望树高为 $\sqrt{n}$</p>
+<p>从理想随机的角度来看，二叉搜索树的树高是可以接受的，但是理想随机很难存在，原因有：</p>
+<ul>
+<li>局部性</li>
+<li>关联性</li>
+<li>单调性</li>
+<li>周期性</li>
+</ul>
+<p>因此还需要做平衡化处理</p>
+<h1>2. 平衡树</h1>
+<p>zig：顺时针旋转</p>
+<p>zag：逆时针旋转</p>
+<p>单次恢复平衡所需时间为 $O(logn)$</p>
+<h3 id="AVL树">AVL树</h3>
+<p><strong>要求每个节点的两个子树高度相差不超过1，左右子树高度差为平衡因子</strong></p>
+<p><strong>渐近平衡</strong></p>
+<p>考察高度为 $h$的AVL树，总节点个数为 $S(h)$</p>
+<p>则 $S(h)=1+S(h-1)+S(h-2)$</p>
+<p>$S(h)+1=S(h-1)+1+S(h-2)+1$</p>
+<p>即 $fib(n+3)=fib(n+2)+fib(n+1)$</p>
+<p>所以 $S(h)=fib(n+3)-1$是指数规模的，反过来 $n$个节点构成的AVL树的树高为对数量级</p>
+<p><strong>插入</strong></p>
+<p>插入一次之后失衡的最低者不会低于插入节点的祖父，也有可能引发连锁失衡，但是经过一次旋转之后就可以全局恢复</p>
+<p><strong>删除</strong></p>
+<p>有可能删除节点的父亲就失衡了，但是经过一次旋转恢复后，祖先可能失衡从而引发连锁的效应，因此恢复需要 $O(logn)$的时间</p>
+<p><strong>3-4重构</strong></p>
 
                 
               </div>
@@ -310,6 +342,41 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/CS/" class="category-chain-item">CS</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/CS/DSA/" class="category-chain-item">DSA</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/DSA/" class="print-no-link">#DSA</a>
+      
+    </div>
   
 </div>
 
@@ -319,8 +386,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Hello World</div>
-      <div>https://markouv.github.io/2023/08/12/hello-world/</div>
+      <div>PS-06 Binary Search Tree</div>
+      <div>https://markouv.github.io/2023/08/14/CS/DSA/PS-06 Binary Search Trees/</div>
     </div>
     <div class="license-meta">
       
@@ -332,7 +399,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年8月12日</div>
+          <div>2023年8月14日</div>
         </div>
       
       
@@ -364,15 +431,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/08/14/CS/DSA/PS-01%20Introduction/" title="PS-01 Introduction">
+                      <a href="/2023/08/14/CS/DSA/PS-07%20Search%20Tree%20Applications/" title="PS-07 Search Tree Application">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">PS-01 Introduction</span>
+                        <span class="hidden-mobile">PS-07 Search Tree Application</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2023/08/14/CS/DSA/PS-05%20Binary%20Trees/" title="PS-05 Binary Trees">
+                        <span class="hidden-mobile">PS-05 Binary Trees</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
@@ -426,6 +499,11 @@
 
 
   
+
+
+  
+  
+
 
 
 
