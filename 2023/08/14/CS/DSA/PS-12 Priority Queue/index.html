@@ -242,7 +242,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          644 字
+          772 字
         
       </span>
     
@@ -253,7 +253,7 @@
         
         
         
-          6 分钟
+          7 分钟
         
       </span>
     
@@ -297,30 +297,30 @@
                 
                 <h1>1. 优先级队列</h1>
 <h3 id="基本实现">基本实现</h3>
-<p>使getMax()，delMax()，insert()均只需 $O(logn)$的时间，并且实现起来很简单，不必维护全序关系</p>
+<p>使getMax()，delMax()，insert()均只需 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(logn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>的时间，并且实现起来很简单，不必维护全序关系</p>
 <h3 id="完全二叉堆">完全二叉堆</h3>
 <p><img src="/img/ffd3f8850a8185b8e9445d41fe588af.jpg" srcset="/img/loading.gif" lazyload alt="ffd3f8850a8185b8e9445d41fe588af"></p>
-<p>要求在逻辑意义上， $\forall i,H[i]≤H[parent(i)]$</p>
+<p>要求在逻辑意义上， <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∀</mi><mi>i</mi><mo separator="true">,</mo><mi>H</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo>≤</mo><mi>H</mi><mo stretchy="false">[</mo><mi>p</mi><mi>a</mi><mi>r</mi><mi>e</mi><mi>n</mi><mi>t</mi><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">\forall i,H[i]≤H[parent(i)]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∀</span><span class="mord mathnormal">i</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mopen">[</span><span class="mord mathnormal">p</span><span class="mord mathnormal">a</span><span class="mord mathnormal">re</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span><span class="mopen">(</span><span class="mord mathnormal">i</span><span class="mclose">)]</span></span></span></span></p>
 <h3 id="插入">插入</h3>
-<p>先在尾部插入，然后和其逻辑次序的父亲比较，如果更大则交换，然后就这样一层一层比较，逐层上滤，直到不大于父亲或到达顶端，所需时间为 $O(logn)$</p>
+<p>先在尾部插入，然后和其逻辑次序的父亲比较，如果更大则交换，然后就这样一层一层比较，逐层上滤，直到不大于父亲或到达顶端，所需时间为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(logn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></p>
 <h3 id="删除">删除</h3>
-<p>接口只实现删除极大元素即顶部元素，将尾部元素拿到顶上来，然后与其逻辑的两个孩子比较，取三者中的最大者当父亲，就这样逐层下滤，直到满足条件为止，所需时间为 $O(logn)$</p>
+<p>接口只实现删除极大元素即顶部元素，将尾部元素拿到顶上来，然后与其逻辑的两个孩子比较，取三者中的最大者当父亲，就这样逐层下滤，直到满足条件为止，所需时间为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(logn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></p>
 <h1>2. 批量建堆</h1>
 <h3 id="自上而下的上滤（蛮力算法）">自上而下的上滤（蛮力算法）</h3>
 <p>自顶层元素，逐一上滤，最终建堆</p>
-<p>但是所需时间会达到 $O(nlogn)$，那还不如直接全排序</p>
+<p>但是所需时间会达到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(nlogn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>，那还不如直接全排序</p>
 <h3 id="自下而上的下滤">自下而上的下滤</h3>
 <p>从尾部的内部节点开始，从后往前逐一下滤，最终建堆</p>
 <p>不变性：顶层元素下滤到两个满足堆序性的子堆中，全局必然满足堆序性</p>
 <p>在这种情况下，每个内部节点下滤所花时间正比于其高度而非深度，而高度低的内部节点更多，所以显然比正比于深度的蛮力算法更省时间</p>
 <p><img src="/img/8ae48f81a930cc03a061c7227b9968a.jpg" srcset="/img/loading.gif" lazyload alt="8ae48f81a930cc03a061c7227b9968a"></p>
 <h3 id="思考">思考</h3>
-<p>insert()最坏情况是 $O(logn)$，平均情况是多少？</p>
-<p>平均情况下，由于有一半的元素分布在最底层，插入一个元素向上攀升一层的概率是 $1/2$，这样攀升高度构成了一个几何分布，平均高度为 $O(2)$</p>
+<p>insert()最坏情况是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(logn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>，平均情况是多少？</p>
+<p>平均情况下，由于有一半的元素分布在最底层，插入一个元素向上攀升一层的概率是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi mathvariant="normal">/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">1/2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/2</span></span></span></span>，这样攀升高度构成了一个几何分布，平均高度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">2</span><span class="mclose">)</span></span></span></span></p>
 <h1>3. 堆排序</h1>
 <p><img src="/img/87f9daabc4c578869b81378ae9d6337.jpg" srcset="/img/loading.gif" lazyload alt="87f9daabc4c578869b81378ae9d6337"></p>
 <p>首先整体序列构造成一个完全二叉堆，然后逐一删除顶部元素（实际上就是把极大元素扔到尾部去），这样就实现了整体的堆排序</p>
-<p>复杂度是 $O(n+nlogn)$</p>
+<p>复杂度是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo>+</mo><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n+nlogn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></p>
 
                 
               </div>

@@ -248,7 +248,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          1.2k 字
         
       </span>
     
@@ -259,7 +259,7 @@
         
         
         
-          10 分钟
+          11 分钟
         
       </span>
     
@@ -303,7 +303,7 @@
                 
                 <h1>1. Splay Tree（伸展树）</h1>
 <p>由于访问的局部性，访问一个节点以后可能不久就再次访问，于是把每次访问的节点移到树根，这样的树叫做伸展树</p>
-<p>每次移动都要通过zig,zag一层一层地爬上去，如果周期性地访问，分摊复杂度可达 $\Omega (n^{2})$</p>
+<p>每次移动都要通过zig,zag一层一层地爬上去，如果周期性地访问，分摊复杂度可达 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Ω</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Omega (n^{2})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">Ω</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
 <h3 id="双层伸展">双层伸展</h3>
 <p><img src="/img/4db243df40e8eb226f784a6af1ab8eb.jpg" srcset="/img/loading.gif" lazyload alt="4db243df40e8eb226f784a6af1ab8eb"></p>
 <p>每次伸展要一起看两层，从祖父旋转</p>
@@ -312,7 +312,7 @@
 <h3 id="删除">删除</h3>
 <p>通过search()找到目标节点，伸展至根然后删除，删除后从右子树中找到最小节点伸展至根作为新的根</p>
 <h3 id="复杂度">复杂度</h3>
-<p>分摊复杂度为 $O(logn)$</p>
+<p>分摊复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(logn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></p>
 <p><strong>分析</strong></p>
 <p>运用势能分析法</p>
 <h1>2. B树</h1>
@@ -323,12 +323,12 @@
 <li>相邻存储级别之间的数据传输在算法时间中占的更多</li>
 </ul>
 <h3 id="结构">结构</h3>
-<p>每d代合并为1个超级节点，每个节点有 $m=2^{d}$条支路， $m-1$个关键码</p>
-<p>内部节点分支个数为 $m/2≤n≤m$，关键码个数为 $n-1$</p>
-<p>但是根节点关键码个数 $n≥1$即可</p>
+<p>每d代合并为1个超级节点，每个节点有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><msup><mn>2</mn><mi>d</mi></msup></mrow><annotation encoding="application/x-tex">m=2^{d}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8491em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">d</span></span></span></span></span></span></span></span></span></span></span></span>条支路， <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">m-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>个关键码</p>
+<p>内部节点分支个数为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi mathvariant="normal">/</mi><mn>2</mn><mo>≤</mo><mi>n</mi><mo>≤</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">m/2≤n≤m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">m</span><span class="mord">/2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">m</span></span></span></span>，关键码个数为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></p>
+<p>但是根节点关键码个数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n≥1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>即可</p>
 <h3 id="查找">查找</h3>
 <p>在每个节点中顺序查找，查找失败则转到下一层继续查找（相当于1次I/O操作）</p>
-<p>运行时间 $O(logn)$</p>
+<p>运行时间 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(logn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></p>
 <h3 id="插入-2">插入</h3>
 <p>先通过search()找到插入位置，如果上溢，取出中位数关键码移到上层，原节点分裂为两个</p>
 <p>若父亲也上溢，用同样的办法分裂，若上溢向上传播，则逐层解决直到根</p>
@@ -352,8 +352,8 @@
 <p>相当于B树上溢，将g染红上升1层，然后将p, u染黑</p>
 <p>这样可能引起双红向上传播，则逐层实施双红解决策略</p>
 <p><strong>复杂度</strong></p>
-<p>$O(logn)$次重染色</p>
-<p>$O(1)$次旋转（旋转过后必然全局恢复）</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(logn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>次重染色</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span>次旋转（旋转过后必然全局恢复）</p>
 <h3 id="删除-3">删除</h3>
 <p>按照原BST删除操作删除，3、4规则可能会违反</p>
 <p><img src="/img/aa680f5c143d56e34dd03015fcb9fd9.jpg" srcset="/img/loading.gif" lazyload alt="aa680f5c143d56e34dd03015fcb9fd9"></p>
@@ -365,8 +365,8 @@
 <p>局部修复之后，父节点会下溢，仍然可以看成原父节点是个黑节点，从而进行双黑修正</p>
 <p><img src="/img/57b257d49517194bbfd38353fc7c205.jpg" srcset="/img/loading.gif" lazyload alt="57b257d49517194bbfd38353fc7c205"></p>
 <p><strong>复杂度</strong></p>
-<p>$O(\log n)$次重染色</p>
-<p>$O(1)$次旋转（旋转过后必然全局恢复）</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>次重染色</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span>次旋转（旋转过后必然全局恢复）</p>
 <p>红黑树考前再看看！！</p>
 
                 
